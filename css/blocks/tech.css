@@ -1,0 +1,172 @@
+/* ==========================================================================
+   Technology & Safety Block
+   ========================================================================== */
+
+.tech {
+    padding: 100px 0;
+    background-color: #f8f9fa;
+    /* Light grey to distinguish from white sections */
+    position: relative;
+    overflow: hidden;
+}
+
+.tech::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: url('../../assets/hero_bg1.png') no-repeat center center;
+    background-size: cover;
+    opacity: 0.03;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.tech__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.tech__header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.tech__title {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    margin-bottom: 16px;
+}
+
+.tech__subtitle {
+    font-size: 18px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.tech__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.tech__card {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.tech__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 80, 158, 0.1);
+}
+
+.tech__card-title {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--color-secondary);
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid rgba(0, 80, 158, 0.1);
+}
+
+.tech__card_safety .tech__card-title {
+    color: var(--color-accent);
+    border-bottom-color: rgba(255, 107, 0, 0.1);
+}
+
+.tech__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.tech__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.tech__icon {
+    font-size: 24px;
+    line-height: 1;
+    background: #f0f4f8;
+    color: var(--color-secondary);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.tech__card_safety .tech__icon {
+    color: var(--color-accent);
+    background: rgba(255, 107, 0, 0.08);
+}
+
+.tech__item:hover .tech__icon {
+    transform: scale(1.1);
+}
+
+.tech__item strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 18px;
+    color: var(--color-text-dark);
+    margin-bottom: 4px;
+}
+
+.tech__item p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .tech {
+        padding: 60px 0;
+    }
+
+    .tech__title {
+        font-size: 32px;
+    }
+
+    .tech__grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .tech__card {
+        padding: 24px;
+    }
+
+    .tech__item {
+        gap: 16px;
+    }
+
+    .tech__icon {
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+    }
+}

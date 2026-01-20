@@ -1,0 +1,151 @@
+/* ==========================================================================
+   Reviews (Social Proof) Block
+   ========================================================================== */
+
+.reviews {
+    padding: 100px 0;
+    background-color: #fff;
+    border-top: 1px solid #f0f0f0;
+}
+
+.reviews__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.reviews__title {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    font-weight: 800;
+    text-align: center;
+    color: var(--color-text-dark);
+    margin-bottom: 60px;
+}
+
+.reviews__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 60px;
+}
+
+.reviews__card {
+    background: #f8f9fa;
+    border-radius: 20px;
+    padding: 32px;
+    transition: transform 0.3s ease;
+}
+
+.reviews__card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.reviews__header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.reviews__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: white;
+    font-size: 20px;
+}
+
+.reviews__name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--color-text-dark);
+    margin: 0 0 4px;
+}
+
+.reviews__rating {
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.reviews__text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #4a4a4a;
+    font-style: italic;
+    margin: 0;
+}
+
+.reviews__widgets {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.reviews__widget-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 50px;
+    color: var(--color-text-dark);
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.reviews__widget-placeholder:hover {
+    transform: translateY(-2px);
+}
+
+.reviews__widget-yandex {
+    color: #fc3f1d;
+    /* Yandex Red Brand */
+    font-weight: 700;
+}
+
+.reviews__widget-yandex strong {
+    color: #00a651;
+    /* Green Rating */
+    margin-left: 6px;
+    font-weight: 900;
+}
+
+.reviews__widget-2gis {
+    color: #00a651;
+    /* 2GIS Green Brand */
+    font-weight: 700;
+}
+
+.reviews__widget-2gis strong {
+    color: #333;
+    /* Dark text for rating or keep green? User didn't specify, but standard is Green for high ratings. Let's keep green match.*/
+    color: #00a651;
+    margin-left: 6px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .reviews {
+        padding: 60px 0;
+    }
+
+    .reviews__title {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .reviews__grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+}

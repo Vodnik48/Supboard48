@@ -1,0 +1,253 @@
+/* ==========================================================================
+   Hero Block - GoSUP Inspired Gradient Style
+   ========================================================================== */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--gradient-hero);
+}
+
+/* Geometric SVG Decorations */
+.hero__decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero__chevron {
+    position: absolute;
+    stroke: rgba(255, 255, 255, 0.15);
+    stroke-width: 2;
+    fill: none;
+}
+
+.hero__chevron--1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 5%;
+    animation: float 8s ease-in-out infinite;
+}
+
+.hero__chevron--2 {
+    width: 300px;
+    height: 300px;
+    top: 20%;
+    right: 10%;
+    animation: float 10s ease-in-out infinite reverse;
+}
+
+.hero__chevron--3 {
+    width: 150px;
+    height: 150px;
+    bottom: 20%;
+    left: 15%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero__chevron--4 {
+    width: 250px;
+    height: 250px;
+    bottom: 10%;
+    right: 5%;
+    animation: float 12s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+/* Content Area */
+.hero__container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.hero__content {
+    max-width: 550px;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero__title {
+    font-family: var(--font-heading);
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.hero__subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    color: white;
+    max-width: 450px;
+}
+
+.hero__cta-wrapper {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.hero__button {
+    padding: 16px 36px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.hero__button_primary {
+    background-color: var(--color-accent);
+    color: white;
+    border-color: var(--color-accent);
+}
+
+.hero__button_primary:hover {
+    background-color: #ff8533;
+    border-color: #ff8533;
+    transform: translateY(-2px);
+}
+
+.hero__button_secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.hero__button_secondary:hover {
+    background-color: white;
+    color: var(--color-secondary);
+    border-color: white;
+}
+
+/* Trust Strip - Clean Pill Style */
+.hero__trust-strip {
+    display: flex;
+    gap: 12px;
+    margin-top: 48px;
+    flex-wrap: wrap;
+}
+
+.hero__trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 10px 18px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hero__trust-item:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.hero__trust-item i {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Diagonal Section Divider */
+.hero__divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 2;
+}
+
+.hero__divider svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Remove old wave and sun elements */
+.hero__wave,
+.hero__sun-element,
+.hero__scroll-down {
+    display: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 900px) {
+    .hero__container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero__title {
+        font-size: 40px;
+    }
+
+    .hero__subtitle {
+        font-size: 18px;
+    }
+
+    .hero__trust-strip {
+        justify-content: center;
+    }
+
+    .hero__cta-wrapper {
+        justify-content: center;
+    }
+
+    .hero__chevron {
+        opacity: 0.5;
+    }
+}

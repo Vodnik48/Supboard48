@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Base Styles & Variables
+   ========================================================================== */
+
+:root {
+    --color-accent: #FF6B00;
+    --color-secondary: #00509E;
+    --color-teal: #06D6A0;
+    /* Nature/Water accent */
+    --color-pink: #E91E63;
+    --color-text-main: #FFFFFF;
+    --color-text-dark: #333333;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+
+    /* Gradients (GoSUP style) */
+    --gradient-hero: linear-gradient(135deg, #E91E63 0%, #2196F3 50%, #00BCD4 100%);
+    --gradient-secondary: linear-gradient(135deg, #00BCD4 0%, #2196F3 100%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-main);
+    background-color: #111;
+    overflow-x: hidden;
+}
