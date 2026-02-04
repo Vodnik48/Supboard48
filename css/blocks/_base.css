@@ -3,19 +3,37 @@
    ========================================================================== */
 
 :root {
+    /* Primary Accent Colors */
     --color-accent: #FF6B00;
     --color-secondary: #00509E;
     --color-teal: #06D6A0;
-    /* Nature/Water accent */
     --color-pink: #E91E63;
+    
+    /* Sky Blue Palette (React-style) */
+    --color-sky-400: #38BDF8;
+    --color-sky-500: #0EA5E9;
+    --color-sky-600: #0284C7;
+    
+    /* Slate Palette */
+    --color-slate-50: #F8FAFC;
+    --color-slate-100: #F1F5F9;
+    --color-slate-400: #94A3B8;
+    --color-slate-500: #64748B;
+    --color-slate-900: #0F172A;
+    --color-slate-950: #020617;
+    
+    /* Text Colors */
     --color-text-main: #FFFFFF;
     --color-text-dark: #333333;
+    
+    /* Fonts */
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Roboto', sans-serif;
 
-    /* Gradients (GoSUP style) */
+    /* Gradients */
     --gradient-hero: linear-gradient(135deg, #E91E63 0%, #2196F3 50%, #00BCD4 100%);
     --gradient-secondary: linear-gradient(135deg, #00BCD4 0%, #2196F3 100%);
+    --gradient-dark: linear-gradient(to bottom, rgba(15, 23, 42, 0.6), transparent, white);
 }
 
 * {

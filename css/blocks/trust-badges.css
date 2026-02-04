@@ -1,0 +1,73 @@
+/* ==========================================================================
+   Trust Badges Section
+   ========================================================================== */
+
+.trust-badges {
+    padding: 48px 0;
+    background: white;
+    border-bottom: 1px solid var(--color-slate-100);
+}
+
+.trust-badges__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.trust-badges__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.trust-badges__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.trust-badges__icon {
+    width: 64px;
+    height: 64px;
+    background: var(--color-slate-50);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-sky-500);
+    font-size: 32px;
+}
+
+.trust-badges__title {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-slate-900);
+    margin: 0;
+}
+
+.trust-badges__desc {
+    font-size: 14px;
+    color: var(--color-slate-500);
+    margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .trust-badges__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .trust-badges__icon {
+        width: 56px;
+        height: 56px;
+        font-size: 28px;
+    }
+
+    .trust-badges__title {
+        font-size: 16px;
+    }
+}
