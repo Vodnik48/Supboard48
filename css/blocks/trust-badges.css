@@ -1,17 +1,26 @@
 /* ==========================================================================
-   Trust Badges Section
+   Trust Badges Section - Journey Style with Illustrations
    ========================================================================== */
 
 .trust-badges {
-    padding: 48px 0;
+    padding: 64px 0;
     background: white;
-    border-bottom: 1px solid var(--color-slate-100);
+    margin-top: -80px;
+    position: relative;
+    z-index: 20;
 }
 
 .trust-badges__container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.trust-badges__card {
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px;
 }
 
 .trust-badges__grid {
@@ -25,49 +34,58 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 12px;
+    gap: 16px;
 }
 
-.trust-badges__icon {
-    width: 64px;
-    height: 64px;
+.trust-badges__image {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    object-fit: cover;
     background: var(--color-slate-50);
-    border-radius: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-sky-500);
-    font-size: 32px;
 }
 
 .trust-badges__title {
     font-family: var(--font-heading);
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: var(--color-slate-900);
     margin: 0;
 }
 
 .trust-badges__desc {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--color-slate-500);
     margin: 0;
+    line-height: 1.4;
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .trust-badges {
+        margin-top: -40px;
+        padding: 32px 0;
+    }
+
+    .trust-badges__card {
+        padding: 24px;
+    }
+
     .trust-badges__grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
     }
 
-    .trust-badges__icon {
-        width: 56px;
-        height: 56px;
-        font-size: 28px;
+    .trust-badges__image {
+        width: 80px;
+        height: 80px;
     }
 
     .trust-badges__title {
-        font-size: 16px;
+        font-size: 14px;
+    }
+
+    .trust-badges__desc {
+        font-size: 12px;
     }
 }

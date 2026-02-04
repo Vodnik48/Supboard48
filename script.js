@@ -82,4 +82,24 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // ========================================
+    // FAQ Accordion
+    // ========================================
+    document.querySelectorAll('.faq__question').forEach(question => {
+        question.addEventListener('click', function () {
+            const item = this.closest('.faq__item');
+            const isActive = item.classList.contains('active');
+
+            // Close all other items
+            document.querySelectorAll('.faq__item').forEach(i => {
+                i.classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
 });
