@@ -92,87 +92,118 @@
                 <div class="hero__wave hero__wave--2"></div>
                 <div class="hero__wave hero__wave--3"></div>
 
-                <!-- Floating SUPs on waves - Layered Composition -->
-                <div class="hero__floating-sup hero__floating-sup--3">
-                    <img src="assets/5.svg" alt="" class="hero__sup-img">
+                <!-- Floating Polaroids & Elements -->
+                <!-- Main Center SUP -->
+                <div class="hero__floating-element hero__element--main">
+                    <img src="assets/4.svg" alt="Sup Board" class="hero__img-content">
                 </div>
-                <div class="hero__floating-sup hero__floating-sup--1">
-                    <img src="assets/4.svg" alt="" class="hero__sup-img">
+
+                <!-- Duck -->
+                <div class="hero__floating-element hero__element--duck">
+                    <svg viewBox="0 0 512 512" class="hero__svg-duck">
+                        <path fill="#FFD700"
+                            d="M384 192c0-53-43-96-96-96h-32c-53 0-96 43-96 96v32h16c88 0 160 72 160 160v64h-32c0 18-14 32-32 32H128c-18 0-32-14-32-32h-32c-18 0-32-14-32-32v-64c0-53 43-96 96-96h16v-32c0-71 57-128 128-128h32c71 0 128 57 128 128h32c18 0 32 14 32 32s-14 32-32 32h-32c0 35-29 64-64 64zm-96 64c-18 0-32-14-32-32s14-32 32-32 32 14 32 32-14 32-32 32z" />
+                        <circle cx="300" cy="180" r="15" fill="#000" />
+                        <path fill="#FF8C00"
+                            d="M416 256h48c9 0 16-7 16-16s-7-16-16-16h-48v32zM384 256v-32h-32v32h32z" />
+                    </svg>
                 </div>
-                <div class="hero__floating-sup hero__floating-sup--2">
-                    <img src="assets/1.svg" alt="" class="hero__sup-img">
+
+                <!-- Flamingo -->
+                <div class="hero__floating-element hero__element--flamingo">
+                    <svg viewBox="0 0 512 512" class="hero__svg-flamingo">
+                        <path fill="#FF69B4"
+                            d="M352 128c0 71-57 128-128 128H192c-35 0-64 29-64 64v32l-32 64h48l24-48h64l24 48h48l-32-64v-32c0-18 14-32 32-32h32c35 0 64-29 64-64V128h-48zm-96-64c-18 0-32 14-32 32s14 32 32 32 32-14 32-32-14-32-32-32z" />
+                        <path fill="#000" d="M380 90c-5-5-15-5-20 0l-10 10 10 10c5 5 15 5 20 0l10-10-10-10z" />
+                    </svg>
                 </div>
-                <div class="hero__floating-sup hero__floating-sup--4">
-                    <img src="assets/2.svg" alt="" class="hero__sup-img">
+
+                <!-- Background Polaroids -->
+                <div class="hero__floating-element hero__element--polaroid-1">
+                    <div class="hero__polaroid-frame">
+                        <img src="assets/1.svg" alt="Photo" class="hero__polaroid-img">
+                    </div>
+                </div>
+
+                <div class="hero__floating-element hero__element--polaroid-2">
+                    <div class="hero__polaroid-frame">
+                        <img src="assets/2.svg" alt="Photo" class="hero__polaroid-img">
+                    </div>
                 </div>
             </div>
 
             <div class="hero__overlay"></div>
         </div>
 
-        <div class="scroll-progress" id="scrollProgress">
-            <div class="scroll-progress__track">
-                <div class="scroll-progress__wave"></div>
-                <!-- Replaced Ship Icon with SUP Image -->
-                <div class="scroll-progress__sup" id="scrollSup">
-                    <img src="assets/4.svg" alt="SUP" class="scroll-progress__icon-img">
-                </div>
-            </div>
-        </div>
-
         <div class="hero__container">
             <div class="hero__content">
-                <!-- Enhanced Badge with pulse -->
+                <!-- Top Badge: Award -->
                 <div class="hero__badge hero__badge--animated">
                     <span class="hero__badge-icon"><i class="fa-solid fa-award"></i></span>
-                    <span class="hero__badge-text">Клуб «Водник» — №1 в Липецке</span>
-                    <span class="hero__badge-rating">
-                        <i class="fa-solid fa-star"></i> 5.0
-                    </span>
+                    <span class="hero__badge-text">Прокат №1 в Липецке</span>
                 </div>
 
                 <h1 class="hero__title">
-                    ПРОКАТ САПБОРДОВ <br>
-                    <span class="hero__title-accent">В ЛИПЕЦКЕ</span>
+                    ПРОКАТ <span class="hero__title-highlight">SUP-БОРДОВ</span>
+                    <span class="hero__title-accent">ВОДНИК 48</span>
                 </h1>
 
                 <p class="hero__subtitle">
-                    Сплавы на SUP-досках, каяках и байдарках по реке Воронеж.<br>
-                    Старт из центра города — Площадь Мира, 6а.
+                    Лучший отдых на воде в центре города!
                 </p>
 
-                <!-- Social Proof Stats -->
+                <!-- Stats & Yandex "Good Place" -->
                 <div class="hero__stats">
                     <div class="hero__stat">
                         <span class="hero__stat-number">1200+</span>
-                        <span class="hero__stat-label">Довольных клиентов</span>
+                        <span class="hero__stat-label">Довольных</span>
                     </div>
-                    <div class="hero__stat-divider"></div>
-                    <div class="hero__stat">
-                        <span class="hero__stat-number">5.0</span>
-                        <span class="hero__stat-label">Средний рейтинг</span>
-                    </div>
-                    <div class="hero__stat-divider"></div>
+
+                    <a href="https://yandex.ru/maps/org/vodnik/1234567890" target="_blank"
+                        class="hero__yandex-good-place">
+                        <div class="hero__ygp-star">
+                            <i class="fa-solid fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                        <div class="hero__ygp-text">
+                            <span class="hero__ygp-title">Хорошее место</span>
+                            <span class="hero__ygp-year">2025</span>
+                        </div>
+                        <div class="hero__ygp-logo">
+                            <i class="fa-brands fa-yandex"></i>
+                        </div>
+                    </a>
+
                     <div class="hero__stat">
                         <span class="hero__stat-number">12</span>
-                        <span class="hero__stat-label">Лет опыта</span>
+                        <span class="hero__stat-label">Лет с вами</span>
                     </div>
                 </div>
 
                 <div class="hero__cta-wrapper">
                     <button class="hero__button hero__button_primary" id="openModal">
                         ЗАБРОНИРОВАТЬ
-                        <i class="fa-solid fa-chevron-right"></i>
+                        <i class="fa-solid fa-ship"></i>
                     </button>
                     <a href="#equipment" class="hero__button hero__button_secondary">
-                        СМОТРЕТЬ ОБОРУДОВАНИЕ
+                        ОБОРУДОВАНИЕ
                     </a>
                 </div>
             </div>
         </div>
 
-        <div class="hero__scroll-down">
-            <i class="fa-solid fa-chevron-down hero__scroll-icon"></i>
+        <div class="scroll-progress" id="scrollProgress">
+            <div class="scroll-progress__track">
+                <div class="scroll-progress__wave"></div>
+                <!-- Cutter/Boat Icon SVG -->
+                <div class="scroll-progress__sup" id="scrollSup">
+                    <svg viewBox="0 0 24 24" class="scroll-progress__icon-img" fill="#1e293b">
+                        <path d="M20 12l-2.5-3h-11L4 12H1v2h2l1 5h16l1-5h2v-2h-3zm-2.5-1h-11l1.5-2h8l1.5 2z"
+                            fill="#fff" />
+                        <path d="M11 15h2v2h-2z" fill="#0ea5e9" />
+                    </svg>
+                </div>
+            </div>
         </div>
     </section>
 
