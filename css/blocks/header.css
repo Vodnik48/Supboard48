@@ -191,6 +191,8 @@
     border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     transition: all 0.3s ease;
+    white-space: nowrap;
+    /* Prevent wrapping */
 }
 
 .header__phone:hover {
@@ -215,6 +217,26 @@
     background-color: white;
     border-radius: 2px;
     transition: transform 0.3s ease;
+}
+
+/* Tablet Breakpoint - Intermediate */
+@media (max-width: 1024px) {
+    .header__container {
+        padding: 0 15px;
+    }
+
+    .header__nav {
+        gap: 20px;
+    }
+
+    .header__link {
+        font-size: 13px;
+    }
+
+    .header__phone {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
 }
 
 @media (max-width: 768px) {

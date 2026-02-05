@@ -107,7 +107,10 @@
     text-decoration: none;
     display: block;
     margin-bottom: 8px;
+    margin-bottom: 8px;
     transition: color 0.2s ease;
+    white-space: nowrap;
+    /* Prevent wrapping */
 }
 
 .footer__phone:hover {
@@ -151,6 +154,37 @@
 
 .footer__legal-link:hover {
     color: white;
+}
+
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+    .footer__grid {
+        gap: 32px;
+        grid-template-columns: 1fr 1fr;
+        /* 2 columns on tablet */
+    }
+
+    .footer__brand,
+    .footer__cta {
+        grid-column: span 2;
+        /* Full width for brand and CTA */
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .footer__logo {
+        justify-content: center;
+    }
+
+    .footer__links,
+    .footer__contact {
+        text-align: center;
+        align-items: center;
+    }
+
+    .footer__tags {
+        justify-content: center;
+    }
 }
 
 /* Mobile Responsive */
