@@ -165,9 +165,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: clamp(280px, 70vw, 800px);
-    /* Slightly smaller than full SUP to fit context */
     z-index: 10;
     animation: floatMain 6s ease-in-out infinite;
+    pointer-events: none;
+    /* Allow clicks to pass through */
 }
 
 .hero__element--main .hero__img-content {
@@ -271,12 +272,27 @@
 }
 
 /* --- Content Container --- */
+/* --- Content Container --- */
 .hero__container {
     position: relative;
     z-index: 10;
-    max-width: 900px;
-    padding: 0 20px;
-    margin-top: -40px;
+    max-width: 1000px;
+    /* Increased max-width to allow more breath */
+    padding: 120px 20px 40px;
+    /* Greatly increased top padding (80px -> 120px) to clear header */
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.hero__content {
+    text-align: center;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* --- Typography & Elements (Same as before but refined) --- */
@@ -291,6 +307,8 @@
     padding: 10px 24px;
     border-radius: 50px;
     margin-bottom: 2vh;
+    margin-top: 40px;
+    /* Added margin to push it down from header */
     /* Flexible margin */
     font-size: clamp(0.9rem, 1.5vw, 1.1rem);
     font-weight: 600;
@@ -401,12 +419,15 @@
     text-transform: uppercase;
     letter-spacing: -0.05em;
     text-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    width: calc(100% + 40px);
-    /* Extra width for shadow/skew */
-    margin-left: -20px;
-    padding: 0 20px;
+
+    /* Fixed clipping issues */
+    width: 100%;
+    padding: 0 40px;
+    /* Increased side padding */
     box-sizing: border-box;
     display: block;
+    overflow: visible;
+    /* Ensure content spills if needed */
 }
 
 .hero__title-highlight {
