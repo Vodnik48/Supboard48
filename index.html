@@ -13,7 +13,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sapbord48.ru/">
     <meta property="og:title" content="Сапборд48 — Прокат сапбордов в Липецке">
-    <meta property="og:description" content="Сплавы на SUP-досках, каяках и байдарках по реке Воронеж.">
+    <meta property="og:description" content="Сплавы на САП-досках, каяках и байдарках по реке Воронеж.">
     <meta property="og:image" content="assets/hero_bg2.png">
 
     <link rel="stylesheet" href="style.css">
@@ -97,41 +97,43 @@
                 <div class="hero__wave hero__wave--3"></div>
 
                 <!-- Floating Polaroids & Elements -->
-                <!-- Main Center SUP -->
+                <!-- Main Center САП -->
                 <div class="hero__floating-element hero__element--main">
-                    <img src="assets/4.svg" alt="Sup Board" class="hero__img-content">
+                    <img src="assets/4.svg" alt="Сапборд" class="hero__img-content">
                 </div>
 
-                <!-- Duck -->
-                <div class="hero__floating-element hero__element--duck">
-                    <svg viewBox="0 0 512 512" class="hero__svg-duck">
-                        <path fill="#FFD700"
-                            d="M384 192c0-53-43-96-96-96h-32c-53 0-96 43-96 96v32h16c88 0 160 72 160 160v64h-32c0 18-14 32-32 32H128c-18 0-32-14-32-32h-32c-18 0-32-14-32-32v-64c0-53 43-96 96-96h16v-32c0-71 57-128 128-128h32c71 0 128 57 128 128h32c18 0 32 14 32 32s-14 32-32 32h-32c0 35-29 64-64 64zm-96 64c-18 0-32-14-32-32s14-32 32-32 32 14 32 32-14 32-32 32z" />
-                        <circle cx="300" cy="180" r="15" fill="#000" />
-                        <path fill="#FF8C00"
-                            d="M416 256h48c9 0 16-7 16-16s-7-16-16-16h-48v32zM384 256v-32h-32v32h32z" />
+                <!-- Anchor -->
+                <div class="hero__floating-element hero__element--anchor">
+                    <svg viewBox="0 0 512 512" class="hero__svg-nautical">
+                        <path fill="rgba(255,255,255,0.7)"
+                            d="M416 384c0-70.7-57.3-128-128-128h-32V128h64v-32h-64V64c0-17.7-14.3-32-32-32s-32 14.3-32 32v32h-64v32h64v128h-32c-70.7 0-128 57.3-128 128s57.3 128 128 128h128c70.7 0 128-57.3 128-128zM160 480c-53 0-96-43-96-96s43-96 96-96h32v192h-32zm192 0H320V288h32c53 0 96 43 96 96s-43 96-96 96z" />
                     </svg>
                 </div>
 
-                <!-- Flamingo -->
-                <div class="hero__floating-element hero__element--flamingo">
-                    <svg viewBox="0 0 512 512" class="hero__svg-flamingo">
-                        <path fill="#FF69B4"
-                            d="M352 128c0 71-57 128-128 128H192c-35 0-64 29-64 64v32l-32 64h48l24-48h64l24 48h48l-32-64v-32c0-18 14-32 32-32h32c35 0 64-29 64-64V128h-48zm-96-64c-18 0-32 14-32 32s14 32 32 32 32-14 32-32-14-32-32-32z" />
-                        <path fill="#000" d="M380 90c-5-5-15-5-20 0l-10 10 10 10c5 5 15 5 20 0l10-10-10-10z" />
+                <!-- Oars -->
+                <div class="hero__floating-element hero__element--oars">
+                    <svg viewBox="0 0 512 512" class="hero__svg-nautical">
+                        <path fill="rgba(255,255,255,0.6)"
+                            d="M448 32c-17.7 0-32 14.3-32 32v128h-32V96c0-17.7-14.3-32-32-32s-32 14.3-32 32v224L112 512h64l208-192h32v128c0 17.7 14.3 32 32 32s32-14.3 32-32V64c0-17.7-14.3-32-32-32zM224 416l-64 64V352l64 64z" />
                     </svg>
                 </div>
 
                 <!-- Background Polaroids -->
                 <div class="hero__floating-element hero__element--polaroid-1">
                     <div class="hero__polaroid-frame">
-                        <img src="assets/1.svg" alt="Photo" class="hero__polaroid-img">
+                        <div class="hero__polaroid-image-wrapper">
+                            <img src="assets/scenario_sunset.png" alt="Закат" class="hero__polaroid-img">
+                        </div>
+                        <span class="hero__polaroid-caption">Закаты на воде 🌅</span>
                     </div>
                 </div>
 
                 <div class="hero__floating-element hero__element--polaroid-2">
                     <div class="hero__polaroid-frame">
-                        <img src="assets/2.svg" alt="Photo" class="hero__polaroid-img">
+                        <div class="hero__polaroid-image-wrapper">
+                            <img src="assets/scenario_family.png" alt="Семья" class="hero__polaroid-img">
+                        </div>
+                        <span class="hero__polaroid-caption">Семейный отдых 💙</span>
                     </div>
                 </div>
             </div>
@@ -148,7 +150,7 @@
                 </div>
 
                 <h1 class="hero__title">
-                    ПРОКАТ <span class="hero__title-highlight">SUP-БОРДОВ</span>
+                    ПРОКАТ <span class="hero__title-highlight">САПБОРДОВ</span>
                     <span class="hero__title-accent">ВОДНИК 48</span>
                 </h1>
 
@@ -163,19 +165,15 @@
                         <span class="hero__stat-label">Довольных</span>
                     </div>
 
-                    <a href="https://yandex.ru/maps/org/vodnik/1234567890" target="_blank"
-                        class="hero__yandex-good-place">
-                        <div class="hero__ygp-star">
+                    <a href="https://yandex.ru/maps/org/vodnik/1234567890" target="_blank" class="hero__yandex-badge">
+                        <div class="hero__yandex-logo">
+                            <i class="fa-brands fa-yandex"></i>
+                        </div>
+                        <div class="hero__yandex-rating">
                             <i class="fa-solid fa-star"></i>
                             <span>5.0</span>
                         </div>
-                        <div class="hero__ygp-text">
-                            <span class="hero__ygp-title">Хорошее место</span>
-                            <span class="hero__ygp-year">2025</span>
-                        </div>
-                        <div class="hero__ygp-logo">
-                            <i class="fa-brands fa-yandex"></i>
-                        </div>
+                        <div class="hero__yandex-label">Хорошее место</div>
                     </a>
 
                     <div class="hero__stat">
@@ -187,7 +185,7 @@
                 <div class="hero__cta-wrapper">
                     <button class="hero__button hero__button_primary" id="openModal">
                         ЗАБРОНИРОВАТЬ
-                        <i class="fa-solid fa-ship"></i>
+                        <i class="fa-solid fa-calendar-check"></i>
                     </button>
                     <a href="#equipment" class="hero__button hero__button_secondary">
                         ОБОРУДОВАНИЕ
@@ -255,7 +253,7 @@
                     <div class="equipment__image-wrapper">
                         <img src="assets/scenario_sunset.png" alt="Прокат сапборда Липецк" class="equipment__image">
                     </div>
-                    <h3 class="equipment__card-title">SUP-борды</h3>
+                    <h3 class="equipment__card-title">САПБОРДЫ</h3>
                     <p class="equipment__card-target">Для всех уровней</p>
                     <p class="equipment__card-desc">Устойчивые доски для новичков и профи. В комплекте весло, лиш,
                         жилет.</p>
@@ -316,7 +314,7 @@
                         <img src="assets/sup_touring_1770205922263.png" alt="Туринговый сапборд"
                             class="equipment__image">
                     </div>
-                    <h3 class="equipment__card-title">Туринговые SUP</h3>
+                    <h3 class="equipment__card-title">Туринговые САП</h3>
                     <p class="equipment__card-target">Для длительных сплавов</p>
                     <p class="equipment__card-desc">Узкие и быстрые доски с заостренным носом для больших расстояний.
                     </p>
@@ -335,7 +333,7 @@
                     <div class="equipment__image-wrapper">
                         <img src="assets/sup_family_1770205945964.png" alt="Семейный сапборд" class="equipment__image">
                     </div>
-                    <h3 class="equipment__card-title">Семейные SUP</h3>
+                    <h3 class="equipment__card-title">Семейные САП</h3>
                     <p class="equipment__card-target">Взрослый + ребенок</p>
                     <p class="equipment__card-desc">Увеличенные доски с повышенной грузоподъемностью до 180 кг.</p>
                     <div class="equipment__specs">
@@ -355,7 +353,7 @@
                         <img src="assets/sup_pet_1770205985681.png" alt="Сапборд для катания с собакой"
                             class="equipment__image">
                     </div>
-                    <h3 class="equipment__card-title">SUP с питомцем</h3>
+                    <h3 class="equipment__card-title">САП с питомцем</h3>
                     <p class="equipment__card-target">Для катания с животными</p>
                     <p class="equipment__card-desc">Широкие доски с нескользящим покрытием. Жилет для собак в комплекте.
                     </p>
@@ -487,7 +485,7 @@
                         <img src="assets/scenario_pet_friendly.png" alt="SUP с собакой" class="scenarios__image">
                     </div>
                     <div class="scenarios__content">
-                        <h3 class="scenarios__card-title">С питомцем</h3>
+                        <h3 class="scenarios__card-title">С питомцем (САП)</h3>
                         <p class="scenarios__card-time"><i class="fa-regular fa-clock"></i> 1-2 часа</p>
                         <p class="scenarios__card-desc">Возьмите любимца на воду. Жилеты для собак в наличии.</p>
                     </div>
@@ -570,7 +568,7 @@
                         <div class="booking__field">
                             <label class="booking__label">Что хотите арендовать?</label>
                             <select class="booking__select">
-                                <option>Сапборд (SUP)</option>
+                                <option>САПБОРД (САП)</option>
                                 <option>Каяк</option>
                                 <option>Байдарка</option>
                                 <option>Заказать групповой сплав</option>
@@ -654,7 +652,7 @@
         <div class="yoga__container">
             <div class="yoga__wrapper">
                 <div class="yoga__content">
-                    <span class="yoga__label">SUP-йога</span>
+                    <span class="yoga__label">САП-йога</span>
                     <h2 class="yoga__title">Йога на воде —<br>новый уровень баланса</h2>
                     <p class="yoga__desc">Представьте: вы выполняете асану на доске, покачиваясь на воде. Каждое
                         движение требует концентрации. Это не просто йога — это медитация в движении, которая укрепляет
@@ -715,7 +713,7 @@
                         </div>
                         <div class="corporate__feature">
                             <i class="fa-solid fa-ship corporate__feature-icon"></i>
-                            <span class="corporate__feature-text">Мега-SUP 10 мест</span>
+                            <span class="corporate__feature-text">Мега-САП 10 мест</span>
                         </div>
                         <div class="corporate__feature">
                             <i class="fa-solid fa-camera corporate__feature-icon"></i>

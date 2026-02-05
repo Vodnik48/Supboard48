@@ -120,22 +120,43 @@
     transition: transform 0.3s ease;
 }
 
-/* Polaroid Styling */
+/* Polaroid Styling - Updated for Captions */
 .hero__polaroid-frame {
     background: #fff;
-    padding: 10px 10px 30px 10px;
-    /* Polaroid bottom padding */
+    padding: 10px 10px 50px 10px;
+    /* Increased bottom for caption */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     transform: rotate(var(--rotation, 0deg));
     transition: all 0.3s ease;
+    position: relative;
+    border-radius: 2px;
+}
+
+.hero__polaroid-image-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #eee;
 }
 
 .hero__polaroid-img {
     display: block;
     width: 100%;
-    height: auto;
-    filter: sepia(0.2) contrast(1.1);
-    /* Slight vintage look */
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(0.1) contrast(1.05);
+}
+
+.hero__polaroid-caption {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    color: #1e293b;
+    font-weight: 700;
 }
 
 /* Main Element (Center) */
@@ -155,23 +176,30 @@
     filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.4));
 }
 
-/* Duck */
-.hero__element--duck {
-    bottom: 10%;
-    right: 15%;
-    width: clamp(60px, 10vw, 120px);
-    z-index: 5;
-    animation: swimDuck 20s linear infinite;
+/* Anchor */
+.hero__element--anchor {
+    top: 25%;
+    left: 8%;
+    width: clamp(60px, 10vw, 100px);
+    z-index: 2;
+    opacity: 0.6;
+    animation: floatAnchor 12s ease-in-out infinite;
 }
 
-/* Flamingo */
-.hero__element--flamingo {
-    top: 20%;
-    left: 10%;
-    width: clamp(80px, 12vw, 150px);
-    z-index: 2;
-    opacity: 0.9;
-    animation: floatFlamingo 15s ease-in-out infinite;
+/* Oars */
+.hero__element--oars {
+    bottom: 15%;
+    right: 12%;
+    width: clamp(80px, 12vw, 140px);
+    z-index: 5;
+    opacity: 0.5;
+    animation: floatOars 15s ease-in-out infinite;
+}
+
+.hero__svg-nautical {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
 }
 
 /* Background Polaroids */
@@ -210,37 +238,27 @@
     }
 }
 
-@keyframes swimDuck {
-    0% {
-        transform: translateX(0) translateY(0) rotate(0deg);
-    }
-
-    25% {
-        transform: translateX(-15px) translateY(-5px) rotate(8deg);
-    }
-
-    50% {
-        transform: translateX(0) translateY(-10px) rotate(0deg);
-    }
-
-    75% {
-        transform: translateX(15px) translateY(-5px) rotate(-8deg);
-    }
-
-    100% {
-        transform: translateX(0) translateY(0) rotate(0deg);
-    }
-}
-
-@keyframes floatFlamingo {
+@keyframes floatAnchor {
 
     0%,
     100% {
-        transform: translateY(0) rotate(-2deg);
+        transform: translateY(0) rotate(-5deg);
     }
 
     50% {
-        transform: translateY(-15px) rotate(3deg);
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+@keyframes floatOars {
+
+    0%,
+    100% {
+        transform: translateX(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(20px) rotate(-15deg);
     }
 }
 
@@ -343,119 +361,100 @@
     font-size: 0.85em;
 }
 
-/* Yandex "Good Place" Badge */
-.hero__yandex-good-place {
+/* Yandex Badge - Single Line Sticker Style */
+.hero__yandex-badge {
     background: #fff;
-    color: #000;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 18px;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.hero__yandex-badge:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.hero__yandex-logo {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 8px 16px;
-    border-radius: 12px;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    min-width: 140px;
+    width: 32px;
+    height: 32px;
+    background: #fc3f1d;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.2rem;
 }
 
-.hero__yandex-good-place:hover {
-    transform: translateY(-2px);
-}
-
-.hero__yandex-good-place::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: #22c55e;
-    /* Green */
-}
-
-.hero__ygp-star {
+.hero__yandex-rating {
     display: flex;
     align-items: center;
     gap: 4px;
     font-weight: 800;
-    font-size: 1.1rem;
-    margin-bottom: 2px;
+    font-size: 1.2rem;
+    color: #000;
 }
 
-.hero__ygp-star i {
+.hero__yandex-rating i {
     color: #facc15;
-    /* Yellow Star */
 }
 
-.hero__ygp-text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    line-height: 1.1;
-    margin-bottom: 4px;
-}
-
-.hero__ygp-title {
-    font-size: 0.75rem;
+.hero__yandex-label {
+    font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
     color: #1a1a1a;
+    letter-spacing: 0.05em;
+    padding-left: 10px;
+    border-left: 1px solid #eee;
 }
 
-.hero__ygp-year {
-    font-size: 0.75rem;
-    color: #64748b;
-    font-weight: 600;
-}
-
-.hero__ygp-logo {
-    font-size: 1.2rem;
-    color: #fc3f1d;
-    /* Yandex Red */
-    margin-top: 2px;
-}
-
-/* Updated Typography */
+/* Updated Typography - Fixed Clipping */
 .hero__title {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(3.5rem, 11vw, 8.5rem);
-    /* Increased for massive feel */
+    font-size: clamp(3.2rem, 11vw, 8.5rem);
     font-weight: 900;
     line-height: 0.9;
     margin-bottom: 3vh;
     text-transform: uppercase;
     letter-spacing: -0.05em;
-    /* Tighter for impact */
     text-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    width: 100%;
+    width: calc(100% + 40px);
+    /* Extra width for shadow/skew */
+    margin-left: -20px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: block;
 }
 
 .hero__title-highlight {
     font-weight: 400;
     display: block;
     font-size: 0.45em;
-    /* Slightly smaller for contrast */
     letter-spacing: 0.2em;
-    /* Wide tracking for high-end look */
     margin-bottom: 5px;
     color: rgba(255, 255, 255, 0.9);
 }
 
 .hero__title-accent {
     display: block;
-    font-size: clamp(4.5rem, 14vw, 12rem);
+    font-size: clamp(4.2rem, 14vw, 12rem);
     background: linear-gradient(180deg, #fff 0%, #7dd3fc 100%);
-    /* Brighter blue */
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 10px 20px rgba(14, 165, 233, 0.4));
     margin-top: -0.05em;
-    text-shadow: none;
-    /* Reset text-shadow when using background-clip */
+    text-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+    /* Re-adding subtle glow for readability */
+    overflow: visible;
+    /* Ensure accent text isn't cut */
 }
 
 .hero__subtitle {
