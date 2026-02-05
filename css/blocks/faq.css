@@ -4,7 +4,7 @@
 
 .faq {
     padding: 96px 0;
-    background: white;
+    background: linear-gradient(180deg, #f0f9ff 0%, #ffffff 100%);
 }
 
 .faq__container {

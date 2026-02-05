@@ -19,6 +19,9 @@
 @import url('css/blocks/corporate.css');
 @import url('css/blocks/faq.css');
 @import url('css/blocks/booking.css');
+@import url('css/blocks/scenarios.css');
+@import url('css/blocks/gallery.css');
+@import url('css/blocks/cta-final.css');
 @import url('css/blocks/footer.css');
 
 /* ==========================================================================
@@ -92,16 +95,16 @@
 /* Floating WhatsApp Button */
 .floating-cta {
     position: fixed;
-    bottom: 24px;
-    right: 24px;
-    z-index: 60;
+    bottom: 90px;
+    right: 20px;
+    z-index: 90;
     display: none;
 }
 
 .floating-cta__btn {
     width: 56px;
     height: 56px;
-    background: #22C55E;
+    background: #25D366;
     color: white;
     border: none;
     border-radius: 50%;
@@ -109,9 +112,10 @@
     align-items: center;
     justify-content: center;
     font-size: 28px;
-    box-shadow: 0 4px 20px rgba(34, 197, 94, 0.4);
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
     cursor: pointer;
     animation: pulse 2s infinite;
+    text-decoration: none;
 }
 
 @keyframes pulse {
@@ -126,7 +130,7 @@
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     .floating-cta {
         display: block;
     }

@@ -32,3 +32,67 @@
         transform: translateX(-50%) translateY(-5px);
     }
 }
+
+/* Scroll Reveal Animation */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered reveal for child elements */
+.reveal-on-scroll.revealed .equipment__card,
+.reveal-on-scroll.revealed .scenarios__card,
+.reveal-on-scroll.revealed .routes__item,
+.reveal-on-scroll.revealed .yoga__benefit,
+.reveal-on-scroll.revealed .corporate__feature,
+.reveal-on-scroll.revealed .gallery__item,
+.reveal-on-scroll.revealed .faq__item {
+    animation: fadeIn 0.5s ease-out both;
+}
+
+.reveal-on-scroll.revealed .equipment__card:nth-child(1),
+.reveal-on-scroll.revealed .scenarios__card:nth-child(1),
+.reveal-on-scroll.revealed .routes__item:nth-child(1),
+.reveal-on-scroll.revealed .gallery__item:nth-child(1),
+.reveal-on-scroll.revealed .faq__item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.reveal-on-scroll.revealed .equipment__card:nth-child(2),
+.reveal-on-scroll.revealed .scenarios__card:nth-child(2),
+.reveal-on-scroll.revealed .routes__item:nth-child(2),
+.reveal-on-scroll.revealed .gallery__item:nth-child(2),
+.reveal-on-scroll.revealed .faq__item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.reveal-on-scroll.revealed .equipment__card:nth-child(3),
+.reveal-on-scroll.revealed .scenarios__card:nth-child(3),
+.reveal-on-scroll.revealed .routes__item:nth-child(3),
+.reveal-on-scroll.revealed .gallery__item:nth-child(3),
+.reveal-on-scroll.revealed .faq__item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.reveal-on-scroll.revealed .equipment__card:nth-child(4),
+.reveal-on-scroll.revealed .gallery__item:nth-child(4),
+.reveal-on-scroll.revealed .faq__item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.reveal-on-scroll.revealed .equipment__card:nth-child(5),
+.reveal-on-scroll.revealed .gallery__item:nth-child(5),
+.reveal-on-scroll.revealed .faq__item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.reveal-on-scroll.revealed .equipment__card:nth-child(6),
+.reveal-on-scroll.revealed .faq__item:nth-child(6) {
+    animation-delay: 0.6s;
+}

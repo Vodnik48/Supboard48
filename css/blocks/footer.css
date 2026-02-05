@@ -3,10 +3,9 @@
    ========================================================================== */
 
 .footer {
-    background: var(--color-slate-950);
+    background: linear-gradient(180deg, #0c4a6e 0%, #0f172a 100%);
     padding: 64px 0;
     color: white;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footer__container {
@@ -30,30 +29,20 @@
 .footer__logo {
     display: flex;
     align-items: center;
-    gap: 8px;
     text-decoration: none;
     margin-bottom: 24px;
 }
 
-.footer__logo-icon {
-    background: var(--color-sky-500);
-    padding: 4px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .footer__logo-text {
     font-family: var(--font-heading);
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 24px;
+    font-weight: 800;
     color: white;
     letter-spacing: -0.5px;
 }
 
 .footer__logo-accent {
-    color: var(--color-sky-500);
+    color: var(--color-accent);
 }
 
 .footer__desc {
@@ -167,7 +156,8 @@
 /* Mobile Responsive */
 @media (max-width: 768px) {
     .footer {
-        padding: 48px 0 32px;
+        padding: 48px 0 100px;
+        /* Extra bottom padding for sticky CTA */
     }
 
     .footer__grid {

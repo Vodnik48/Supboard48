@@ -28,17 +28,20 @@
 
 <body>
 
-    <!-- Navigation / Header -->
+    <!-- ============================================
+         NAVIGATION / HEADER
+         ============================================ -->
     <header class="header" id="header">
         <div class="header__container">
             <a href="#" class="header__logo">
                 <span class="header__logo-text">САПБОРД<span class="header__logo-accent">48</span></span>
             </a>
             <nav class="header__nav">
-                <a href="#catalog" class="header__link">Услуги</a>
-                <a href="#catalog" class="header__link">Цены</a>
+                <a href="#advantages" class="header__link">Преимущества</a>
+                <a href="#equipment" class="header__link">Оборудование</a>
+                <a href="#scenarios" class="header__link">Сценарии</a>
                 <a href="#routes" class="header__link">Маршруты</a>
-                <a href="#booking" class="header__link">Контакты</a>
+                <a href="#booking" class="header__link">Забронировать</a>
             </nav>
             <div class="header__contacts">
                 <a href="tel:+79042832230" class="header__phone">+7 (904) 283-22-30</a>
@@ -49,12 +52,55 @@
                 <span></span>
             </button>
         </div>
+        <!-- Mobile Menu Overlay -->
+        <div class="header__mobile-menu" id="mobileMenu">
+            <button class="header__mobile-close" id="mobileMenuClose" aria-label="Закрыть меню">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <nav class="header__mobile-nav">
+                <a href="#advantages" class="header__mobile-link">Преимущества</a>
+                <a href="#equipment" class="header__mobile-link">Оборудование</a>
+                <a href="#scenarios" class="header__mobile-link">Сценарии</a>
+                <a href="#routes" class="header__mobile-link">Маршруты</a>
+                <a href="#booking" class="header__mobile-link">Забронировать</a>
+            </nav>
+            <a href="tel:+79042832230" class="header__mobile-phone">+7 (904) 283-22-30</a>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Scroll Progress Bar with Floating SUP -->
+    <div class="scroll-progress" id="scrollProgress">
+        <div class="scroll-progress__track">
+            <div class="scroll-progress__wave"></div>
+            <div class="scroll-progress__sup" id="scrollSup">
+                <i class="fa-solid fa-ship"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+         BLOCK 1: HERO
+         Первое касание — заставить остаться на сайте
+         ============================================ -->
+    <section class="hero" id="hero">
         <div class="hero__bg">
-            <img src="assets/hero_bg2.png" alt="Сапборд Липецк прокат" class="hero__bg-img">
+            <div class="hero__bg-gradient"></div>
+
+            <!-- Animated Wave Layers -->
+            <div class="hero__waves-container">
+                <div class="hero__wave hero__wave--1"></div>
+                <div class="hero__wave hero__wave--2"></div>
+                <div class="hero__wave hero__wave--3"></div>
+
+                <!-- Floating SUPs on waves -->
+                <div class="hero__floating-sup hero__floating-sup--1">
+                    <img src="assets/4.svg" alt="" class="hero__sup-img">
+                </div>
+                <div class="hero__floating-sup hero__floating-sup--2">
+                    <img src="assets/1.svg" alt="" class="hero__sup-img">
+                </div>
+            </div>
+
             <div class="hero__overlay"></div>
         </div>
 
@@ -74,11 +120,11 @@
                 </p>
                 <div class="hero__cta-wrapper">
                     <button class="hero__button hero__button_primary" id="openModal">
-                        КАТАЛОГ И ЦЕНЫ
+                        ЗАБРОНИРОВАТЬ
                         <i class="fa-solid fa-chevron-right"></i>
                     </button>
-                    <a href="#routes" class="hero__button hero__button_secondary">
-                        МАРШРУТЫ СПЛАВОВ
+                    <a href="#equipment" class="hero__button hero__button_secondary">
+                        СМОТРЕТЬ ОБОРУДОВАНИЕ
                     </a>
                 </div>
             </div>
@@ -89,131 +135,398 @@
         </div>
     </section>
 
-    <!-- Trust Badges -->
-    <section class="trust-badges">
-        <div class="trust-badges__container">
-            <div class="trust-badges__card">
-                <div class="trust-badges__grid">
-                    <div class="trust-badges__item">
-                        <img src="assets/badge_safety_1770206935918.png" alt="Безопасность на воде"
-                            class="trust-badges__image">
-                        <h4 class="trust-badges__title">Безопасно</h4>
-                        <p class="trust-badges__desc">Жилеты и инструктаж включены</p>
+    <!-- ============================================
+         BLOCK 2: ПРЕИМУЩЕСТВА (компактный блок)
+         Trust Badges + краткие преимущества
+         ============================================ -->
+    <section class="advantages" id="advantages">
+        <div class="advantages__container">
+            <div class="advantages__grid">
+                <div class="advantages__item">
+                    <span class="advantages__icon"><i class="fa-solid fa-shield-halved"></i></span>
+                    <div>
+                        <h4 class="advantages__item-title">Безопасно</h4>
+                        <p class="advantages__item-desc">Жилеты и 15-мин инструктаж включены</p>
                     </div>
-                    <div class="trust-badges__item">
-                        <img src="assets/badge_location_1770206951740.png" alt="Удобная локация"
-                            class="trust-badges__image">
-                        <h4 class="trust-badges__title">Удобный старт</h4>
-                        <p class="trust-badges__desc">Центр города, пл. Мира 6а</p>
+                </div>
+                <div class="advantages__item">
+                    <span class="advantages__icon"><i class="fa-solid fa-location-dot"></i></span>
+                    <div>
+                        <h4 class="advantages__item-title">Центр города</h4>
+                        <p class="advantages__item-desc">пл. Мира 6а, бесплатная парковка</p>
                     </div>
-                    <div class="trust-badges__item">
-                        <img src="assets/badge_schedule_1770206979708.png" alt="Ежедневная работа"
-                            class="trust-badges__image">
-                        <h4 class="trust-badges__title">Ежедневно</h4>
-                        <p class="trust-badges__desc">С 9:00 до 21:00 без выходных</p>
+                </div>
+                <div class="advantages__item">
+                    <span class="advantages__icon"><i class="fa-solid fa-clock"></i></span>
+                    <div>
+                        <h4 class="advantages__item-title">Ежедневно</h4>
+                        <p class="advantages__item-desc">С 9:00 до 21:00 без выходных</p>
                     </div>
-                    <div class="trust-badges__item">
-                        <img src="assets/badge_content_1770206993118.png" alt="Фото и видео контент"
-                            class="trust-badges__image">
-                        <h4 class="trust-badges__title">Контент</h4>
-                        <p class="trust-badges__desc">Чехлы для фото в подарок</p>
+                </div>
+                <div class="advantages__item">
+                    <span class="advantages__icon"><i class="fa-solid fa-medal"></i></span>
+                    <div>
+                        <h4 class="advantages__item-title">Опыт с 2012</h4>
+                        <p class="advantages__item-desc">Профессиональные спортсмены</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Catalog / Pricing -->
-    <section class="catalog" id="catalog">
-        <div class="catalog__container">
-            <h2 class="catalog__title">Аренда оборудования</h2>
-            <p class="catalog__subtitle">Новые доски и лодки, которые мы моем после каждого проката. Никакой тины и
-                грязи.</p>
+    <!-- ============================================
+         BLOCK 3: ОБОРУДОВАНИЕ
+         3 карточки (SUP, Каяки, Байдарки) + кнопка "Показать ещё"
+         ============================================ -->
+    <section class="equipment" id="equipment">
+        <div class="equipment__container">
+            <span class="equipment__label">Аренда</span>
+            <h2 class="equipment__title">На чём катаемся?</h2>
+            <p class="equipment__subtitle">Новые доски и лодки. Моем после каждого проката — никакой тины и грязи.</p>
 
-            <div class="catalog__grid">
+            <div class="equipment__grid" id="equipmentGrid">
                 <!-- SUP -->
-                <div class="catalog__card">
-                    <span class="catalog__badge">Хит сезона</span>
-                    <div class="catalog__image-wrapper">
-                        <img src="assets/scenario_sunset.png" alt="Сапборд прокат Липецк" class="catalog__image">
+                <div class="equipment__card">
+                    <span class="equipment__badge">Хит сезона</span>
+                    <div class="equipment__image-wrapper">
+                        <img src="assets/scenario_sunset.png" alt="Прокат сапборда Липецк" class="equipment__image">
                     </div>
-                    <h3 class="catalog__card-title">SUP-борды</h3>
-                    <p class="catalog__card-desc">Устойчивые доски для новичков и профи. В комплекте весло, лиш, жилет.
-                    </p>
-                    <div class="catalog__prices">
-                        <div class="catalog__price-row">
-                            <span class="catalog__price-label">1 час</span>
-                            <span class="catalog__price-value">600 ₽</span>
-                        </div>
-                        <div class="catalog__price-row">
-                            <span class="catalog__price-label">2 часа</span>
-                            <span class="catalog__price-value">1000 ₽</span>
-                        </div>
-                        <div class="catalog__price-row catalog__price-row_featured">
-                            <span class="catalog__price-label">Сутки</span>
-                            <span class="catalog__price-value">1800 ₽</span>
-                        </div>
+                    <h3 class="equipment__card-title">SUP-борды</h3>
+                    <p class="equipment__card-target">Для всех уровней</p>
+                    <p class="equipment__card-desc">Устойчивые доски для новичков и профи. В комплекте весло, лиш,
+                        жилет.</p>
+                    <div class="equipment__specs">
+                        <span class="equipment__spec"><i class="fa-solid fa-shield equipment__spec-icon"></i>
+                            Устойчивые</span>
+                        <span class="equipment__spec"><i class="fa-solid fa-weight-hanging equipment__spec-icon"></i> До
+                            120 кг</span>
                     </div>
-                    <button class="catalog__btn"
-                        onclick="document.getElementById('bookingModal').classList.add('active')">ВЫБРАТЬ</button>
+                    <div class="equipment__price">от 600 ₽/час</div>
+                    <button class="equipment__btn"
+                        onclick="document.getElementById('bookingModal').classList.add('active')">Выбрать</button>
                 </div>
 
-                <!-- Kayaks -->
-                <div class="catalog__card">
-                    <div class="catalog__image-wrapper">
-                        <img src="assets/scenario_adventure.png" alt="Аренда каяков Липецк" class="catalog__image">
+                <!-- Каяки -->
+                <div class="equipment__card">
+                    <div class="equipment__image-wrapper">
+                        <img src="assets/scenario_adventure.png" alt="Аренда каяков Липецк" class="equipment__image">
                     </div>
-                    <h3 class="catalog__card-title">Каяки</h3>
-                    <p class="catalog__card-desc">Легкие и быстрые. Для тех, кто любит скорость и комфортную посадку.
+                    <h3 class="equipment__card-title">Каяки</h3>
+                    <p class="equipment__card-target">Для любителей скорости</p>
+                    <p class="equipment__card-desc">Легкие и быстрые. Для тех, кто любит скорость и комфортную посадку.
                     </p>
-                    <div class="catalog__prices">
-                        <div class="catalog__price-row">
-                            <span class="catalog__price-label">1 час</span>
-                            <span class="catalog__price-value">700 ₽</span>
-                        </div>
-                        <div class="catalog__price-row">
-                            <span class="catalog__price-label">3 часа</span>
-                            <span class="catalog__price-value">1500 ₽</span>
-                        </div>
-                        <div class="catalog__price-row catalog__price-row_featured">
-                            <span class="catalog__price-label">Весь день</span>
-                            <span class="catalog__price-value">2500 ₽</span>
-                        </div>
+                    <div class="equipment__specs">
+                        <span class="equipment__spec"><i class="fa-solid fa-gauge-high equipment__spec-icon"></i>
+                            Быстрые</span>
+                        <span class="equipment__spec"><i class="fa-solid fa-person equipment__spec-icon"></i> 1
+                            человек</span>
                     </div>
-                    <button class="catalog__btn"
-                        onclick="document.getElementById('bookingModal').classList.add('active')">ВЫБРАТЬ</button>
+                    <div class="equipment__price">от 700 ₽/час</div>
+                    <button class="equipment__btn"
+                        onclick="document.getElementById('bookingModal').classList.add('active')">Выбрать</button>
                 </div>
 
-                <!-- Canoes -->
-                <div class="catalog__card">
-                    <div class="catalog__image-wrapper">
-                        <img src="assets/scenario_family.png" alt="Сплав на байдарках Липецк" class="catalog__image">
+                <!-- Байдарки -->
+                <div class="equipment__card">
+                    <div class="equipment__image-wrapper">
+                        <img src="assets/scenario_family.png" alt="Сплав на байдарках Липецк" class="equipment__image">
                     </div>
-                    <h3 class="catalog__card-title">Байдарки</h3>
-                    <p class="catalog__card-desc">Идеально для двоих. Стабильные и вместительные для длинных прогулок.
+                    <h3 class="equipment__card-title">Байдарки</h3>
+                    <p class="equipment__card-target">Для двоих</p>
+                    <p class="equipment__card-desc">Идеально для пар. Стабильные и вместительные для длинных прогулок.
                     </p>
-                    <div class="catalog__prices">
-                        <div class="catalog__price-row">
-                            <span class="catalog__price-label">1 час</span>
-                            <span class="catalog__price-value">900 ₽</span>
-                        </div>
-                        <div class="catalog__price-row">
-                            <span class="catalog__price-label">3 часа</span>
-                            <span class="catalog__price-value">2000 ₽</span>
-                        </div>
-                        <div class="catalog__price-row catalog__price-row_featured">
-                            <span class="catalog__price-label">Сутки</span>
-                            <span class="catalog__price-value">3500 ₽</span>
-                        </div>
+                    <div class="equipment__specs">
+                        <span class="equipment__spec"><i class="fa-solid fa-users equipment__spec-icon"></i> 2
+                            человека</span>
+                        <span class="equipment__spec"><i class="fa-solid fa-route equipment__spec-icon"></i> Дальние
+                            сплавы</span>
                     </div>
-                    <button class="catalog__btn"
-                        onclick="document.getElementById('bookingModal').classList.add('active')">ВЫБРАТЬ</button>
+                    <div class="equipment__price">от 900 ₽/час</div>
+                    <button class="equipment__btn"
+                        onclick="document.getElementById('bookingModal').classList.add('active')">Выбрать</button>
+                </div>
+
+                <!-- Hidden cards (show on click) -->
+                <div class="equipment__card equipment__card_hidden">
+                    <div class="equipment__image-wrapper">
+                        <img src="assets/sup_touring_1770205922263.png" alt="Туринговый сапборд"
+                            class="equipment__image">
+                    </div>
+                    <h3 class="equipment__card-title">Туринговые SUP</h3>
+                    <p class="equipment__card-target">Для длительных сплавов</p>
+                    <p class="equipment__card-desc">Узкие и быстрые доски с заостренным носом для больших расстояний.
+                    </p>
+                    <div class="equipment__specs">
+                        <span class="equipment__spec"><i class="fa-solid fa-gauge-high equipment__spec-icon"></i>
+                            Высокая скорость</span>
+                        <span class="equipment__spec"><i class="fa-solid fa-route equipment__spec-icon"></i> 10+
+                            км</span>
+                    </div>
+                    <div class="equipment__price">от 700 ₽/час</div>
+                    <button class="equipment__btn"
+                        onclick="document.getElementById('bookingModal').classList.add('active')">Выбрать</button>
+                </div>
+
+                <div class="equipment__card equipment__card_hidden">
+                    <div class="equipment__image-wrapper">
+                        <img src="assets/sup_family_1770205945964.png" alt="Семейный сапборд" class="equipment__image">
+                    </div>
+                    <h3 class="equipment__card-title">Семейные SUP</h3>
+                    <p class="equipment__card-target">Взрослый + ребенок</p>
+                    <p class="equipment__card-desc">Увеличенные доски с повышенной грузоподъемностью до 180 кг.</p>
+                    <div class="equipment__specs">
+                        <span class="equipment__spec"><i class="fa-solid fa-users equipment__spec-icon"></i> 2
+                            человека</span>
+                        <span class="equipment__spec"><i class="fa-solid fa-weight-hanging equipment__spec-icon"></i> До
+                            180 кг</span>
+                    </div>
+                    <div class="equipment__price">от 800 ₽/час</div>
+                    <button class="equipment__btn"
+                        onclick="document.getElementById('bookingModal').classList.add('active')">Выбрать</button>
+                </div>
+
+                <div class="equipment__card equipment__card_hidden">
+                    <span class="equipment__badge equipment__badge_hot">Хайп</span>
+                    <div class="equipment__image-wrapper">
+                        <img src="assets/sup_pet_1770205985681.png" alt="Сапборд для катания с собакой"
+                            class="equipment__image">
+                    </div>
+                    <h3 class="equipment__card-title">SUP с питомцем</h3>
+                    <p class="equipment__card-target">Для катания с животными</p>
+                    <p class="equipment__card-desc">Широкие доски с нескользящим покрытием. Жилет для собак в комплекте.
+                    </p>
+                    <div class="equipment__specs">
+                        <span class="equipment__spec"><i class="fa-solid fa-paw equipment__spec-icon"></i>
+                            Pet-friendly</span>
+                        <span class="equipment__spec"><i class="fa-solid fa-shield-dog equipment__spec-icon"></i> Жилет
+                            для собак</span>
+                    </div>
+                    <div class="equipment__price">от 700 ₽/час</div>
+                    <button class="equipment__btn"
+                        onclick="document.getElementById('bookingModal').classList.add('active')">Выбрать</button>
+                </div>
+            </div>
+
+            <button class="equipment__show-more" id="showMoreEquipment">
+                <span class="equipment__show-more-text">Показать ещё</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BLOCK 4: КАК АРЕНДОВАТЬ 
+         5 шагов от брони до фото
+         ============================================ -->
+    <section class="journey" id="journey">
+        <div class="journey__container">
+            <span class="journey__label">Простой старт</span>
+            <h2 class="journey__title">Как арендовать сап?</h2>
+
+            <div class="journey__steps">
+                <div class="journey__step">
+                    <span class="journey__step-number">1</span>
+                    <img src="assets/step_booking_1770205823372.png" alt="Онлайн бронирование сапа"
+                        class="journey__step-image">
+                    <h4 class="journey__step-title">Бронирование</h4>
+                    <p class="journey__step-desc">Оставьте заявку на сайте или в мессенджере. Мы подтвердим за 5 минут.
+                    </p>
+                </div>
+                <div class="journey__step">
+                    <span class="journey__step-number">2</span>
+                    <img src="assets/step_arrival_1770205851982.png" alt="Приезд на базу Водник"
+                        class="journey__step-image">
+                    <h4 class="journey__step-title">Приезжайте</h4>
+                    <p class="journey__step-desc">Парковка бесплатная. Теплые раздевалки и шкафчики на месте.</p>
+                </div>
+                <div class="journey__step">
+                    <span class="journey__step-number">3</span>
+                    <img src="assets/step_instruction_1770205871746.png" alt="Инструктаж по сапу"
+                        class="journey__step-image">
+                    <h4 class="journey__step-title">Инструктаж</h4>
+                    <p class="journey__step-desc">15-минутное обучение. Покажем технику гребли и правила безопасности.
+                    </p>
+                </div>
+                <div class="journey__step">
+                    <span class="journey__step-number">4</span>
+                    <img src="assets/step_adventure_1770205885210.png" alt="Сплав на сапборде"
+                        class="journey__step-image">
+                    <h4 class="journey__step-title">Наслаждайтесь</h4>
+                    <p class="journey__step-desc">Катайтесь по выбранному маршруту. Мы на связи, если что-то
+                        понадобится.</p>
+                </div>
+                <div class="journey__step">
+                    <span class="journey__step-number">5</span>
+                    <img src="assets/step_memories_1770205907942.png" alt="Фото и воспоминания"
+                        class="journey__step-image">
+                    <h4 class="journey__step-title">Забирайте фото</h4>
+                    <p class="journey__step-desc">Получите снимки с прогулки и делитесь эмоциями в соцсетях!</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Routes Section -->
+    <!-- ============================================
+         BLOCK 5: СЦЕНАРИИ (самостоятельное катание)
+         3 карточки + кнопка "Ещё сценарии"
+         ============================================ -->
+    <section class="scenarios" id="scenarios">
+        <div class="scenarios__container">
+            <span class="scenarios__label">Идеи для отдыха</span>
+            <h2 class="scenarios__title">Что делать на воде?</h2>
+            <p class="scenarios__subtitle">Выберите свой сценарий — от спокойной прогулки до фотосессии на закате</p>
+
+            <div class="scenarios__grid" id="scenariosGrid">
+                <!-- Scenario 1: Вечерняя прогулка -->
+                <div class="scenarios__card">
+                    <div class="scenarios__image-wrapper">
+                        <img src="assets/scenario_sunset.png" alt="Вечерняя прогулка на сапборде"
+                            class="scenarios__image">
+                    </div>
+                    <div class="scenarios__content">
+                        <h3 class="scenarios__card-title">Вечерняя прогулка</h3>
+                        <p class="scenarios__card-time"><i class="fa-regular fa-clock"></i> 1-2 часа</p>
+                        <p class="scenarios__card-desc">Лучшие виды города на закате. Спокойная вода, романтическая
+                            атмосфера.</p>
+                    </div>
+                </div>
+
+                <!-- Scenario 2: Фотосессия -->
+                <div class="scenarios__card">
+                    <div class="scenarios__image-wrapper">
+                        <img src="assets/scenario_family.png" alt="Фотосессия на сапборде" class="scenarios__image">
+                    </div>
+                    <div class="scenarios__content">
+                        <h3 class="scenarios__card-title">Фотосессия на воде</h3>
+                        <p class="scenarios__card-time"><i class="fa-regular fa-clock"></i> 1 час</p>
+                        <p class="scenarios__card-desc">Уникальные кадры для социальных сетей. Герметичные чехлы для
+                            телефона в подарок.</p>
+                    </div>
+                </div>
+
+                <!-- Scenario 3: Сплав на закате -->
+                <div class="scenarios__card">
+                    <div class="scenarios__image-wrapper">
+                        <img src="assets/scenario_adventure.png" alt="Сплав на закате Липецк" class="scenarios__image">
+                    </div>
+                    <div class="scenarios__content">
+                        <h3 class="scenarios__card-title">Сплав на закате</h3>
+                        <p class="scenarios__card-time"><i class="fa-regular fa-clock"></i> 2-3 часа</p>
+                        <p class="scenarios__card-desc">Прогулка под мостами Липецка. Вернётесь с закатом и массой
+                            эмоций.</p>
+                    </div>
+                </div>
+
+                <!-- Hidden scenarios -->
+                <div class="scenarios__card scenarios__card_hidden">
+                    <div class="scenarios__image-wrapper">
+                        <img src="assets/scenario_pet_friendly.png" alt="SUP с собакой" class="scenarios__image">
+                    </div>
+                    <div class="scenarios__content">
+                        <h3 class="scenarios__card-title">С питомцем</h3>
+                        <p class="scenarios__card-time"><i class="fa-regular fa-clock"></i> 1-2 часа</p>
+                        <p class="scenarios__card-desc">Возьмите любимца на воду. Жилеты для собак в наличии.</p>
+                    </div>
+                </div>
+
+                <div class="scenarios__card scenarios__card_hidden">
+                    <div class="scenarios__image-wrapper">
+                        <img src="assets/sup_family_1770205945964.png" alt="Семейный сплав" class="scenarios__image">
+                    </div>
+                    <div class="scenarios__content">
+                        <h3 class="scenarios__card-title">Семейный отдых</h3>
+                        <p class="scenarios__card-time"><i class="fa-regular fa-clock"></i> 1-3 часа</p>
+                        <p class="scenarios__card-desc">Отличный формат для всей семьи. Дети от 6 лет на своих досках.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="scenarios__card scenarios__card_hidden">
+                    <div class="scenarios__image-wrapper">
+                        <img src="assets/sup_racing_1770205970857.png" alt="Спортивное катание"
+                            class="scenarios__image">
+                    </div>
+                    <div class="scenarios__content">
+                        <h3 class="scenarios__card-title">Спортивное катание</h3>
+                        <p class="scenarios__card-time"><i class="fa-regular fa-clock"></i> 2+ часа</p>
+                        <p class="scenarios__card-desc">Для тех, кто хочет нагрузку. Гоночные доски и длинные маршруты.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="scenarios__show-more" id="showMoreScenarios">
+                <span class="scenarios__show-more-text">Ещё сценарии</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BLOCK 6: БРОНИРОВАНИЕ (CTA #1)
+         ============================================ -->
+    <section class="booking" id="booking">
+        <div class="booking__container">
+            <div class="booking__card">
+                <div class="booking__info">
+                    <h3 class="booking__title">Забронируй<br>свое лето</h3>
+                    <p class="booking__quote">«Лучшее время, чтобы встать на сап — прямо сейчас. Ждем вас в клубе!»</p>
+                    <div class="booking__details">
+                        <div class="booking__detail">
+                            <span class="booking__detail-icon"><i class="fa-solid fa-location-dot"></i></span>
+                            <span>г. Липецк, пл. Мира, 6а</span>
+                        </div>
+                        <div class="booking__detail">
+                            <span class="booking__detail-icon"><i class="fa-regular fa-clock"></i></span>
+                            <span>Ежедневно 09:00 — 21:00</span>
+                        </div>
+                    </div>
+                    <div class="booking__socials">
+                        <a href="https://t.me/supbord48" class="booking__social-link" aria-label="Telegram">
+                            <i class="fa-brands fa-telegram"></i>
+                        </a>
+                        <a href="https://vk.com/supbord48" class="booking__social-link" aria-label="VK">
+                            <i class="fa-brands fa-vk"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="booking__form-wrapper">
+                    <form class="booking__form">
+                        <div class="booking__row">
+                            <div class="booking__field">
+                                <label class="booking__label">Имя</label>
+                                <input type="text" class="booking__input" placeholder="Иван" required>
+                            </div>
+                            <div class="booking__field">
+                                <label class="booking__label">Телефон</label>
+                                <input type="tel" class="booking__input" placeholder="+7 (___) ___-__-__" required>
+                            </div>
+                        </div>
+                        <div class="booking__field">
+                            <label class="booking__label">Что хотите арендовать?</label>
+                            <select class="booking__select">
+                                <option>Сапборд (SUP)</option>
+                                <option>Каяк</option>
+                                <option>Байдарка</option>
+                                <option>Заказать групповой сплав</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="booking__submit">Оставить заявку</button>
+                        <p class="booking__policy">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности. Мы
+                            перезвоним вам в течение 10 минут.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BLOCK 7: РАЗНООБРАЗИЕ
+         Маршруты, Йога, Корпоративы, Галерея
+         ============================================ -->
+
+    <!-- 7.1 Routes Section -->
     <section class="routes" id="routes">
         <div class="routes__container">
             <div class="routes__wrapper">
@@ -272,204 +585,7 @@
         </div>
     </section>
 
-    <!-- Customer Journey Section -->
-    <section class="journey">
-        <div class="journey__container">
-            <span class="journey__label">Простой старт</span>
-            <h2 class="journey__title">Как арендовать сап?</h2>
-
-            <div class="journey__steps">
-                <div class="journey__step">
-                    <span class="journey__step-number">1</span>
-                    <img src="assets/step_booking_1770205823372.png" alt="Онлайн бронирование сапа"
-                        class="journey__step-image">
-                    <h4 class="journey__step-title">Бронирование</h4>
-                    <p class="journey__step-desc">Оставьте заявку на сайте или в мессенджере. Мы подтвердим за 5 минут.
-                    </p>
-                </div>
-                <div class="journey__step">
-                    <span class="journey__step-number">2</span>
-                    <img src="assets/step_arrival_1770205851982.png" alt="Приезд на базу Водник"
-                        class="journey__step-image">
-                    <h4 class="journey__step-title">Приезжайте</h4>
-                    <p class="journey__step-desc">Парковка бесплатная. Теплые раздевалки и шкафчики на месте.</p>
-                </div>
-                <div class="journey__step">
-                    <span class="journey__step-number">3</span>
-                    <img src="assets/step_instruction_1770205871746.png" alt="Инструктаж по сапу"
-                        class="journey__step-image">
-                    <h4 class="journey__step-title">Инструктаж</h4>
-                    <p class="journey__step-desc">15-минутное обучение. Покажем технику гребли и правила безопасности.
-                    </p>
-                </div>
-                <div class="journey__step">
-                    <span class="journey__step-number">4</span>
-                    <img src="assets/step_adventure_1770205885210.png" alt="Сплав на сапборде"
-                        class="journey__step-image">
-                    <h4 class="journey__step-title">Наслаждайтесь</h4>
-                    <p class="journey__step-desc">Катайтесь по выбранному маршруту. Мы на связи, если что-то
-                        понадобится.</p>
-                </div>
-                <div class="journey__step">
-                    <span class="journey__step-number">5</span>
-                    <img src="assets/step_memories_1770205907942.png" alt="Фото и воспоминания"
-                        class="journey__step-image">
-                    <h4 class="journey__step-title">Забирайте фото</h4>
-                    <p class="journey__step-desc">Получите снимки с прогулки и делитесь эмоциями в соцсетях!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Equipment Catalog Section -->
-    <section class="equipment" id="equipment">
-        <div class="equipment__container">
-            <span class="equipment__label">SEO-Каталог</span>
-            <h2 class="equipment__title">Подберем борд под вашу задачу</h2>
-            <p class="equipment__subtitle">Не все сапы одинаковы. Мы поможем выбрать доску, которая подойдет именно вам
-                — по уровню, целям и бюджету.</p>
-
-            <div class="equipment__grid">
-                <!-- Прогулочные -->
-                <div class="equipment__card">
-                    <span class="equipment__badge">Хит продаж</span>
-                    <div class="equipment__image-wrapper">
-                        <img src="assets/scenario_sunset.png" alt="Прогулочный сапборд Липецк" class="equipment__image">
-                    </div>
-                    <h3 class="equipment__card-title">Прогулочные сапборды</h3>
-                    <p class="equipment__card-target">Для новичков и отдыха</p>
-                    <p class="equipment__card-desc">Широкие и устойчивые доски для спокойных прогулок. Идеальны для
-                        первого знакомства с SUP.</p>
-                    <div class="equipment__specs">
-                        <span class="equipment__spec"><i class="fa-solid fa-shield equipment__spec-icon"></i> Макс.
-                            устойчивость</span>
-                        <span class="equipment__spec"><i class="fa-solid fa-weight-hanging equipment__spec-icon"></i> До
-                            120 кг</span>
-                    </div>
-                    <div class="equipment__advantage">
-                        <i class="fa-solid fa-check equipment__advantage-icon"></i>
-                        <p class="equipment__advantage-text">Самый простой вход в спорт — встанете с первой попытки</p>
-                    </div>
-                </div>
-
-                <!-- Туринговые -->
-                <div class="equipment__card">
-                    <div class="equipment__image-wrapper">
-                        <img src="assets/sup_touring_1770205922263.png" alt="Туринговый сапборд для сплавов"
-                            class="equipment__image">
-                    </div>
-                    <h3 class="equipment__card-title">Туринговые сапборды</h3>
-                    <p class="equipment__card-target">Для длительных сплавов</p>
-                    <p class="equipment__card-desc">Узкие и быстрые доски с заостренным носом. Созданы для преодоления
-                        больших расстояний.</p>
-                    <div class="equipment__specs">
-                        <span class="equipment__spec"><i class="fa-solid fa-gauge-high equipment__spec-icon"></i>
-                            Высокая скорость</span>
-                        <span class="equipment__spec"><i class="fa-solid fa-route equipment__spec-icon"></i> 10+
-                            км</span>
-                    </div>
-                    <div class="equipment__advantage">
-                        <i class="fa-solid fa-check equipment__advantage-icon"></i>
-                        <p class="equipment__advantage-text">Меньше усилий на длинных дистанциях — экономия сил до 30%
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Семейные -->
-                <div class="equipment__card">
-                    <div class="equipment__image-wrapper">
-                        <img src="assets/sup_family_1770205945964.png" alt="Семейный сапборд для двоих"
-                            class="equipment__image">
-                    </div>
-                    <h3 class="equipment__card-title">Семейные / Парные</h3>
-                    <p class="equipment__card-target">Для катания вдвоем</p>
-                    <p class="equipment__card-desc">Увеличенные доски с повышенной грузоподъемностью. Взрослый + ребенок
-                        или двое взрослых.</p>
-                    <div class="equipment__specs">
-                        <span class="equipment__spec"><i class="fa-solid fa-users equipment__spec-icon"></i> 2
-                            человека</span>
-                        <span class="equipment__spec"><i class="fa-solid fa-weight-hanging equipment__spec-icon"></i> До
-                            180 кг</span>
-                    </div>
-                    <div class="equipment__advantage">
-                        <i class="fa-solid fa-check equipment__advantage-icon"></i>
-                        <p class="equipment__advantage-text">Разделите впечатления — кайф для пары или родителя с
-                            ребенком</p>
-                    </div>
-                </div>
-
-                <!-- Гоночные -->
-                <div class="equipment__card">
-                    <div class="equipment__image-wrapper">
-                        <img src="assets/sup_racing_1770205970857.png" alt="Гоночный сап для соревнований"
-                            class="equipment__image">
-                    </div>
-                    <h3 class="equipment__card-title">Гоночные сапборды</h3>
-                    <p class="equipment__card-target">Для профи и спортсменов</p>
-                    <p class="equipment__card-desc">Супер-узкие карбоновые доски для максимальной скорости. Требуют
-                        опыта катания.</p>
-                    <div class="equipment__specs">
-                        <span class="equipment__spec"><i class="fa-solid fa-bolt equipment__spec-icon"></i> Макс.
-                            скорость</span>
-                        <span class="equipment__spec"><i class="fa-solid fa-trophy equipment__spec-icon"></i>
-                            Соревнования</span>
-                    </div>
-                    <div class="equipment__advantage">
-                        <i class="fa-solid fa-check equipment__advantage-icon"></i>
-                        <p class="equipment__advantage-text">Для тех, кто хочет выжать максимум — адреналин гарантирован
-                        </p>
-                    </div>
-                </div>
-
-                <!-- С животными -->
-                <div class="equipment__card">
-                    <span class="equipment__badge equipment__badge_hot">Хайп</span>
-                    <div class="equipment__image-wrapper">
-                        <img src="assets/sup_pet_1770205985681.png" alt="Сапборд для катания с собакой"
-                            class="equipment__image">
-                    </div>
-                    <h3 class="equipment__card-title">SUP с питомцем</h3>
-                    <p class="equipment__card-target">Для катания с животными</p>
-                    <p class="equipment__card-desc">Широкие доски с нескользящим покрытием. Ваш четвероногий друг будет
-                        в восторге!</p>
-                    <div class="equipment__specs">
-                        <span class="equipment__spec"><i class="fa-solid fa-paw equipment__spec-icon"></i>
-                            Pet-friendly</span>
-                        <span class="equipment__spec"><i class="fa-solid fa-shield-dog equipment__spec-icon"></i> Жилет
-                            для собак</span>
-                    </div>
-                    <div class="equipment__advantage">
-                        <i class="fa-solid fa-check equipment__advantage-icon"></i>
-                        <p class="equipment__advantage-text">Вирусный контент для соцсетей — собака на сапе = тысячи
-                            лайков</p>
-                    </div>
-                </div>
-
-                <!-- Детские/Женские -->
-                <div class="equipment__card">
-                    <div class="equipment__image-wrapper">
-                        <img src="assets/scenario_family.png" alt="Детский сапборд Липецк" class="equipment__image">
-                    </div>
-                    <h3 class="equipment__card-title">Детские и женские</h3>
-                    <p class="equipment__card-target">Для легких райдеров</p>
-                    <p class="equipment__card-desc">Компактные и легкие доски весом до 8 кг. Проще нести, проще грести,
-                        проще управлять.</p>
-                    <div class="equipment__specs">
-                        <span class="equipment__spec"><i class="fa-solid fa-feather equipment__spec-icon"></i> Легкие (8
-                            кг)</span>
-                        <span class="equipment__spec"><i class="fa-solid fa-child equipment__spec-icon"></i> От 6
-                            лет</span>
-                    </div>
-                    <div class="equipment__advantage">
-                        <i class="fa-solid fa-check equipment__advantage-icon"></i>
-                        <p class="equipment__advantage-text">Подобраны под рост и силу — ребенок справится сам</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SUP Yoga Section -->
+    <!-- 7.2 SUP Yoga Section -->
     <section class="yoga" id="yoga">
         <div class="yoga__container">
             <div class="yoga__wrapper">
@@ -511,7 +627,7 @@
         </div>
     </section>
 
-    <!-- Corporate Events Section -->
+    <!-- 7.3 Corporate Events Section -->
     <section class="corporate" id="corporate">
         <div class="corporate__container">
             <div class="corporate__wrapper">
@@ -556,7 +672,72 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- 7.4 Gallery Section - Polaroid Carousel -->
+    <section class="gallery" id="gallery">
+        <div class="gallery__container">
+            <span class="gallery__label">Эмоции</span>
+            <h2 class="gallery__title">Моменты на воде</h2>
+
+            <div class="gallery__carousel">
+                <button class="gallery__nav gallery__nav--prev" id="galleryPrev">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <div class="gallery__track" id="galleryTrack">
+                    <div class="gallery__polaroid">
+                        <div class="gallery__photo-wrapper">
+                            <img src="assets/scenario_sunset.png" alt="Закат на воде" class="gallery__photo">
+                        </div>
+                        <span class="gallery__caption">Счастливые моменты лета 2026 ☀️</span>
+                    </div>
+
+                    <div class="gallery__polaroid">
+                        <div class="gallery__photo-wrapper">
+                            <img src="assets/scenario_adventure.png" alt="Приключения" class="gallery__photo">
+                        </div>
+                        <span class="gallery__caption">Каждый день — новое приключение 🚣</span>
+                    </div>
+
+                    <div class="gallery__polaroid">
+                        <div class="gallery__photo-wrapper">
+                            <img src="assets/scenario_family.png" alt="Семейный отдых" class="gallery__photo">
+                        </div>
+                        <span class="gallery__caption">Время с семьёй бесценно 💙</span>
+                    </div>
+
+                    <div class="gallery__polaroid">
+                        <div class="gallery__photo-wrapper">
+                            <img src="assets/scenario_pet_friendly.png" alt="С питомцем" class="gallery__photo">
+                        </div>
+                        <span class="gallery__caption">Лучший друг всегда рядом 🐕</span>
+                    </div>
+
+                    <div class="gallery__polaroid">
+                        <div class="gallery__photo-wrapper">
+                            <img src="assets/sup_family_1770205945964.png" alt="На воде" class="gallery__photo">
+                        </div>
+                        <span class="gallery__caption">Свобода на воде — это кайф 🌊</span>
+                    </div>
+                </div>
+
+                <button class="gallery__nav gallery__nav--next" id="galleryNext">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="gallery__dots" id="galleryDots">
+                <button class="gallery__dot gallery__dot--active"></button>
+                <button class="gallery__dot"></button>
+                <button class="gallery__dot"></button>
+                <button class="gallery__dot"></button>
+                <button class="gallery__dot"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         BLOCK 8: FAQ
+         ============================================ -->
     <section class="faq" id="faq">
         <div class="faq__container">
             <span class="faq__label">Вопросы</span>
@@ -632,112 +813,35 @@
         </div>
     </section>
 
-    <!-- Advantages Section -->
-    <section class="advantages">
-        <div class="advantages__container">
-            <h2 class="advantages__title">Почему выбирают «Водник»?</h2>
-            <div class="advantages__grid">
-                <div class="advantages__item">
-                    <span class="advantages__icon"><i class="fa-solid fa-circle-check"></i></span>
-                    <div>
-                        <h4 class="advantages__item-title">Опыт с 2012 года</h4>
-                        <p class="advantages__item-desc">Мы профессиональные спортсмены, а не просто пункт выдачи
-                            инвентаря.</p>
-                    </div>
-                </div>
-                <div class="advantages__item">
-                    <span class="advantages__icon"><i class="fa-solid fa-circle-check"></i></span>
-                    <div>
-                        <h4 class="advantages__item-title">Идеальная чистота</h4>
-                        <p class="advantages__item-desc">Моем оборудование Karcher-ом. Приятно брать в руки, приятно
-                            вставать босиком.</p>
-                    </div>
-                </div>
-                <div class="advantages__item">
-                    <span class="advantages__icon"><i class="fa-solid fa-circle-check"></i></span>
-                    <div>
-                        <h4 class="advantages__item-title">Центральный спуск</h4>
-                        <p class="advantages__item-desc">Старт прямо в центре города. Не нужно ехать за город, чтобы
-                            встать на воду.</p>
-                    </div>
-                </div>
-                <div class="advantages__item">
-                    <span class="advantages__icon"><i class="fa-solid fa-circle-check"></i></span>
-                    <div>
-                        <h4 class="advantages__item-title">Лучший рейтинг</h4>
-                        <p class="advantages__item-desc">5.0 на всех площадках. Мы дорожим каждым гостем.</p>
-                    </div>
-                </div>
+    <!-- ============================================
+         BLOCK 9: CTA #2 (Второй призыв к действию)
+         ============================================ -->
+    <section class="cta-final" id="cta-final">
+        <div class="cta-final__container">
+            <h2 class="cta-final__title">Готовы встать на воду?</h2>
+            <p class="cta-final__subtitle">Забронируйте сап прямо сейчас и получите чехол для телефона в подарок!</p>
+            <div class="cta-final__buttons">
+                <button class="cta-final__btn cta-final__btn_primary"
+                    onclick="document.getElementById('bookingModal').classList.add('active')">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    Забронировать
+                </button>
+                <a href="tel:+79042832230" class="cta-final__btn cta-final__btn_secondary">
+                    <i class="fa-solid fa-phone"></i>
+                    +7 (904) 283-22-30
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Booking Section -->
-    <section class="booking" id="booking">
-        <div class="booking__container">
-            <div class="booking__card">
-                <div class="booking__info">
-                    <h3 class="booking__title">Забронируй<br>свое лето</h3>
-                    <p class="booking__quote">«Лучшее время, чтобы встать на сап — прямо сейчас. Ждем вас в клубе!»</p>
-                    <div class="booking__details">
-                        <div class="booking__detail">
-                            <span class="booking__detail-icon"><i class="fa-solid fa-location-dot"></i></span>
-                            <span>г. Липецк, пл. Мира, 6а</span>
-                        </div>
-                        <div class="booking__detail">
-                            <span class="booking__detail-icon"><i class="fa-regular fa-clock"></i></span>
-                            <span>Ежедневно 09:00 — 21:00</span>
-                        </div>
-                    </div>
-                    <div class="booking__socials">
-                        <a href="https://t.me/supbord48" class="booking__social-link" aria-label="Telegram">
-                            <i class="fa-brands fa-telegram"></i>
-                        </a>
-                        <a href="https://vk.com/supbord48" class="booking__social-link" aria-label="VK">
-                            <i class="fa-brands fa-vk"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="booking__form-wrapper">
-                    <form class="booking__form">
-                        <div class="booking__row">
-                            <div class="booking__field">
-                                <label class="booking__label">Имя</label>
-                                <input type="text" class="booking__input" placeholder="Иван" required>
-                            </div>
-                            <div class="booking__field">
-                                <label class="booking__label">Телефон</label>
-                                <input type="tel" class="booking__input" placeholder="+7 (___) ___-__-__" required>
-                            </div>
-                        </div>
-                        <div class="booking__field">
-                            <label class="booking__label">Что хотите арендовать?</label>
-                            <select class="booking__select">
-                                <option>Сапборд (SUP)</option>
-                                <option>Каяк</option>
-                                <option>Байдарка</option>
-                                <option>Заказать групповой сплав</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="booking__submit">Оставить заявку</button>
-                        <p class="booking__policy">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности. Мы
-                            перезвоним вам в течение 10 минут.</p>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
     <footer class="footer">
         <div class="footer__container">
             <div class="footer__grid">
                 <div class="footer__brand">
                     <a href="#" class="footer__logo">
-                        <div class="footer__logo-icon">
-                            <i class="fa-solid fa-water"></i>
-                        </div>
                         <span class="footer__logo-text">САПБОРД<span class="footer__logo-accent">48</span></span>
                     </a>
                     <p class="footer__desc">
@@ -749,10 +853,10 @@
                 <div>
                     <h5 class="footer__heading">Разделы</h5>
                     <div class="footer__links">
-                        <a href="#catalog" class="footer__link">Прокат SUP-бордов</a>
-                        <a href="#catalog" class="footer__link">Аренда байдарок</a>
+                        <a href="#equipment" class="footer__link">Прокат SUP-бордов</a>
+                        <a href="#equipment" class="footer__link">Аренда байдарок</a>
                         <a href="#routes" class="footer__link">Маршруты по р. Воронеж</a>
-                        <a href="#catalog" class="footer__link">Тарифы</a>
+                        <a href="#scenarios" class="footer__link">Сценарии отдыха</a>
                     </div>
                 </div>
 

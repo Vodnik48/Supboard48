@@ -8,24 +8,29 @@
     --color-secondary: #00509E;
     --color-teal: #06D6A0;
     --color-pink: #E91E63;
-    
+
     /* Sky Blue Palette (React-style) */
     --color-sky-400: #38BDF8;
     --color-sky-500: #0EA5E9;
     --color-sky-600: #0284C7;
-    
+
     /* Slate Palette */
     --color-slate-50: #F8FAFC;
     --color-slate-100: #F1F5F9;
+    --color-slate-200: #E2E8F0;
+    --color-slate-300: #CBD5E1;
     --color-slate-400: #94A3B8;
     --color-slate-500: #64748B;
+    --color-slate-600: #475569;
+    --color-slate-700: #334155;
+    --color-slate-800: #1E293B;
     --color-slate-900: #0F172A;
     --color-slate-950: #020617;
-    
+
     /* Text Colors */
     --color-text-main: #FFFFFF;
     --color-text-dark: #333333;
-    
+
     /* Fonts */
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Roboto', sans-serif;
@@ -45,6 +50,6 @@
 body {
     font-family: var(--font-body);
     color: var(--color-text-main);
-    background-color: #111;
+    background: linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 50%, #f8fafc 100%);
     overflow-x: hidden;
 }
