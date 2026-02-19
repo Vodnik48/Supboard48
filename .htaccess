@@ -1,0 +1,10 @@
+<Files "*.log">
+    Require all denied
+</Files>
+
+<Files "send_mail.php">
+    # Prevent direct access via GET request if desired (optional)
+    # RewriteEngine On
+    # RewriteCond %{REQUEST_METHOD} GET
+    # RewriteRule ^ - [F]
+</Files>

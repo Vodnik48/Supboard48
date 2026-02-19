@@ -1,0 +1,184 @@
+/* ==========================================================================
+   Scenarios Block - Сценарии отдыха (expandable 3→6)
+   ========================================================================== */
+
+.scenarios {
+    padding: 64px 0;
+    /* Reduced from 100px */
+    background: linear-gradient(180deg, #f8fafc 0%, #e0f2fe 100%);
+}
+
+.scenarios__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.scenarios__label {
+    display: inline-block;
+    background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+}
+
+.scenarios__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: #0c4a6e;
+    margin-bottom: 12px;
+}
+
+.scenarios__subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto 32px;
+    /* Reduced from 48px */
+}
+
+.scenarios__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.scenarios__card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.scenarios__card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(14, 165, 233, 0.15);
+}
+
+.scenarios__card_hidden {
+    display: none;
+}
+
+.scenarios__grid.expanded .scenarios__card_hidden {
+    display: block;
+    animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scenarios__image-wrapper {
+    height: 200px;
+    overflow: hidden;
+}
+
+.scenarios__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.scenarios__card:hover .scenarios__image {
+    transform: scale(1.05);
+}
+
+.scenarios__content {
+    padding: 24px;
+}
+
+.scenarios__card-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.scenarios__card-time {
+    font-size: 0.9rem;
+    color: #0ea5e9;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.scenarios__card-desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-slate-600);
+    line-height: 1.6;
+}
+
+.scenarios__show-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: 2px solid #0ea5e9;
+    color: #0ea5e9;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scenarios__show-more:hover {
+    background: #0ea5e9;
+    color: white;
+}
+
+.scenarios__show-more.active i {
+    transform: rotate(180deg);
+}
+
+.scenarios__show-more i {
+    transition: transform 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .scenarios__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .scenarios {
+        padding: 40px 0;
+        /* Reduced from 60px */
+    }
+
+    .scenarios__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .scenarios__image-wrapper {
+        height: 180px;
+    }
+}

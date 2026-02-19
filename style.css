@@ -1,0 +1,53 @@
+/* ==========================================================================
+   Main Stylesheet - Supbord48 (React-style branch)
+   Organized by BEM methodology
+   ========================================================================== */
+
+/* Block Imports */
+@import url('css/blocks/_base.css');
+@import url('css/blocks/_animations.css');
+@import url('css/blocks/header.css');
+@import url('css/blocks/hero.css');
+@import url('css/blocks/modal.css');
+@import url('css/blocks/advantages.css');
+@import url('css/blocks/journey.css');
+@import url('css/blocks/equipment.css');
+@import url('css/blocks/routes.css');
+@import url('css/blocks/yoga.css');
+@import url('css/blocks/corporate.css');
+@import url('css/blocks/faq.css');
+@import url('css/blocks/booking.css');
+@import url('css/blocks/scenarios.css');
+@import url('css/blocks/gallery.css');
+@import url('css/blocks/cta-final.css');
+@import url('css/blocks/footer.css');
+@import url('css/blocks/cta-mobile.css');
+
+/* ==========================================================================
+   Media Queries - Responsive Styles
+   ========================================================================== */
+
+/* Tablet & Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+
+    /* Header */
+    .header__nav,
+    .header__contacts {
+        display: none;
+    }
+
+    .header__burger {
+        display: flex;
+    }
+
+    /* Modal */
+    .modal__content {
+        margin: 20px;
+        padding: 24px;
+    }
+
+    .modal__content {
+        margin: 20px;
+        padding: 24px;
+    }
+}

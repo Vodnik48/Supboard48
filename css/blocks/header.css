@@ -1,0 +1,377 @@
+/* ==========================================================================
+   Header Block
+   ========================================================================== */
+
+/* Scroll Progress Bar with Floating SUP */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    z-index: 998;
+    background: rgba(14, 165, 233, 0.15);
+    opacity: 0;
+    transition: opacity 0.3s ease, top 0.3s ease;
+}
+
+.scroll-progress--visible {
+    opacity: 1;
+}
+
+/* When header is visible, progress bar moves below it */
+.scroll-progress--header-visible {
+    top: 64px;
+}
+
+.scroll-progress__track {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.scroll-progress__wave {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-sky-400) 0%, var(--color-sky-500) 100%);
+    border-radius: 0 3px 3px 0;
+    transition: width 0.1s ease;
+}
+
+.scroll-progress__sup {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    width: 32px;
+    /* Slightly larger for image */
+    height: 32px;
+    background: transparent;
+    /* Remove solid background */
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+    transition: left 0.1s ease;
+    animation: bobSup 2s ease-in-out infinite;
+}
+
+.scroll-progress__icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: rotate(15deg);
+    /* Slight tilt for dynamic look */
+}
+
+@keyframes bobSup {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) translateY(0);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) translateY(-2px);
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-progress--header-visible {
+        top: 56px;
+    }
+
+    .scroll-progress__sup {
+        width: 18px;
+        height: 18px;
+        font-size: 8px;
+    }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 16px 0;
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(0, 20, 50, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* State: Header hidden on scroll down */
+.header--hidden {
+    transform: translateY(-100%);
+}
+
+/* State: Scrolled past hero - use solid background */
+.header--scrolled {
+    background: rgba(0, 35, 80, 0.98);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+}
+
+.header__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header__logo-text {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
+.header__logo-accent {
+    color: var(--color-accent);
+}
+
+.header__nav {
+    display: flex;
+    gap: 32px;
+}
+
+.header__link {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.2s, opacity 0.2s;
+    opacity: 0.9;
+    position: relative;
+}
+
+.header__link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.header__link:hover {
+    color: var(--color-accent);
+    opacity: 1;
+}
+
+.header__link:hover::after {
+    width: 100%;
+}
+
+.header__phone {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    /* Prevent wrapping */
+}
+
+.header__phone:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+.header__burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+}
+
+.header__burger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+}
+
+/* Tablet Breakpoint - Intermediate */
+@media (max-width: 1024px) {
+    .header__container {
+        padding: 0 15px;
+    }
+
+    .header__nav {
+        gap: 20px;
+    }
+
+    .header__link {
+        font-size: 13px;
+    }
+
+    .header__phone {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 12px 0;
+    }
+
+    .header__nav {
+        display: none;
+    }
+
+    .header__burger {
+        display: flex;
+    }
+
+    .header__phone {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
+
+/* Active Link State */
+.header__link--active {
+    color: var(--color-accent);
+    opacity: 1;
+}
+
+.header__link--active::after {
+    width: 100%;
+}
+
+/* Mobile Menu Overlay */
+.header__mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(0, 25, 60, 0.98) 0%, rgba(0, 40, 90, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 999;
+}
+
+/* Close Button */
+.header__mobile-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.header__mobile-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+}
+
+.header__mobile-menu--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.header__mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.header__mobile-link {
+    color: white;
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    transition: color 0.2s, opacity 0.2s, transform 0.2s;
+}
+
+.header__mobile-link:hover,
+.header__mobile-link--active {
+    color: var(--color-accent);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.header__mobile-phone {
+    margin-top: 24px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 18px;
+    background: var(--color-accent);
+    padding: 14px 28px;
+    border-radius: 50px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.header__mobile-phone:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
+}
+
+/* Burger Animation when menu is open */
+.header__burger--open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.header__burger--open span:nth-child(2) {
+    opacity: 0;
+}
+
+.header__burger--open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}

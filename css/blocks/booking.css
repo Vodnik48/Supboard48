@@ -1,0 +1,206 @@
+/* ==========================================================================
+   Booking Section with Form
+   ========================================================================== */
+
+.booking {
+    padding: 64px 0;
+    /* Reduced from 96px */
+    background: var(--color-sky-500);
+    position: relative;
+}
+
+.booking__container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.booking__card {
+    display: flex;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 40px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Left Column - Info */
+.booking__info {
+    flex: 2;
+    padding: 48px;
+    background: var(--color-slate-900);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.booking__title {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.booking__quote {
+    font-style: italic;
+    color: var(--color-slate-400);
+    margin-bottom: 32px;
+    font-size: 14px;
+}
+
+.booking__details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.booking__detail {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+}
+
+.booking__detail-icon {
+    color: var(--color-sky-400);
+    font-size: 20px;
+}
+
+.booking__socials {
+    display: flex;
+    gap: 16px;
+    margin-top: 48px;
+}
+
+.booking__social-link {
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.booking__social-link:hover {
+    background: var(--color-sky-500);
+}
+
+/* Right Column - Form */
+.booking__form-wrapper {
+    flex: 3;
+    padding: 48px;
+}
+
+.booking__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.booking__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.booking__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.booking__label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-slate-400);
+}
+
+.booking__input,
+.booking__select {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--color-slate-50);
+    border: 1px solid var(--color-slate-100);
+    border-radius: 12px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-slate-900);
+    transition: all 0.3s ease;
+}
+
+.booking__input:focus,
+.booking__select:focus {
+    outline: none;
+    border-color: var(--color-sky-500);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+}
+
+.booking__submit {
+    width: 100%;
+    padding: 20px;
+    background: var(--color-sky-500);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
+}
+
+.booking__submit:hover {
+    background: var(--color-sky-600);
+    transform: translateY(-2px);
+}
+
+.booking__submit:active {
+    transform: scale(0.98);
+}
+
+.booking__policy {
+    font-size: 10px;
+    text-align: center;
+    color: var(--color-slate-400);
+    margin: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .booking {
+        padding: 64px 0;
+    }
+
+    .booking__card {
+        flex-direction: column;
+        border-radius: 24px;
+    }
+
+    .booking__info {
+        padding: 32px;
+    }
+
+    .booking__form-wrapper {
+        padding: 32px;
+    }
+
+    .booking__row {
+        grid-template-columns: 1fr;
+    }
+
+    .booking__title {
+        font-size: 24px;
+    }
+}

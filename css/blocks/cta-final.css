@@ -1,0 +1,100 @@
+/* ==========================================================================
+   CTA Final Block - Второй призыв к действию
+   ========================================================================== */
+
+.cta-final {
+    padding: 100px 0 80px;
+    background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 50%, #0c4a6e 100%);
+    text-align: center;
+}
+
+.cta-final__container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.cta-final__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 16px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cta-final__subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.cta-final__buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-final__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+.cta-final__btn_primary {
+    background: white;
+    color: #0c4a6e;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+}
+
+.cta-final__btn_primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.4);
+    background: #f0f9ff;
+}
+
+.cta-final__btn_secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.cta-final__btn_secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .cta-final {
+        padding: 60px 0 100px;
+        /* Extra bottom padding for sticky CTA */
+    }
+
+    .cta-final__buttons {
+        flex-direction: column;
+        max-width: 300px;
+        margin: 0 auto;
+        gap: 12px;
+    }
+
+    .cta-final__btn {
+        width: 100%;
+    }
+}
