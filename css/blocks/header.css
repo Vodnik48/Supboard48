@@ -118,18 +118,20 @@
 }
 
 .header__container {
-    max-width: 1200px;
+    max-width: 1300px; /* Increased to allow thick uppercase links to breathe */
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 32px; /* Force minimum gap between logo, nav, and phone */
 }
 
 .header__logo {
     display: flex;
     align-items: center;
     text-decoration: none;
+    flex-shrink: 0; /* Prevent logo from squishing */
 }
 
 .header__logo-text {
@@ -141,12 +143,14 @@
 }
 
 .header__logo-accent {
-    color: var(--color-accent);
+    color: var(--brand-orange); /* Use strict brand variable */
 }
 
 .header__nav {
     display: flex;
-    gap: 32px;
+    gap: 24px; /* Slightly reduced gap to fit 5 items safely */
+    flex: 1; /* Allow nav to take available space */
+    justify-content: center; /* Center the nav items */
 }
 
 .header__link {
@@ -219,27 +223,26 @@
     transition: transform 0.3s ease;
 }
 
-/* Tablet Breakpoint - Intermediate */
-@media (max-width: 1024px) {
-    .header__container {
-        padding: 0 15px;
-    }
-
+/* Intermediate Breakpoints */
+@media (max-width: 1150px) {
     .header__nav {
-        gap: 20px;
+        gap: 16px;
     }
-
     .header__link {
         font-size: 13px;
+        letter-spacing: 0;
     }
-
     .header__phone {
         font-size: 14px;
         padding: 8px 16px;
     }
+    .header__container {
+        gap: 16px;
+    }
 }
 
-@media (max-width: 768px) {
+/* Switch to Burger Menu Earlier (Tablet portrait and below) */
+@media (max-width: 992px) {
     .header {
         padding: 12px 0;
     }

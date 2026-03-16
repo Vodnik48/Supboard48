@@ -1,0 +1,117 @@
+.reviews {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-surface);
+}
+
+.reviews__container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+}
+
+.reviews__label {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: rgba(249, 105, 67, 0.1);
+    color: var(--brand-orange);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-md);
+}
+
+.reviews__title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h2);
+    color: var(--brand-blue);
+    margin-bottom: var(--spacing-xl);
+    text-transform: uppercase;
+}
+
+.reviews__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.reviews__card {
+    background: var(--color-background);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: 0 10px 30px rgba(16, 46, 72, 0.05);
+    transition: transform var(--transition-normal);
+}
+
+.reviews__card:hover {
+    transform: translateY(-5px);
+}
+
+.reviews__header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.reviews__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.reviews__author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviews__author {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    color: var(--brand-blue);
+    font-weight: 700;
+    margin: 0 0 4px 0;
+}
+
+.reviews__rating {
+    color: #FFB300; /* Yandex Maps Star Color */
+    font-size: 14px;
+}
+
+.reviews__text {
+    color: var(--color-text-light);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
+}
+
+.reviews__source {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--font-size-sm);
+    color: #8C8C8C;
+}
+
+.reviews__source::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FF0000"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>');
+    background-size: cover;
+}
+
+.reviews__action {
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .reviews__title {
+        font-size: var(--font-size-h3);
+    }
+}

@@ -1,11 +1,10 @@
 /* ==========================================================================
-   Routes Section - Split Layout
+   Routes / Tours Section - Interactive Cards layout
    ========================================================================== */
 
 .routes {
-    padding: 64px 0;
-    /* Reduced from 96px */
-    background: white;
+    padding: 80px 0;
+    background: var(--color-cloud, #EFEFEF); /* Light brand background */
 }
 
 .routes__container {
@@ -14,174 +13,134 @@
     padding: 0 20px;
 }
 
-.routes__wrapper {
-    display: flex;
-    gap: 64px;
-    align-items: center;
-}
-
-/* Left Column - Text */
-.routes__content {
-    flex: 1;
-}
-
 .routes__label {
     font-family: var(--font-heading);
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--color-sky-500);
+    color: var(--brand-orange, #F96943);
     margin-bottom: 16px;
+    display: block;
+    text-align: center;
 }
 
 .routes__title {
     font-family: var(--font-heading);
     font-size: clamp(32px, 5vw, 48px);
     font-weight: 900;
-    color: var(--color-slate-900);
-    margin-bottom: 32px;
+    color: var(--color-river, #102E48);
+    margin-bottom: 48px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* Tours Grid */
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+/* Interactive Tour Card */
+.tour-card {
+    background: var(--color-white, #FFFFFF);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(16, 46, 72, 0.05); /* Soft dark blue shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(16, 46, 72, 0.1);
+}
+
+.tour-card__img-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 60%; /* Aspect ratio ~ 16:9 */
+    overflow: hidden;
+    background: var(--color-cloud);
+}
+
+.tour-card__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.tour-card:hover .tour-card__img {
+    transform: scale(1.05);
+}
+
+.tour-card__badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(4px);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-river);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.tour-card__content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.tour-card__title {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-river);
+    margin-bottom: 12px;
     text-transform: uppercase;
 }
 
-/* Route Items */
-.routes__list {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+.tour-card__desc {
+    font-size: 15px;
+    color: var(--color-river);
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    flex: 1;
 }
 
-.routes__item {
-    display: flex;
-    gap: 16px;
-    padding: 16px;
-    border-radius: 16px;
+.tour-card__btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    background: var(--brand-sky, #1051B5);
+    color: white;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
     transition: background 0.3s ease;
 }
 
-.routes__item:hover {
-    background: var(--color-slate-50);
+.tour-card:hover .tour-card__btn {
+    background: var(--brand-orange, #F96943);
 }
 
-.routes__number {
-    width: 48px;
-    height: 48px;
-    background: var(--color-slate-100);
-    color: var(--color-sky-600);
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-heading);
-    font-weight: 700;
-    flex-shrink: 0;
-}
-
-.routes__item-content {
-    flex: 1;
-}
-
-.routes__item-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 4px;
-}
-
-.routes__item-title {
-    font-family: var(--font-heading);
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--color-slate-900);
-    margin: 0;
-}
-
-.routes__item-time {
-    background: var(--color-slate-50);
-    color: var(--color-sky-500);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.routes__item-desc {
-    font-size: 14px;
-    color: var(--color-slate-500);
-    line-height: 1.6;
-    margin: 0;
-}
-
-.routes__btn {
-    margin-top: 48px;
-    padding: 16px 32px;
-    background: var(--color-sky-500);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-family: var(--font-heading);
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.2);
-}
-
-.routes__btn:hover {
-    background: var(--color-sky-600);
-    transform: translateY(-2px);
-}
-
-/* Right Column - Images */
-.routes__images {
-    flex: 1;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-}
-
-.routes__image {
-    border-radius: 24px;
-    width: 100%;
-    object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.routes__image:nth-child(1) {
-    height: 256px;
-}
-
-.routes__image:nth-child(2) {
-    height: 320px;
-    margin-top: -40px;
-}
-
-.routes__image:nth-child(3) {
-    height: 320px;
-    margin-top: -64px;
-}
-
-.routes__image:nth-child(4) {
-    height: 256px;
-}
-
-/* Mobile Responsive */
 @media (max-width: 768px) {
     .routes {
-        padding: 40px 0;
-        /* Reduced from 64px */
+        padding: 50px 0;
     }
-
-    .routes__wrapper {
-        flex-direction: column;
-        gap: 48px;
-    }
-
-    .routes__images {
-        display: none;
-    }
-
-    .routes__item {
-        padding: 12px;
+    .tours-grid {
+        gap: 24px;
     }
 }

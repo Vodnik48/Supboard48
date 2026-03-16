@@ -94,3 +94,166 @@
     text-align: center;
     line-height: 1.4;
 }
+
+/* ==========================================================================
+   Detailed Info Modals (Equipment / Tours)
+   ========================================================================== */
+
+.modal--detail .modal__content--large {
+    max-width: 800px;
+    background: var(--color-white, #FFFFFF);
+    color: var(--color-river, #102E48);
+    padding: 0;
+    overflow: hidden;
+}
+
+.modal--detail .modal__close {
+    color: var(--color-river);
+    background: rgba(255, 255, 255, 0.8);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.modal-detail__layout {
+    display: flex;
+    flex-direction: row;
+    max-height: 85vh; /* Prevent modal from exceeding screen height */
+}
+
+.modal-detail__layout--tour {
+    flex-direction: column;
+}
+
+.modal-detail__image-box {
+    flex: 0 0 45%;
+    background: var(--color-cloud, #EFEFEF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+}
+
+.modal-detail__img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+}
+
+.modal-detail__info {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Scrollable content area */
+}
+
+.modal-detail__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.modal-detail__title {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--color-river);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.modal-detail__header .modal-detail__title {
+    margin-bottom: 0;
+}
+
+.modal-detail__badge {
+    background: var(--brand-orange, #F96943);
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.modal-detail__desc {
+    font-size: 16px;
+    color: var(--color-river);
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.modal-detail__specs {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.modal-detail__specs li {
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-detail__specs li strong {
+    color: var(--brand-sky, #1051B5);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+
+/* Yandex Map Placeholder */
+.tour-map-placeholder {
+    width: 100%;
+    height: 300px;
+    background: var(--color-cloud, #EFEFEF);
+    border-radius: 12px;
+    border: 2px dashed rgba(16, 81, 181, 0.3);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-river);
+}
+
+.tour-map-placeholder__inner i {
+    font-size: 32px;
+    color: var(--brand-sky);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.modal-detail__action {
+    margin-top: auto; /* Push to bottom */
+}
+
+@media (max-width: 768px) {
+    .modal-detail__layout {
+        flex-direction: column;
+    }
+    .modal-detail__image-box {
+        padding: 24px;
+    }
+    .modal-detail__info {
+        padding: 24px;
+    }
+    .modal-detail__specs {
+        grid-template-columns: 1fr;
+    }
+}

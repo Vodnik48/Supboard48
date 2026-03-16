@@ -79,6 +79,307 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModalOverlay = document.getElementById('closeModalOverlay');
     const modal = document.getElementById('bookingModal');
 
+    // Detail Modals
+    const equipModal = document.getElementById('equipDetailModal');
+    const tourModal = document.getElementById('tourDetailModal');
+    const detailCloseBtns = document.querySelectorAll('.js-close-detail-modal');
+
+    // Data Dictionaries for Modals — Реальные данные с Яндекс Карт (Водник, Липецк)
+    const equipmentData = {
+        // ========== САПБОРДЫ ==========
+        'sup_arctic': {
+            title: 'JS 335 Arctic',
+            img: 'assets/equip/sup_arctic.jpg',
+            desc: 'Универсальная модель 335×81×15 см, до 200 кг. Подходит для новичков и пар. Устойчивый корпус с тремя плавниками.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Размер', value: '335×81×15 см' },
+                { label: 'Грузоподъемность', value: 'до 200 кг' },
+                { label: 'Плавники', value: '3 шт' },
+                { label: 'Уровень', value: 'Для всех' }
+            ]
+        },
+        'sup_rq335': {
+            title: 'JS RQ335',
+            img: 'assets/equip/sup_rq335.jpg',
+            desc: 'Устойчивая платформа с одним плавником 335×82×15 см. Отличный выбор для спокойных прогулок.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Размер', value: '335×82×15 см' },
+                { label: 'Плавник', value: '1 шт (большой)' },
+                { label: 'Тип', value: 'All-round' },
+                { label: 'Уровень', value: 'Для всех' }
+            ]
+        },
+        'sup_ninja': {
+            title: 'JS Ninja 335',
+            img: 'assets/equip/sup_ninja.jpg',
+            desc: 'Для разных стилей катания, прогулок и легкого фитнеса. Универсальная и послушная доска.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Размер', value: '335×81×15 см' },
+                { label: 'Стиль', value: 'Универсальный' },
+                { label: 'Подходит', value: 'Прогулки, фитнес' },
+                { label: 'Уровень', value: 'Для всех' }
+            ]
+        },
+        'sup_guns_roses': {
+            title: 'Fayean Guns & Roses 10\'6',
+            img: 'assets/equip/sup_guns_roses.jpg',
+            desc: 'Стильная и маневренная доска 320×83×15 см с три плавниками. Компактная, легко управляется.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Размер', value: '320×83×15 см' },
+                { label: 'Плавники', value: '3 шт' },
+                { label: 'Тип', value: 'All-round' },
+                { label: 'Уровень', value: 'Новичок / Любитель' }
+            ]
+        },
+        'sup_koi': {
+            title: 'Fayean Koi 11\'6',
+            img: 'assets/equip/sup_koi.jpg',
+            desc: 'Длинная доска (350 см) для открытой воды и волн. Объем 290 л, давление до 20 psi. Для дальних маршрутов.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Размер', value: '350×76×15 см' },
+                { label: 'Объем', value: '290 л' },
+                { label: 'Давление', value: 'до 20 psi' },
+                { label: 'Тип', value: 'Touring' }
+            ]
+        },
+        'sup_monkey': {
+            title: 'My SUP 11\'6 Monkey',
+            img: 'assets/equip/sup_monkey.jpg',
+            desc: 'Туринговая доска для дальних прогулок и скорости. Размер 350×76×15 см, объем 290 л.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Размер', value: '350×76×15 см' },
+                { label: 'Объем', value: '290 л' },
+                { label: 'Тип', value: 'Touring' },
+                { label: 'Уровень', value: 'Средний / Продвинутый' }
+            ]
+        },
+        'sup_duo': {
+            title: 'Compact DUO 340',
+            img: 'assets/equip/sup_duo.jpg',
+            desc: 'Прочная доска для двоих (взрослый + ребенок или пара). Размер 340×83×15 см, объем 330 л.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Размер', value: '340×83×15 см' },
+                { label: 'Объем', value: '330 л' },
+                { label: 'Вместимость', value: '2 человека' },
+                { label: 'Тип', value: 'Tandem' }
+            ]
+        },
+        'sup_yoga': {
+            title: 'YogiPad 330 (Йога)',
+            img: 'assets/equip/sup_yoga.jpg',
+            desc: 'Широкая (85 см) и устойчивая платформа 330×85×15 см. Идеально для SUP-йоги и медитации на воде. Вес 9 кг.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Размер', value: '330×85×15 см' },
+                { label: 'Вес', value: '9 кг' },
+                { label: 'Ширина', value: '85 см (макс.)' },
+                { label: 'Тип', value: 'Yoga / Fitness' }
+            ]
+        },
+        'sup_kids': {
+            title: 'MiniBoard 240 (Детский)',
+            img: 'assets/equip/sup_kids.jpg',
+            desc: 'Компактная и легкая доска для детей 5-12 лет. Размер 240×65×12 см, до 60 кг.',
+            price: '400 ₽/час',
+            specs: [
+                { label: 'Размер', value: '240×65×12 см' },
+                { label: 'Грузоподъемность', value: 'до 60 кг' },
+                { label: 'Возраст', value: '5-12 лет' },
+                { label: 'Тип', value: 'Kids' }
+            ]
+        },
+        'sup_easy': {
+            title: 'Easy Paddle 305',
+            img: 'assets/equip/sup_easy.jpg',
+            desc: 'Легкая и простая в управлении доска. Размер 305×76×15 см, вес всего 7.5 кг.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Размер', value: '305×76×15 см' },
+                { label: 'Вес', value: '7.5 кг' },
+                { label: 'Тип', value: 'Легкий старт' },
+                { label: 'Уровень', value: 'Новичок' }
+            ]
+        },
+        'sup_standard': {
+            title: 'Ride Standard 320',
+            img: 'assets/equip/sup_standard.jpg',
+            desc: 'Классический формат для всех уровней подготовки. Размер 320×80×15 см, объем 290 л.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Размер', value: '320×80×15 см' },
+                { label: 'Объем', value: '290 л' },
+                { label: 'Тип', value: 'All-round' },
+                { label: 'Уровень', value: 'Для всех' }
+            ]
+        },
+        'sup_powerflow': {
+            title: 'Power Flow 335',
+            img: 'assets/equip/sup_powerflow.jpg',
+            desc: 'Устойчивый корпус для уверенного катания. Размер 335×81×15 см, объем 326 л. Один плавник.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Размер', value: '335×81×15 см' },
+                { label: 'Объем', value: '326 л' },
+                { label: 'Плавник', value: '1 шт' },
+                { label: 'Тип', value: 'All-round' }
+            ]
+        },
+        'sup_softride': {
+            title: 'SoftRide 11\'',
+            img: 'assets/equip/sup_softride.jpg',
+            desc: 'Доска 350×76×15 см с объемом 290 л и тремя плавниками. Максимальный ход и объем для долгих маршрутов.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Размер', value: '350×76×15 см' },
+                { label: 'Объем', value: '290 л' },
+                { label: 'Плавники', value: '3 шт' },
+                { label: 'Тип', value: 'Touring' }
+            ]
+        },
+        // ========== БАЙДАРКИ ==========
+        'baidarka_3': {
+            title: 'Байдарка 3-местная',
+            img: 'assets/equip/baidarka_3.jpg',
+            desc: 'Вместительная трехместная байдарка. В стоимость входит аренда байдарки, весла и спасжилета. В наличии 10 штук.',
+            price: '900 ₽/час',
+            specs: [
+                { label: 'Вместимость', value: '3 человека' },
+                { label: 'В наличии', value: '10 шт' },
+                { label: 'Включено', value: 'Весла + жилеты' },
+                { label: 'Тип', value: 'Байдарка' }
+            ]
+        },
+        'baidarka_karkas': {
+            title: 'Байдарка каркасная',
+            img: 'assets/equip/baidarka_karkas.jpg',
+            desc: 'Каркасная байдарка для настоящих ценителей сплавов. В стоимость входит аренда байдарки, весла и спасжилета.',
+            price: '900 ₽/час',
+            specs: [
+                { label: 'Тип', value: 'Каркасная' },
+                { label: 'В наличии', value: '1 шт' },
+                { label: 'Включено', value: 'Весла + жилеты' },
+                { label: 'Особенность', value: 'Классика' }
+            ]
+        },
+        'baidarka_karkas_2': {
+            title: 'Байдарка каркасная 2-местная',
+            img: 'assets/equip/baidarka_karkas_2.jpg',
+            desc: 'Каркасная двухместная байдарка. В стоимость входит аренда байдарки, весла и спасжилета. В наличии 4 штуки.',
+            price: '700 ₽/час',
+            specs: [
+                { label: 'Вместимость', value: '2 человека' },
+                { label: 'Тип', value: 'Каркасная' },
+                { label: 'В наличии', value: '4 шт' },
+                { label: 'Включено', value: 'Весла + жилеты' }
+            ]
+        },
+        // ========== КАЯКИ ==========
+        'kayak_1': {
+            title: 'Каяк 1-местный',
+            img: 'assets/equip/kayak_1.jpg',
+            desc: 'Одноместный каяк для самостоятельных исследований реки. В наличии 17 штук.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Вместимость', value: '1 человек' },
+                { label: 'В наличии', value: '17 шт' },
+                { label: 'Включено', value: 'Весло + жилет' },
+                { label: 'Тип', value: 'Sit-in' }
+            ]
+        },
+        'kayak_2': {
+            title: 'Каяк 2-местный',
+            img: 'assets/equip/kayak_2.jpg',
+            desc: 'Двухместный каяк для парного катания. В наличии 11 штук.',
+            price: '700 ₽/час',
+            specs: [
+                { label: 'Вместимость', value: '2 человека' },
+                { label: 'В наличии', value: '11 шт' },
+                { label: 'Включено', value: 'Весла + жилеты' },
+                { label: 'Тип', value: 'Sit-in' }
+            ]
+        },
+        'kayak_3': {
+            title: 'Каяк 3-местный',
+            img: 'assets/equip/kayak_3.jpg',
+            desc: 'Трёхместный семейный каяк. Идеально для двух взрослых и ребенка. В наличии 4 штуки.',
+            price: '900 ₽/час',
+            specs: [
+                { label: 'Вместимость', value: '2 взр. + 1 реб.' },
+                { label: 'В наличии', value: '4 шт' },
+                { label: 'Включено', value: 'Весла + жилеты' },
+                { label: 'Тип', value: 'Sit-on-top' }
+            ]
+        },
+        // ========== ФОТОСЕССИИ ==========
+        'photo_lite': {
+            title: 'Фотосессия Lite',
+            img: 'assets/equip/photo_lite.jpg',
+            desc: 'Пакет Лайт: 10 профессиональных фото с обработкой. Съемка на воде или на берегу.',
+            price: '3 000 ₽',
+            specs: [
+                { label: 'Кол-во фото', value: '10 шт' },
+                { label: 'Обработка', value: 'Включена' },
+                { label: 'Формат', value: 'Цифровые файлы' },
+                { label: 'Локация', value: 'На воде / берег' }
+            ]
+        },
+        'photo_full': {
+            title: 'Фотосессия',
+            img: 'assets/equip/photo_full.jpg',
+            desc: 'Расширенный пакет: 20 профессиональных фото с обработкой. Полноценная фотосессия на воде.',
+            price: '4 000 ₽',
+            specs: [
+                { label: 'Кол-во фото', value: '20 шт' },
+                { label: 'Обработка', value: 'Включена' },
+                { label: 'Формат', value: 'Цифровые файлы' },
+                { label: 'Локация', value: 'На воде / берег' }
+            ]
+        }
+    };
+
+    const toursData = {
+        'sunset': {
+            title: 'Городской закат',
+            time: '1.5 часа',
+            desc: 'Расслабляющая вечерняя прогулка по акватории реки Воронеж в черте города. Мы проплывем под Петровским мостом, полюбуемся огнями набережной и встретим потрясающий закат прямо на воде. Идеально для первого знакомства с сапбордингом и романтических свиданий.',
+            specs: [
+                { label: 'Сложность', value: 'Легкая (для новичков)' },
+                { label: 'Протяженность', value: '3 км' },
+                { label: 'Старт', value: 'Центральный пляж' },
+                { label: 'Формат', value: 'Закат с инструктором' }
+            ]
+        },
+        'krivets': {
+            title: 'Дикий Кривец',
+            time: '3-4 часа',
+            desc: 'Живописный маршрут по извилистому руслу реки. Нависающие деревья создают зеленые тоннели, а отсутствие городского шума позволяет полностью слиться с природой. В середине пути делаем привал на диком песчаном берегу с пикником и горячим чаем.',
+            specs: [
+                { label: 'Сложность', value: 'Средняя (базовый опыт)' },
+                { label: 'Протяженность', value: '8 км' },
+                { label: 'Трансфер', value: 'Предоставляется' },
+                { label: 'Включено', value: 'Пикник, фотосъемка' }
+            ]
+        },
+        'sputnik': {
+            title: 'Экспедиция Спутник',
+            time: '6 часов',
+            desc: 'Настоящее приключение для тех, кто хочет испытать себя! Длинный и разнообразный маршрут, который начинается за городом и проходит через множество живописных локаций, заводи и острова. Полноценный поход одного дня на сапах.',
+            specs: [
+                { label: 'Сложность', value: 'Высокая (нужна выносливость)' },
+                { label: 'Протяженность', value: '15+ км' },
+                { label: 'Трансфер', value: 'Предоставляется' },
+                { label: 'Включено', value: 'Горячий обед на костре' }
+            ]
+        }
+    };
+
     function openModal() {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -86,17 +387,91 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function closeModal() {
         modal.classList.remove('active');
+        if (equipModal) equipModal.classList.remove('active');
+        if (tourModal) tourModal.classList.remove('active');
         document.body.style.overflow = '';
+    }
+
+    function openDetailModal(modalElement) {
+        if (!modalElement) return;
+        modalElement.classList.add('active');
+        document.body.style.overflow = 'hidden';
     }
 
     // Unified Modal Open Logic
     document.addEventListener('click', (e) => {
-        // Handle elements with .js-open-modal or inside one
+        // Equipment Modal
+        const equipCard = e.target.closest('.js-open-equip-modal');
+        if (equipCard) {
+            // Check if user clicked inside the controls (qty, standard selects, etc.)
+            const isControlClick = e.target.closest('.booking__qty-wrap, .booking__duration-select, .booking__custom-date');
+            
+            if (!isControlClick && equipModal) {
+                const equipId = equipCard.dataset.equipId;
+                const data = equipmentData[equipId];
+                
+                if (data) {
+                    document.getElementById('equipModalTitle').textContent = data.title;
+                    document.getElementById('equipModalDesc').textContent = data.desc;
+                    document.getElementById('equipModalImg').src = data.img;
+                    
+                    // Show price if available
+                    const priceEl = document.getElementById('equipModalPrice');
+                    if (priceEl && data.price) {
+                        priceEl.textContent = data.price;
+                        priceEl.style.display = '';
+                    }
+                    
+                    const specsContainer = document.getElementById('equipModalSpecs');
+                    specsContainer.innerHTML = '';
+                    data.specs.forEach(spec => {
+                        specsContainer.innerHTML += `<li><strong>${spec.label}</strong><span>${spec.value}</span></li>`;
+                    });
+                    
+                    openDetailModal(equipModal);
+                }
+                return; // Stop execution
+            }
+        }
+
+        // Tour Modal
+        const tourCard = e.target.closest('.js-open-tour-modal');
+        if (tourCard && tourModal) {
+            const tourId = tourCard.dataset.tourId;
+            const data = toursData[tourId];
+            
+            if (data) {
+                document.getElementById('tourModalTitle').textContent = data.title;
+                document.getElementById('tourModalTime').textContent = data.time;
+                document.getElementById('tourModalDesc').textContent = data.desc;
+                
+                const specsContainer = document.getElementById('tourModalSpecs');
+                specsContainer.innerHTML = '';
+                data.specs.forEach(spec => {
+                    specsContainer.innerHTML += `<li><strong>${spec.label}</strong><span>${spec.value}</span></li>`;
+                });
+                
+                // Yandex Map Placeholder text update (optional, usually static until iFrame is added)
+                // const mapContainer = document.getElementById('tourYandexMapContainer');
+                
+                openDetailModal(tourModal);
+            }
+            return;
+        }
+
+        // Standard Modal (.js-open-modal)
         const btn = e.target.closest('.js-open-modal');
-        if (btn) {
+        if (btn && !e.target.closest('.js-open-equip-modal') && !e.target.closest('.js-open-tour-modal')) {
             e.preventDefault();
             openModal();
         }
+    });
+
+    // Close logic for all detail modals
+    detailCloseBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if (e.target === btn) closeModal(); // Ensure we don't close if clicking modal content
+        });
     });
 
     if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
@@ -276,73 +651,92 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ========================================
-    // Gallery Polaroid Carousel
+    // Gallery Polaroid Stacked Fanning Scroll
     // ========================================
-    const galleryTrack = document.getElementById('galleryTrack');
-    const galleryPrev = document.getElementById('galleryPrev');
-    const galleryNext = document.getElementById('galleryNext');
-    const galleryDots = document.querySelectorAll('.gallery__dot');
-    const polaroids = document.querySelectorAll('.gallery__polaroid');
-
-    if (galleryTrack && polaroids.length > 0) {
-        let currentSlide = 0;
-
-        function updateDots(index) {
-            galleryDots.forEach((dot, i) => {
-                dot.classList.toggle('gallery__dot--active', i === index);
-            });
-        }
-
-        function scrollToSlide(index) {
-            if (index < 0) index = 0;
-            if (index >= polaroids.length) index = polaroids.length - 1;
-            currentSlide = index;
-
-            const polaroid = polaroids[index];
-            const scrollLeft = polaroid.offsetLeft - (galleryTrack.offsetWidth / 2) + (polaroid.offsetWidth / 2);
-            galleryTrack.scrollTo({ left: scrollLeft, behavior: 'smooth' });
-            updateDots(index);
-        }
-
-        if (galleryPrev) {
-            galleryPrev.addEventListener('click', () => {
-                scrollToSlide(currentSlide - 1);
-            });
-        }
-
-        if (galleryNext) {
-            galleryNext.addEventListener('click', () => {
-                scrollToSlide(currentSlide + 1);
-            });
-        }
-
-        // Dots click
-        galleryDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                scrollToSlide(index);
-            });
+    const gallerySection = document.getElementById('gallery');
+    const galleryHeader = document.getElementById('galleryHeader');
+    const galleryStackedCards = document.getElementById('galleryStackedCards');
+    
+    if (gallerySection && galleryStackedCards) {
+        const polaroids = galleryStackedCards.querySelectorAll('.gallery__polaroid');
+        const numCards = polaroids.length;
+        
+        polaroids.forEach((card, index) => {
+            // Force absolute centering so transform translates work perfectly
+            card.style.top = '50%';
+            card.style.left = '50%';
+            
+            // Higher z-index for lower index (first card on top)
+            card.style.zIndex = numCards - index;
+            
+            const baseRot = (Math.random() - 0.5) * 6; // -3 to +3 degrees
+            card.dataset.baserot = baseRot;
         });
 
-        // Scroll sync with dots
-        galleryTrack.addEventListener('scroll', () => {
-            const scrollCenter = galleryTrack.scrollLeft + galleryTrack.offsetWidth / 2;
-            let closestIndex = 0;
-            let closestDistance = Infinity;
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) return; 
+            
+            const rect = gallerySection.getBoundingClientRect();
+            const totalScrollableDistance = rect.height - window.innerHeight;
+            let progress = -rect.top / totalScrollableDistance;
+            progress = Math.max(0, Math.min(1, progress));
 
-            polaroids.forEach((polaroid, index) => {
-                const polaroidCenter = polaroid.offsetLeft + polaroid.offsetWidth / 2;
-                const distance = Math.abs(scrollCenter - polaroidCenter);
-                if (distance < closestDistance) {
-                    closestDistance = distance;
-                    closestIndex = index;
+            const chunk = 1 / numCards;
+
+            if (galleryHeader) {
+                // Header fades out during the first chunk
+                const headerLocalProgress = Math.min(1, progress / chunk);
+                galleryHeader.style.opacity = 1 - headerLocalProgress;
+                galleryHeader.style.transform = `translateY(${headerLocalProgress * -50}px)`;
+            }
+
+            polaroids.forEach((card, index) => {
+                let localProgress = (progress - index * chunk) / chunk;
+                const baseRot = parseFloat(card.dataset.baserot);
+
+                if (localProgress < 0) {
+                    card.style.transform = `translate(-50%, -50%) translate(20vw, 50vh) rotate(${baseRot + 30}deg) scale(0.85)`;
+                    card.style.opacity = 0;
+                } else if (localProgress >= 0 && localProgress <= 1) {
+                    const easeOut = 1 - Math.pow(1 - localProgress, 3);
+                    const moveX = 20 * (1 - easeOut); 
+                    const moveY = 50 * (1 - easeOut);
+                    const rot = baseRot + 30 * (1 - easeOut);
+                    const scale = 0.85 + 0.15 * easeOut; 
+
+                    card.style.transform = `translate(-50%, -50%) translate(${moveX}vw, ${moveY}vh) rotate(${rot}deg) scale(${scale})`;
+                    card.style.opacity = easeOut;
+                    
+                    if (index === 0 && progress === 0) {
+                        card.style.transform = `translate(-50%, -50%) translate(0, 0) rotate(${baseRot}deg) scale(1)`;
+                        card.style.opacity = 1;
+                    }
+
+                } else if (localProgress > 1 && localProgress <= 2) {
+                    const exitPhase = localProgress - 1;
+                    const easeIn = Math.pow(exitPhase, 2);
+                    
+                    const moveX = -80 * easeIn; 
+                    const moveY = -80 * easeIn; 
+                    const rot = baseRot - 45 * easeIn; 
+                    const scale = 1 - 0.2 * easeIn;
+                    
+                    if (index === numCards - 1 && progress === 1) {
+                         card.style.transform = `translate(-50%, -50%) translate(0, 0) rotate(${baseRot}deg) scale(1)`;
+                         card.style.opacity = 1;
+                    } else {
+                        card.style.transform = `translate(-50%, -50%) translate(${moveX}vw, ${moveY}vh) rotate(${rot}deg) scale(${scale})`;
+                        card.style.opacity = 1 - Math.min(1, easeIn * 1.5); 
+                    }
+                } else {
+                    card.style.transform = `translate(-50%, -50%) translate(-100vw, -100vh) rotate(${baseRot - 45}deg) scale(0.8)`;
+                    card.style.opacity = 0;
                 }
             });
-
-            if (closestIndex !== currentSlide) {
-                currentSlide = closestIndex;
-                updateDots(currentSlide);
-            }
         });
+        
+        // Trigger once on load to set initial state
+        window.dispatchEvent(new Event('scroll'));
     }
 
     // ========================================
@@ -480,5 +874,587 @@ document.addEventListener('DOMContentLoaded', () => {
         // Clean URL
         window.history.replaceState({}, document.title, window.location.pathname);
     }
-});
 
+    // ========================================
+    // Booking Wizard 2-Step Logic
+    // ========================================
+const bookingSection = document.getElementById('booking');
+if (bookingSection) {
+    let currentStep = 1;
+    let selectedDate = null;
+    let selectedTime = null;
+    let orderItems = [];
+    
+    // UI Elements
+    const panels = [
+        document.getElementById('bookingStep1'),
+        document.getElementById('bookingStep2')
+    ];
+    const indicators = document.querySelectorAll('.booking__step-indicator');
+    
+    // Step 1
+    const calendarGrid = document.getElementById('calendarGrid');
+    const calendarMonthTitle = document.getElementById('calendarMonthTitle');
+    const calendarPrev = document.getElementById('calendarPrev');
+    const calendarNext = document.getElementById('calendarNext');
+    const timeChips = document.querySelectorAll('.booking__time-chip');
+    const selectedDateDisplay = document.getElementById('selectedDateDisplay');
+    const equipGrid = document.getElementById('equipGrid');
+    const cartSummary = document.getElementById('cartSummary');
+    const cartTotalPrice = document.getElementById('cartTotalPrice');
+    const btnToStep2 = document.getElementById('btnToStep2');
+    
+    // Step 2
+    const btnBackToStep1 = document.getElementById('btnBackToStep1');
+    const orderTableBody = document.getElementById('orderTableBody');
+    const orderTotalPrice = document.getElementById('orderTotalPrice');
+    const bookingForm = document.getElementById('bookingForm');
+    const hiddenDate = document.getElementById('bookingDate');
+    const hiddenTime = document.getElementById('bookingTime');
+    const hiddenItems = document.getElementById('bookingItems');
+    
+    // ==================
+    // 1. Navigation
+    // ==================
+    function goToStep(step) {
+        panels.forEach((p, idx) => {
+            if(p) p.classList.toggle('booking__panel--active', idx + 1 === step);
+        });
+        
+        indicators.forEach((ind, idx) => {
+            ind.classList.toggle('booking__step-indicator--active', idx + 1 === step);
+        });
+        
+        currentStep = step;
+        
+        if (step === 2) {
+            buildOrderTable();
+            initCaptcha();
+        }
+    }
+
+    function initCaptcha() {
+        const qEl = document.getElementById('captchaQuestion');
+        if (!qEl) return;
+        const n1 = Math.floor(Math.random() * 9) + 1;
+        const n2 = Math.floor(Math.random() * 9) + 1;
+        qEl.textContent = `${n1} + ${n2}`;
+        qEl.dataset.answer = n1 + n2;
+    }
+    
+    if (btnToStep2) btnToStep2.addEventListener('click', () => {
+        const errorBox = document.getElementById('bookingStep1Error') || (function(){
+            const div = document.createElement('div');
+            div.id = 'bookingStep1Error';
+            div.style.color = '#F96943';
+            div.style.backgroundColor = 'rgba(249, 105, 67, 0.1)';
+            div.style.padding = '12px';
+            div.style.borderRadius = '8px';
+            div.style.marginBottom = '16px';
+            div.style.fontSize = '14px';
+            div.style.display = 'none';
+            btnToStep2.parentElement.insertBefore(div, btnToStep2);
+            return div;
+        })();
+        
+        let errors = [];
+        if (!selectedDate || !selectedTime) {
+            errors.push('Не указана дата или время начала аренды.');
+        }
+        if (orderItems.length === 0) {
+            errors.push('Не добавлена ни одна позиция оборудования.');
+        }
+        
+        if (errors.length > 0) {
+            errorBox.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> ' + errors.join('<br>');
+            errorBox.style.display = 'block';
+            return;
+        }
+        
+        errorBox.style.display = 'none';
+        goToStep(2);
+    });
+    
+    if (btnBackToStep1) btnBackToStep1.addEventListener('click', () => goToStep(1));
+    
+    // ==================
+    // 2. Calendar Logic
+    // ==================
+    let currentDate = new Date();
+    currentDate.setHours(0,0,0,0);
+    let viewMonth = currentDate.getMonth();
+    let viewYear = currentDate.getFullYear();
+    const monthNames = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+
+    function renderCalendar() {
+        if(!calendarGrid) return;
+        
+        // Clear old days (keep weekdays)
+        const weekdaysHTML = `
+            <span class="booking__calendar-weekday">Пн</span>
+            <span class="booking__calendar-weekday">Вт</span>
+            <span class="booking__calendar-weekday">Ср</span>
+            <span class="booking__calendar-weekday">Чт</span>
+            <span class="booking__calendar-weekday">Пт</span>
+            <span class="booking__calendar-weekday">Сб</span>
+            <span class="booking__calendar-weekday">Вс</span>
+        `;
+        calendarGrid.innerHTML = weekdaysHTML;
+        
+        calendarMonthTitle.textContent = `${monthNames[viewMonth]} ${viewYear}`;
+        
+        const firstDay = new Date(viewYear, viewMonth, 1);
+        const lastDay = new Date(viewYear, viewMonth + 1, 0);
+        let startGridDay = firstDay.getDay() === 0 ? 6 : firstDay.getDay() - 1;
+        
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        
+        // Empty slots
+        for(let i=0; i<startGridDay; i++) {
+            const empty = document.createElement('div');
+            empty.className = 'booking__calendar-day booking__calendar-day--empty';
+            calendarGrid.appendChild(empty);
+        }
+        
+        for(let i=1; i<=lastDay.getDate(); i++) {
+            const dayBtn = document.createElement('button');
+            dayBtn.className = 'booking__calendar-day';
+            dayBtn.textContent = i;
+            dayBtn.type = 'button';
+            
+            const iterDate = new Date(viewYear, viewMonth, i);
+            
+            if(iterDate < today) {
+                dayBtn.classList.add('booking__calendar-day--disabled');
+            } else {
+                if (selectedDate && iterDate.getTime() === selectedDate.getTime()) {
+                    dayBtn.classList.add('booking__calendar-day--active');
+                }
+                
+                dayBtn.addEventListener('click', () => {
+                    selectedDate = new Date(viewYear, viewMonth, i);
+                    if(selectedDateDisplay) {
+                        const dd = String(selectedDate.getDate()).padStart(2, '0');
+                        const mm = String(selectedDate.getMonth() + 1).padStart(2, '0');
+                        selectedDateDisplay.innerHTML = `Дата: <strong>${dd}.${mm}.${selectedDate.getFullYear()}</strong>`;
+                    }
+                    renderCalendar();
+                    validateStep1();
+                });
+            }
+            
+            calendarGrid.appendChild(dayBtn);
+        }
+    }
+    
+    if (calendarPrev) calendarPrev.addEventListener('click', () => {
+        viewMonth--;
+        if(viewMonth < 0) { viewMonth = 11; viewYear--; }
+        renderCalendar();
+    });
+    
+    if (calendarNext) calendarNext.addEventListener('click', () => {
+        viewMonth++;
+        if(viewMonth > 11) { viewMonth = 0; viewYear++; }
+        renderCalendar();
+    });
+    
+    renderCalendar();
+    
+    // ==================
+    // 3. Time Selection
+    // ==================
+    timeChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            timeChips.forEach(c => c.classList.remove('booking__time-chip--active'));
+            chip.classList.add('booking__time-chip--active');
+            selectedTime = chip.dataset.time;
+            validateStep1();
+        });
+    });
+    
+    // ==================
+    // 4. Equipment Logic
+    // ==================
+    function renderBookingEquipment() {
+        const equipGrid = document.getElementById('equipGrid');
+        if (!equipGrid) return;
+        
+        let html = '';
+        for (const [id, data] of Object.entries(equipmentData)) {
+            // Determine category
+            let category = 'all';
+            if (id.startsWith('sup_')) category = 'sup';
+            else if (id.startsWith('kayak_') || id.startsWith('baidarka_')) category = 'kayak';
+            else if (id.startsWith('photo_')) category = 'photo';
+            
+            // Determine price
+            const priceVal = parseInt(data.price.replace(/\D/g, ''), 10);
+            let priceHour = priceVal;
+            let priceDay = priceVal;
+            const isHourly = data.price.includes('час');
+            
+            if (isHourly) {
+                // Approximate 1 day price = 3 hours if not explicitly provided
+                priceDay = priceHour * 3;
+            }
+            
+            html += `
+                <div class="booking__equip-card js-open-equip-modal" data-category="${category}" data-equip-id="${id}" data-price-hour="${priceHour}" data-price-day="${priceDay}">
+                    <div class="booking__equip-img">
+                        <img src="${data.img}" alt="${data.title}" class="booking__equip-pic" onerror="this.src='assets/equip_sup_standard.png'">
+                    </div>
+                    <div class="booking__equip-body">
+                        <h4 class="booking__equip-name">${data.title}</h4>
+                        <p class="booking__equip-desc">${data.desc.length > 70 ? data.desc.substring(0, 70) + '...' : data.desc}</p>
+                        <div class="booking__equip-prices">
+                            <div class="booking__equip-price"><strong>${priceHour} ₽</strong><span>${isHourly ? 'в час' : 'разово'}</span></div>
+                            ${isHourly ? `<div class="booking__equip-price"><strong>${priceDay} ₽</strong><span>в день</span></div>` : ''}
+                        </div>
+                        <div class="booking__equip-controls">
+                            <div class="booking__qty-wrap">
+                                <button class="booking__qty-btn" data-action="minus" type="button">−</button>
+                                <span class="booking__qty-value">0</span>
+                                <button class="booking__qty-btn" data-action="plus" type="button">+</button>
+                            </div>
+                            ${isHourly ? `
+                            <select class="booking__duration-select">
+                                <option value="1">1 час</option>
+                                <option value="2">2 часа</option>
+                                <option value="3">3 часа</option>
+                                <option value="day">Весь день</option>
+                                <option value="custom">Другое...</option>
+                            </select>
+                            ` : `
+                            <select class="booking__duration-select" style="display: none;">
+                                <option value="1" selected>1 раз</option>
+                            </select>
+                            `}
+                        </div>
+                        <div class="booking__custom-duration" style="display: none;">
+                            <label>Период аренды:</label>
+                            <input type="text" class="booking__custom-date" placeholder="Выберите даты..." readonly required>
+                        </div>
+                        <div class="booking__equip-subtotal">Итого: <strong>0 ₽</strong></div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        equipGrid.innerHTML = html;
+        bindBookingEvents();
+    }
+
+    function extractNumber(str) { return parseInt(str.replace(/\D/g, ''), 10); }
+
+    function updateCartTotal() {
+        let total = 0;
+        orderItems = [];
+        
+        const cards = document.querySelectorAll('.booking__equip-card');
+        cards.forEach(card => {
+            const qty = parseInt(card.querySelector('.booking__qty-value').textContent, 10);
+            if (qty > 0) {
+                card.classList.add('booking__equip-card--active');
+                const subtotalText = card.querySelector('.booking__equip-subtotal strong').textContent;
+                const subT = extractNumber(subtotalText);
+                total += subT;
+                
+                const name = card.querySelector('.booking__equip-name').textContent;
+                const durationSelect = card.querySelector('.booking__duration-select');
+                const pHour = parseInt(card.dataset.priceHour, 10);
+                const pDay = parseInt(card.dataset.priceDay, 10);
+                let durText = durationSelect.options[durationSelect.selectedIndex].text;
+                
+                orderItems.push({
+                    id: card.dataset.equipId,
+                    name: name,
+                    qty: qty,
+                    duration: durText,
+                    priceHour: pHour,
+                    priceDay: pDay,
+                    subtotal: subT
+                });
+            } else {
+                card.classList.remove('booking__equip-card--active');
+            }
+        });
+        
+        if (total > 0) {
+            if (cartSummary) {
+                cartSummary.style.display = 'block';
+                const cartItemsList = document.getElementById('cartItemsList');
+                if (cartItemsList) {
+                    let itemsHtml = '';
+                    orderItems.forEach(item => {
+                        let plural = 'шт.';
+                        itemsHtml += `
+                            <div class="booking__cart-item" style="display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 12px; border-radius: 8px; border: 1px solid rgba(16, 46, 72, 0.1);">
+                                <div class="booking__cart-item-info" style="display: flex; flex-direction: column; gap: 4px;">
+                                    <strong style="color: #102E48; font-size: 14px;">${item.name}</strong>
+                                    <span style="color: #4A5568; font-size: 12px;">${item.qty} ${plural} &times; ${item.duration}</span>
+                                </div>
+                                <div class="booking__cart-item-actions" style="display: flex; align-items: center; gap: 12px;">
+                                    <span style="font-weight: 700; color: #102E48; font-size: 14px;">${item.subtotal.toLocaleString('ru-RU')} ₽</span>
+                                    <button type="button" class="booking__cart-item-del" data-id="${item.id}" style="background: none; border: none; color: #ff4d4f; cursor: pointer; padding: 4px; transition: 0.2s;" onmouseover="this.style.color='#d9363e'" onmouseout="this.style.color='#ff4d4f'">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    cartItemsList.innerHTML = itemsHtml;
+                    
+                    cartItemsList.querySelectorAll('.booking__cart-item-del').forEach(btn => {
+                        btn.addEventListener('click', (e) => {
+                            const equipId = e.currentTarget.dataset.id;
+                            const card = document.querySelector(`.booking__equip-card[data-equip-id="${equipId}"]`);
+                            if (card) {
+                                card.querySelector('.booking__qty-value').textContent = '0';
+                                // Call updateCardSubtotal to recalculate total and delete from cart
+                                // We have to call global functions or dispatch events.
+                                // It's better to trigger click on minus button down to 0, or just call updateCardSubtotal if it's in scope.
+                                // Yes, updateCardSubtotal is in the same scope since this is all inside bind events.
+                                
+                                // To make sure updateCardSubtotal runs
+                                try {
+                                    updateCardSubtotal(card);
+                                } catch(err) {
+                                    // if out of scope, dispatch click on minus until 0
+                                    let minusBtn = card.querySelector('[data-action="minus"]');
+                                    let qtyVal = parseInt(card.querySelector('.booking__qty-value').textContent, 10);
+                                    while(qtyVal > 0) {
+                                        minusBtn.click();
+                                        qtyVal = parseInt(card.querySelector('.booking__qty-value').textContent, 10);
+                                    }
+                                }
+                            }
+                        });
+                    });
+                }
+            }
+            if (cartTotalPrice) cartTotalPrice.textContent = total.toLocaleString('ru-RU') + ' ₽';
+        } else {
+            if (cartSummary) cartSummary.style.display = 'none';
+        }
+        
+        const btnClearCart = document.getElementById('btnClearCart');
+        if (btnClearCart) btnClearCart.style.display = total > 0 ? 'inline-flex' : 'none';
+        
+        validateStep1();
+    }
+    
+    function validateStep1() {
+        const errorBox = document.getElementById('bookingStep1Error');
+        if (errorBox && selectedDate && selectedTime && orderItems.length > 0) {
+            errorBox.style.display = 'none';
+        }
+    }
+    
+    function updateCardSubtotal(card) {
+        const qty = parseInt(card.querySelector('.booking__qty-value').textContent, 10);
+        const durationSelect = card.querySelector('.booking__duration-select');
+        const durVal = durationSelect.value;
+        const pHour = parseInt(card.dataset.priceHour, 10);
+        const pDay = parseInt(card.dataset.priceDay, 10);
+        const subtotalEl = card.querySelector('.booking__equip-subtotal strong');
+        
+        let subtotal = 0;
+        if (durVal === 'day') subtotal = qty * pDay;
+        else if (durVal === 'custom') subtotal = qty * pDay; // simplify custom
+        else subtotal = qty * pHour * parseInt(durVal, 10);
+        
+        subtotalEl.textContent = subtotal.toLocaleString('ru-RU') + ' ₽';
+        updateCartTotal();
+    }
+    
+    function bindBookingEvents() {
+        // Bind Qty Buttons
+        document.querySelectorAll('.booking__qty-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation(); // prevent modal from opening when clicking qty buttons
+                const card = e.target.closest('.booking__equip-card');
+                const qtySpan = card.querySelector('.booking__qty-value');
+                let val = parseInt(qtySpan.textContent, 10);
+                if (e.target.dataset.action === 'plus') val++;
+                else if (e.target.dataset.action === 'minus') val--;
+                
+                if (val < 0) val = 0;
+                if (val > 10) val = 10;
+                qtySpan.textContent = val;
+                
+                updateCardSubtotal(card);
+            });
+        });
+        
+        // Bind Duration Selects
+        document.querySelectorAll('.booking__duration-select').forEach(sel => {
+            sel.addEventListener('change', (e) => {
+                const card = e.target.closest('.booking__equip-card');
+                const customDate = card.querySelector('.booking__custom-duration');
+                if (sel.value === 'custom' && customDate) {
+                    customDate.style.display = 'block';
+                } else if (customDate) {
+                    customDate.style.display = 'none';
+                }
+                updateCardSubtotal(card);
+            });
+            
+            // Prevent modal from opening when clicking select
+            sel.addEventListener('click', (e) => e.stopPropagation());
+        });
+        
+        // Update Modal interactions for newly generated cards
+        document.querySelectorAll('.js-open-equip-modal').forEach(card => {
+            card.addEventListener('click', (e) => {
+                // If clicking on controls, ignore modal open
+                if (e.target.closest('.booking__equip-controls') || e.target.closest('.booking__custom-duration')) return;
+                
+                const equipId = card.dataset.equipId;
+                const data = equipmentData[equipId];
+                if (!data) return;
+
+                const equipModal = document.getElementById('equipDetailModal');
+                if(!equipModal) return;
+
+                equipModal.querySelector('.modal__pic').src = data.img;
+                equipModal.querySelector('.modal__pic').alt = data.title;
+                equipModal.querySelector('.modal__title').textContent = data.title;
+                equipModal.querySelector('.modal__desc').textContent = data.desc;
+                
+                // Display price in modal and change btn text
+                const priceEl = equipModal.querySelector('.modal__price strong');
+                if(priceEl) {
+                    priceEl.textContent = data.price;
+                }
+                const btnAction = equipModal.querySelector('.modal__action-btn');
+                if(btnAction) {
+                    btnAction.textContent = 'Забронировать';
+                }
+
+                const specsContainer = equipModal.querySelector('.modal__specs');
+                specsContainer.innerHTML = '';
+                data.specs.forEach(spec => {
+                    specsContainer.innerHTML += `<li><strong>${spec.label}</strong><span>${spec.value}</span></li>`;
+                });
+
+                equipModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+    }
+    
+    // Clear Cart
+    const btnClearCart = document.getElementById('btnClearCart');
+    if (btnClearCart) {
+        btnClearCart.addEventListener('click', () => {
+            document.querySelectorAll('.booking__qty-value').forEach(q => q.textContent = '0');
+            document.querySelectorAll('.booking__equip-card').forEach(c => updateCardSubtotal(c));
+        });
+    }
+
+    // ========================================
+    // Equipment Cart Controls (Search, Categories)
+    // ========================================
+    const equipSearch = document.getElementById('equipSearch');
+    const equipCategories = document.getElementById('equipCategories');
+    let currentCategory = 'all';
+    let currentSearch = '';
+
+    function filterEquipment() {
+        if (!equipGrid) return;
+        const cards = equipGrid.querySelectorAll('.booking__equip-card');
+        
+        cards.forEach(card => {
+            const name = card.querySelector('.booking__equip-name').textContent.toLowerCase();
+            const category = card.dataset.category || 'all';
+            
+            const matchSearch = name.includes(currentSearch);
+            const matchCategory = currentCategory === 'all' || category === currentCategory;
+            
+            if (matchSearch && matchCategory) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    if (equipSearch) {
+        equipSearch.addEventListener('input', (e) => {
+            currentSearch = e.target.value.toLowerCase();
+            filterEquipment();
+        });
+    }
+
+    if (equipCategories) {
+        equipCategories.addEventListener('click', (e) => {
+            if (e.target.classList.contains('booking__cat-btn')) {
+                equipCategories.querySelectorAll('.booking__cat-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentCategory = e.target.dataset.filter;
+                filterEquipment();
+            }
+        });
+    }
+    
+    // ==================
+    // 5. Checkout Table
+    // ==================
+    renderBookingEquipment();
+    // ==================
+    function buildOrderTable() {
+        if(!orderTableBody) return;
+        orderTableBody.innerHTML = '';
+        let grandTotal = 0;
+        
+        orderItems.forEach(item => {
+            grandTotal += item.subtotal;
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${item.name}</td>
+                <td>${item.qty} шт</td>
+                <td>${item.duration}</td>
+                <td style="font-weight:700;">${item.subtotal.toLocaleString('ru-RU')} ₽</td>
+            `;
+            orderTableBody.appendChild(tr);
+        });
+        
+        if (orderTotalPrice) {
+            orderTotalPrice.textContent = grandTotal.toLocaleString('ru-RU') + ' ₽';
+        }
+    }
+    
+    // Form Submission
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Captcha validation
+            const answerInput = document.getElementById('captchaAnswer');
+            const qEl = document.getElementById('captchaQuestion');
+            if (answerInput && qEl) {
+                if (parseInt(answerInput.value, 10) !== parseInt(qEl.dataset.answer, 10)) {
+                    alert('Неправильный ответ капчи. Пожалуйста, попробуйте еще раз.');
+                    initCaptcha();
+                    answerInput.value = '';
+                    return;
+                }
+            }
+            
+            // Generate exact date format DD.MM.YYYY
+            const dd = String(selectedDate.getDate()).padStart(2, '0');
+            const mm = String(selectedDate.getMonth() + 1).padStart(2, '0');
+            const yyyy = selectedDate.getFullYear();
+            
+            hiddenDate.value = `${dd}.${mm}.${yyyy}`;
+            hiddenTime.value = selectedTime;
+            hiddenItems.value = JSON.stringify(orderItems);
+            
+            bookingForm.submit();
+        });
+    }
+}
+
+}); // End of DOMContentLoaded

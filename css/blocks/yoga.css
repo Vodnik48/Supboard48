@@ -1,185 +1,235 @@
-/* ==========================================================================
-   SUP Yoga Section
-   ========================================================================== */
-
+/* ============================================
+   BLOCK 7.2: YOGA Premium
+   ============================================ */
 .yoga {
-    padding: 64px 0;
-    /* Reduced from 96px */
-    background: linear-gradient(135deg, var(--color-slate-900) 0%, #1e3a5f 100%);
-    color: white;
-    position: relative;
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-surface);
     overflow: hidden;
 }
 
 .yoga__container {
-    max-width: 1200px;
+    max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--spacing-lg);
 }
 
 .yoga__wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
     align-items: center;
-    gap: 64px;
-}
-
-.yoga__content {
-    flex: 1;
 }
 
 .yoga__label {
-    font-family: var(--font-heading);
-    font-size: 12px;
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: rgba(249, 105, 67, 0.1);
+    color: var(--brand-orange);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-sky-400);
-    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-md);
 }
 
 .yoga__title {
     font-family: var(--font-heading);
-    font-size: clamp(32px, 5vw, 48px);
-    font-weight: 900;
-    margin-bottom: 24px;
+    font-size: var(--font-size-h2);
+    color: var(--brand-blue);
+    margin-bottom: var(--spacing-md);
     text-transform: uppercase;
-    line-height: 1.1;
 }
 
 .yoga__desc {
-    font-size: 16px;
-    color: var(--color-slate-400);
-    line-height: 1.7;
-    margin-bottom: 32px;
+    color: var(--color-text-light);
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-xl);
 }
 
 .yoga__benefits {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 40px;
+    gap: var(--spacing-md);
 }
 
 .yoga__benefit {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 16px;
+    background: var(--color-background);
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 15px rgba(16, 46, 72, 0.03);
 }
 
 .yoga__benefit-icon {
-    width: 32px;
-    height: 32px;
-    background: rgba(14, 165, 233, 0.2);
-    border-radius: 8px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(249, 105, 67, 0.1);
+    color: var(--brand-orange);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-sky-400);
+    font-size: 18px;
+    flex-shrink: 0;
 }
 
 .yoga__benefit-text {
-    font-size: 15px;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--brand-blue);
 }
 
-.yoga__btn {
-    padding: 16px 32px;
-    background: var(--color-sky-500);
-    color: white;
-    border: none;
-    border-radius: 12px;
-    font-family: var(--font-heading);
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.3);
-}
-
-.yoga__btn:hover {
-    background: var(--color-sky-600);
-    transform: translateY(-2px);
-}
-
-/* Media Section */
-.yoga__media {
-    flex: 1;
+.yoga__offer {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Polaroid Styling - Matching Hero */
 .yoga__polaroid {
-    background: #fff;
-    padding: 12px 12px 40px 12px;
-    box-shadow:
-        0 10px 40px rgba(0, 0, 0, 0.3),
-        0 0 0 1px rgba(255, 255, 255, 0.1);
-    transform: rotate(3deg);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    background: white;
+    padding: 15px 15px 60px 15px;
     border-radius: 4px;
-    max-width: 500px;
-    animation: floatPolaroidYoga 6s ease-in-out infinite;
-}
-
-.yoga__polaroid:hover {
-    transform: rotate(0deg) scale(1.02);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    transform: rotate(-3deg);
+    position: relative;
+    z-index: 1;
+    width: 80%;
+    max-width: 400px;
 }
 
 .yoga__polaroid-image-wrapper {
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
     overflow: hidden;
-    background: #eee;
-    border-radius: 2px;
+    background: #f0f0f0;
 }
 
 .yoga__polaroid-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
-    background: transparent;
 }
 
 .yoga__polaroid-caption {
-    display: block;
-    text-align: center;
-    font-family: 'Caveat', cursive, var(--font-body);
-    font-size: 18px;
+    font-family: 'Caveat', cursive;
+    font-size: 32px;
     color: #333;
-    margin-top: 12px;
-    letter-spacing: 0.5px;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
 }
 
-@keyframes floatPolaroidYoga {
-
-    0%,
-    100% {
-        transform: translateY(0) rotate(3deg);
-    }
-
-    50% {
-        transform: translateY(-10px) rotate(1deg);
-    }
+.yoga__price-card {
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+    background: var(--brand-blue);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 40px rgba(16, 46, 72, 0.2);
+    z-index: 2;
+    color: white;
+    width: 280px;
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .yoga {
-        padding: 40px 0;
-        /* Reduced from 64px */
-    }
+.yoga__price-title {
+    font-family: var(--font-heading);
+    font-size: var(--font-size-h4);
+    margin: 0 0 8px 0;
+}
 
+.yoga__price-amount {
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--brand-orange);
+    margin-bottom: var(--spacing-md);
+}
+
+.yoga__price-sub {
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+    color: rgba(255,255,255,0.7);
+}
+
+.yoga__price-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-lg) 0;
+}
+
+.yoga__price-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: var(--font-size-sm);
+}
+
+.yoga__price-list li i {
+    color: var(--brand-orange);
+}
+
+.yoga__btn {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--brand-orange);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--font-size-base);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color var(--transition-short);
+}
+
+.yoga__btn:hover {
+    background-color: #E25530;
+}
+
+/* Responsiveness */
+@media (max-width: 992px) {
     .yoga__wrapper {
-        flex-direction: column;
-        gap: 40px;
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
     }
+    
+    .yoga__offer {
+        margin-top: var(--spacing-xl);
+        padding-bottom: 40px; /* Space for the overlapping card */
+    }
+}
 
-    .yoga__media {
+@media (max-width: 768px) {
+    .yoga__title {
+        font-size: var(--font-size-h3);
+    }
+    
+    .yoga__price-card {
+        right: 0;
+        bottom: -40px;
+        width: 250px;
+        padding: var(--spacing-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .yoga__polaroid {
+        width: 95%;
+    }
+    
+    .yoga__price-card {
+        position: relative;
+        bottom: 0;
+        right: 0;
         width: 100%;
+        margin-top: -30px;
     }
 }

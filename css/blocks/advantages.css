@@ -1,98 +1,133 @@
 /* ==========================================================================
-   Advantages Section - Compact Horizontal Layout
+   Advantages Section — Card Layout with Images
    ========================================================================== */
 
 .advantages {
-    padding: 32px 0;
-    /* Reduced from 48px */
-    background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 100%);
-    color: white;
-    position: relative;
-    overflow: hidden;
+    padding: 80px 0;
+    background: var(--color-cloud);
 }
 
 .advantages__container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-    position: relative;
-    z-index: 10;
 }
 
-.advantages__grid {
+.advantages__section-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-river);
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.advantages__section-accent {
+    color: var(--brand-orange);
+    font-style: normal;
+}
+
+.advantages__grid--full {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
 }
 
-.advantages__item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+.advantages__card {
+    background: var(--color-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(16, 46, 72, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.advantages__item:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-4px);
+.advantages__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(16, 46, 72, 0.15);
 }
 
-.advantages__icon {
-    color: #38bdf8;
-    font-size: 24px;
-    flex-shrink: 0;
+.advantages__card-img-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--color-cloud);
 }
 
-.advantages__item-title {
-    font-family: 'Montserrat', sans-serif;
+.advantages__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.advantages__card:hover .advantages__img {
+    transform: scale(1.05);
+}
+
+.advantages__card-content {
+    padding: 24px;
+}
+
+.advantages__card-title {
+    font-family: var(--font-heading);
     font-size: 1rem;
     font-weight: 700;
-    margin: 0 0 4px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-sky);
+    margin-bottom: 8px;
 }
 
-.advantages__item-desc {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.5;
-    margin: 0;
+.advantages__card-desc {
+    font-size: 0.9rem;
+    color: var(--color-river);
+    line-height: 1.6;
+    opacity: 0.8;
 }
 
-/* Mobile Responsive */
+/* ── Responsive ── */
 @media (max-width: 1024px) {
-    .advantages__grid {
+    .advantages__grid--full {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 640px) {
     .advantages {
-        padding: 32px 0;
+        padding: 60px 0;
     }
 
-    .advantages__grid {
+    .advantages__grid--full {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 16px;
     }
 
-    .advantages__item {
+    .advantages__card {
+        display: flex;
+        flex-direction: row;
+        border-radius: 16px;
+    }
+
+    .advantages__card-img-wrapper {
+        width: 120px;
+        min-height: 120px;
+        aspect-ratio: auto;
+        flex-shrink: 0;
+    }
+
+    .advantages__card-content {
         padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    .advantages__icon {
-        font-size: 20px;
+    .advantages__card-title {
+        font-size: 1rem;
     }
 
-    .advantages__item-title {
+    .advantages__card-desc {
         font-size: 0.9rem;
-    }
-
-    .advantages__item-desc {
-        font-size: 0.8rem;
     }
 }

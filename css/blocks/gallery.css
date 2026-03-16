@@ -1,225 +1,206 @@
 /* ==========================================================================
-   Gallery Block - Polaroid Carousel (Instagram-style)
+   Gallery Section - Stacked Fanning Scroll Animation (20-30camp style)
    ========================================================================== */
 
 .gallery {
-    padding: 64px 0;
-    /* Reduced from 100px */
-    background: linear-gradient(180deg, #0c4a6e 0%, #0369a1 100%);
-    overflow: hidden;
+    /* Huge height to allow 5 cards to transition out */
+    height: 400vh;
+    background: var(--color-cloud);
+    position: relative;
 }
 
-.gallery__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+/* The wrapper that sticks to the screen */
+.gallery__sticky-wrap {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.gallery__header {
+    position: absolute;
+    top: 80px;
+    z-index: 200;
     text-align: center;
+    transition: opacity 0.5s ease;
+    width: 100%;
+    padding: 0 20px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.5);
 }
 
 .gallery__label {
-    display: inline-block;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    padding: 6px 16px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 2px;
+    color: var(--color-sky);
     margin-bottom: 16px;
+    display: block;
 }
 
 .gallery__title {
+    text-transform: uppercase;
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    font-weight: 800;
-    color: white;
-    margin-bottom: 32px;
-    /* Reduced from 48px */
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 900;
+    color: var(--color-river);
+    margin-bottom: 40px;
 }
 
-/* Polaroid Carousel */
-.gallery__carousel {
+/* =====================================
+   Polaroid Stack & Cards
+   ===================================== */
+.gallery__polaroids-stack {
     position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 500px;
-    perspective: 1000px;
+    justify-content: center;
 }
 
-.gallery__track {
-    display: flex;
-    gap: 30px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding: 40px 20px;
-    scroll-padding: 0 calc(50% - 150px);
-}
-
-.gallery__track::-webkit-scrollbar {
-    display: none;
-}
-
-/* Polaroid Card */
+/* Individual Polaroid Card */
 .gallery__polaroid {
-    flex-shrink: 0;
-    width: 300px;
-    background: white;
+    position: absolute;
+    width: clamp(300px, 40vw, 450px);
+    background: #ffffff;
+    padding: 20px 20px 30px 20px;
     border-radius: 4px;
-    padding: 16px 16px 60px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-    scroll-snap-align: center;
-    transform: rotate(-2deg) scale(0.9);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    cursor: pointer;
-}
-
-.gallery__polaroid:nth-child(even) {
-    transform: rotate(2deg) scale(0.9);
-}
-
-.gallery__polaroid:hover {
-    transform: rotate(0deg) scale(1);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
-    z-index: 10;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    will-change: transform, opacity;
+    transform-origin: center center;
 }
 
 .gallery__photo-wrapper {
     width: 100%;
-    aspect-ratio: 3/4;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
-    border-radius: 2px;
-    background: #f0f0f0;
+    margin-bottom: 24px;
+    background: #f1f5f9;
 }
 
 .gallery__photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.4s ease;
+    display: block;
+    transition: transform 3s ease;
 }
 
-.gallery__polaroid:hover .gallery__photo {
-    transform: scale(1.05);
+.gallery__polaroid-content {
+    text-align: left;
 }
 
-/* Polaroid Caption */
-.gallery__caption {
-    position: absolute;
-    bottom: 16px;
-    left: 16px;
-    right: 16px;
-    font-family: 'Caveat', cursive, var(--font-body);
-    font-size: 18px;
-    color: #333;
-    text-align: center;
-    line-height: 1.3;
+.gallery__polaroid-title {
+    font-family: var(--font-heading);
+    font-size: clamp(20px, 2.5vw, 26px);
+    font-weight: 700;
+    color: var(--color-sky);
+    margin-bottom: 12px;
+    line-height: 1.2;
 }
 
-/* Navigation Arrows */
-.gallery__nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    color: white;
-    font-size: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 20;
+.gallery__polaroid-desc {
+    font-family: var(--font-body);
+    font-size: clamp(14px, 1.5vw, 16px);
+    color: var(--color-river);
+    line-height: 1.5;
+    opacity: 0.8;
 }
 
-.gallery__nav:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateY(-50%) scale(1.1);
+/* =====================================
+   Responsive Design
+   ===================================== */
+
+@media (max-height: 800px) {
+    .gallery__header {
+        top: 30px;
+    }
+
+    .gallery__title {
+        font-size: clamp(24px, 4vw, 36px);
+        margin-bottom: 20px;
+    }
+
+    .gallery__polaroid {
+        width: clamp(260px, 35vw, 360px);
+        padding: 15px 15px 25px 15px;
+    }
+
+    .gallery__photo-wrapper {
+        margin-bottom: 16px;
+    }
+
+    .gallery__polaroid-title {
+        font-size: clamp(18px, 2vw, 22px);
+        margin-bottom: 8px;
+    }
+
+    .gallery__polaroid-desc {
+        font-size: 13px;
+    }
 }
 
-.gallery__nav--prev {
-    left: 20px;
-}
-
-.gallery__nav--next {
-    right: 20px;
-}
-
-/* Dots Indicator */
-.gallery__dots {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 30px;
-}
-
-.gallery__dot {
-    width: 10px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: none;
-}
-
-.gallery__dot--active,
-.gallery__dot:hover {
-    background: white;
-    transform: scale(1.2);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .gallery {
-        padding: 40px 0;
-        /* Reduced from 60px */
-    }
-
-    .gallery__carousel {
-        min-height: 450px;
-    }
-
-    .gallery__polaroid {
-        width: 260px;
-        padding: 12px 12px 50px;
-    }
-
-    .gallery__caption {
-        font-size: 16px;
-        bottom: 12px;
-    }
-
-    .gallery__nav {
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-    }
-
-    .gallery__nav--prev {
-        left: 10px;
-    }
-
-    .gallery__nav--next {
-        right: 10px;
+        height: 350vh;
     }
 }
 
-@media (max-width: 480px) {
-    .gallery__polaroid {
-        width: 240px;
-        padding: 10px 10px 45px;
+@media (max-width: 768px) {
+
+    /* Disable Fanning Stack on Mobile, fallback to list */
+    .gallery {
+        height: auto;
+        padding: 60px 0;
     }
 
-    .gallery__caption {
-        font-size: 14px;
+    .gallery__sticky-wrap {
+        position: relative;
+        height: auto;
+        display: block;
+        overflow: visible;
+    }
+
+    .gallery__header {
+        position: relative;
+        top: auto;
+        opacity: 1 !important;
+    }
+
+    .gallery__polaroids-stack {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 20px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+    }
+
+    .gallery__polaroids-stack::-webkit-scrollbar {
+        display: none;
+    }
+
+    .gallery__polaroids-stack {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .gallery__polaroid {
+        position: relative;
+        width: 280px;
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        transform: none !important;
+        opacity: 1 !important;
     }
 }
