@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Floating Action Buttons (FAB) - Social Contacts
+   ========================================================================== */
+
+.floating-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 900;
+}
+
+.floating-cta__btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 28px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.floating-cta__btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.floating-cta__btn--wa {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.floating-cta__btn--tg {
+    background: linear-gradient(135deg, #2AABEE, #229ED9);
+}
+
+@media (max-width: 768px) {
+    .floating-cta {
+        bottom: 80px;
+        /* Above the mobile sticky CTA */
+        right: 20px;
+        gap: 10px;
+    }
+
+    .floating-cta__btn {
+        width: 48px;
+        height: 48px;
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,300 @@
+/* ==========================================================================
+   Equipment Catalog Section - SEO-Optimized SUP Types
+   ========================================================================== */
+
+.equipment {
+    padding: 64px 0;
+    /* Reduced from 96px */
+    background: white;
+}
+
+.equipment__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.equipment__label {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-sky-500);
+    margin-bottom: 16px;
+}
+
+.equipment__title {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 900;
+    color: var(--color-slate-900);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.equipment__subtitle {
+    font-size: 16px;
+    color: var(--color-slate-500);
+    max-width: 600px;
+    margin: 0 auto 40px;
+    /* Reduced from 64px */
+}
+
+.equipment__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Card with Glassmorphism */
+.equipment__card {
+    background: rgba(255, 255, 255, 0.85);
+    /* Semi-transparent */
+    backdrop-filter: blur(12px);
+    /* Glass effect */
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 24px;
+    text-align: left;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    /* Subtle border */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Softer initial shadow */
+}
+
+.equipment__card:hover {
+    background: white;
+    /* Solid on hover */
+    border-color: var(--color-sky-300);
+    box-shadow: 0 25px 50px rgba(14, 165, 233, 0.15);
+    /* Blue glow */
+    transform: translateY(-8px);
+    /* Higher lift */
+}
+
+/* Badge */
+.equipment__badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    background: var(--color-sky-500);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    box-shadow: 0 2px 8px rgba(14, 165, 233, 0.3);
+}
+
+.equipment__badge_hot {
+    background: #EF4444;
+}
+
+/* Image */
+.equipment__image-wrapper {
+    margin-bottom: 20px;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 16/10;
+}
+
+.equipment__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.equipment__card:hover .equipment__image {
+    transform: scale(1.05);
+}
+
+/* Content */
+.equipment__card-title {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-slate-900);
+    margin: 0 0 4px 0;
+}
+
+.equipment__card-target {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-sky-600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.equipment__card-desc {
+    font-size: 14px;
+    color: var(--color-slate-600);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* Specs */
+.equipment__specs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.equipment__spec {
+    background: var(--color-slate-100);
+    border: 1px solid var(--color-slate-200);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-slate-700);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.equipment__spec-icon {
+    color: var(--color-sky-500);
+    font-size: 14px;
+}
+
+/* Advantage */
+.equipment__advantage {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+    background: rgba(14, 165, 233, 0.05);
+    border-radius: 12px;
+    border-left: 3px solid var(--color-sky-500);
+}
+
+.equipment__advantage-icon {
+    color: var(--color-sky-500);
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.equipment__advantage-text {
+    font-size: 13px;
+    color: var(--color-slate-700);
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+    .equipment__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .equipment {
+        padding: 40px 0;
+        /* Reduced from 64px */
+    }
+
+    .equipment__grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .equipment__card {
+        padding: 20px;
+    }
+}
+
+/* Hidden cards for expand functionality */
+.equipment__card_hidden {
+    display: none;
+}
+
+.equipment__grid.expanded .equipment__card_hidden {
+    display: block;
+    animation: equipmentFadeIn 0.4s ease;
+}
+
+@keyframes equipmentFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Price */
+.equipment__price {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0ea5e9;
+    margin-bottom: 16px;
+}
+
+/* Button */
+.equipment__btn {
+    width: 100%;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.equipment__btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+}
+
+/* Show More Button */
+.equipment__show-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: 2px solid #0ea5e9;
+    color: #0ea5e9;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 32px;
+}
+
+.equipment__show-more:hover {
+    background: #0ea5e9;
+    color: white;
+}
+
+.equipment__show-more.active i {
+    transform: rotate(180deg);
+}
+
+.equipment__show-more i {
+    transition: transform 0.3s ease;
+}

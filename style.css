@@ -1,23 +1,27 @@
 /* ==========================================================================
-   Main Stylesheet - Supbord48
+   Main Stylesheet - Supbord48 (React-style branch)
    Organized by BEM methodology
    ========================================================================== */
 
 /* Block Imports */
 @import url('css/blocks/_base.css');
 @import url('css/blocks/_animations.css');
-@import url('css/blocks/_decorations.css');
 @import url('css/blocks/header.css');
 @import url('css/blocks/hero.css');
 @import url('css/blocks/modal.css');
-@import url('css/blocks/comparison.css');
-@import url('css/blocks/scenarios.css');
-@import url('css/blocks/tech.css');
-@import url('css/blocks/reviews.css');
-@import url('css/blocks/gallery.css');
+@import url('css/blocks/advantages.css');
+@import url('css/blocks/journey.css');
+@import url('css/blocks/equipment.css');
 @import url('css/blocks/routes.css');
+@import url('css/blocks/yoga.css');
+@import url('css/blocks/corporate.css');
 @import url('css/blocks/faq.css');
+@import url('css/blocks/booking.css');
+@import url('css/blocks/scenarios.css');
+@import url('css/blocks/gallery.css');
+@import url('css/blocks/cta-final.css');
 @import url('css/blocks/footer.css');
+@import url('css/blocks/cta-mobile.css');
 
 /* ==========================================================================
    Media Queries - Responsive Styles
@@ -36,191 +40,14 @@
         display: flex;
     }
 
-    /* Hero */
-    .hero {
-        padding: 80px 0;
-    }
-
-    .hero__title {
-        font-size: 36px;
-        margin-bottom: 16px;
-    }
-
-    .hero__subtitle {
-        font-size: 18px;
-        margin-bottom: 32px;
-    }
-
-    .hero__cta-wrapper {
-        flex-direction: column;
-        width: 100%;
-        gap: 12px;
-    }
-
-    .hero__button {
-        width: 100%;
-        text-align: center;
-        padding: 16px 20px;
-    }
-
-    .hero__badge {
-        margin-bottom: 24px;
-        font-size: 12px;
-    }
-
-    .hero__features {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 32px;
-    }
-
-    .hero__feature {
-        padding: 14px 16px;
-    }
-
-    .hero__feature-icon {
-        font-size: 24px;
-        width: 48px;
-        height: 48px;
-    }
-
-    .hero__feature-title {
-        font-size: 16px;
-    }
-
-    .hero__feature-subtitle {
-        font-size: 12px;
-    }
-
-    .hero__feature-list li {
-        font-size: 12px;
-    }
-
-    .hero__handwritten {
-        display: none;
-    }
-
     /* Modal */
     .modal__content {
         margin: 20px;
         padding: 24px;
     }
 
-    /* Comparison */
-    .comparison {
-        padding: 60px 0;
-    }
-
-    .comparison__title {
-        font-size: 32px;
-    }
-
-    .comparison__subtitle {
-        font-size: 16px;
-        margin-bottom: 40px;
-    }
-
-    .comparison__grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .comparison__item {
+    .modal__content {
+        margin: 20px;
         padding: 24px;
-    }
-
-    .comparison__vs {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-
-    /* Footer */
-    .footer {
-        padding: 48px 0 32px;
-    }
-
-    /* Scenarios */
-    .scenarios {
-        padding: 60px 0;
-    }
-
-    .scenarios__title {
-        font-size: 32px;
-    }
-
-    .scenarios__subtitle {
-        font-size: 16px;
-        margin-bottom: 40px;
-    }
-
-    .scenarios__grid {
-        grid-template-columns: 1fr;
-        height: auto;
-        gap: 16px;
-    }
-
-    .scenarios__card {
-        height: 300px;
-    }
-
-    .footer__grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    /* Footer Mobile Adjustments */
-    .footer__brand {
-        max-width: 100%;
-    }
-
-    .footer__bottom {
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
-    }
-
-    /* Mobile Sticky CTA */
-    .mobile-sticky-cta {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        right: 20px;
-        z-index: 100;
-        display: block;
-        animation: slideUp 0.5s ease-out;
-    }
-
-    .mobile-sticky-cta__btn {
-        width: 100%;
-        padding: 16px;
-        background: var(--color-accent);
-        color: white;
-        border: none;
-        border-radius: 50px;
-        font-family: var(--font-heading);
-        font-size: 16px;
-        font-weight: 700;
-        box-shadow: 0 4px 20px rgba(255, 107, 0, 0.4);
-        cursor: pointer;
-    }
-
-    @keyframes slideUp {
-        from {
-            transform: translateY(100px);
-            opacity: 0;
-        }
-
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-}
-
-/* Desktop styles for sticky button (hidden) */
-@media (min-width: 769px) {
-    .mobile-sticky-cta {
-        display: none;
     }
 }

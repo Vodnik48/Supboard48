@@ -1,117 +1,184 @@
 /* ==========================================================================
-   Scenarios Block
+   Scenarios Block - Сценарии отдыха (expandable 3→6)
    ========================================================================== */
 
 .scenarios {
-    padding: 100px 0;
-    background-color: #fff;
+    padding: 64px 0;
+    /* Reduced from 100px */
+    background: linear-gradient(180deg, #f8fafc 0%, #e0f2fe 100%);
 }
 
 .scenarios__container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    text-align: center;
 }
 
-.scenarios__title {
-    font-family: var(--font-heading);
-    font-size: 42px;
-    font-weight: 800;
-    text-align: center;
-    color: var(--color-text-dark);
+.scenarios__label {
+    display: inline-block;
+    background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     margin-bottom: 16px;
 }
 
+.scenarios__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: #0c4a6e;
+    margin-bottom: 12px;
+}
+
 .scenarios__subtitle {
-    font-size: 18px;
-    text-align: center;
-    color: #666;
-    margin-bottom: 60px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    color: #64748b;
     max-width: 600px;
-    margin: 0 auto 60px;
+    margin: 0 auto 32px;
+    /* Reduced from 48px */
 }
 
 .scenarios__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    height: 400px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 32px;
 }
 
 .scenarios__card {
-    position: relative;
+    background: white;
     border-radius: 20px;
     overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
 }
 
-/* Hover Effect: Expand one card, shrink others? 
-   No, let's stick to simple zoom or lift for now to keep it robust.
-*/
 .scenarios__card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 40px rgba(14, 165, 233, 0.15);
 }
 
-.scenarios__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
+.scenarios__card_hidden {
+    display: none;
+}
+
+.scenarios__grid.expanded .scenarios__card_hidden {
+    display: block;
+    animation: fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.scenarios__image-wrapper {
+    height: 200px;
+    overflow: hidden;
+}
+
+.scenarios__image {
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.8) 100%);
-    z-index: 1;
-    transition: background 0.3s ease;
+    object-fit: cover;
+    transition: transform 0.4s ease;
 }
 
-.scenarios__card:hover .scenarios__overlay {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.9) 100%);
+.scenarios__card:hover .scenarios__image {
+    transform: scale(1.05);
 }
 
 .scenarios__content {
-    position: relative;
-    z-index: 2;
-    color: white;
-}
-
-.scenarios__price-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(255, 107, 0, 0.9);
-    color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 700;
-    backdrop-filter: blur(4px);
-    z-index: 2;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.scenarios__card:hover .scenarios__price-badge {
-    transform: scale(1.1);
-    background: var(--color-accent);
+    padding: 24px;
 }
 
 .scenarios__card-title {
     font-family: var(--font-heading);
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--color-slate-900);
     margin-bottom: 8px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+.scenarios__card-time {
+    font-size: 0.9rem;
+    color: #0ea5e9;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
 }
 
 .scenarios__card-desc {
-    font-size: 14px;
-    line-height: 1.4;
-    opacity: 0.9;
-    font-weight: 500;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--color-slate-600);
+    line-height: 1.6;
+}
+
+.scenarios__show-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    border: 2px solid #0ea5e9;
+    color: #0ea5e9;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.scenarios__show-more:hover {
+    background: #0ea5e9;
+    color: white;
+}
+
+.scenarios__show-more.active i {
+    transform: rotate(180deg);
+}
+
+.scenarios__show-more i {
+    transition: transform 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .scenarios__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .scenarios {
+        padding: 40px 0;
+        /* Reduced from 60px */
+    }
+
+    .scenarios__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .scenarios__image-wrapper {
+        height: 180px;
+    }
 }

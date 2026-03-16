@@ -1,32 +1,90 @@
 /* ==========================================================================
-   Base Styles & Variables
+   Base Styles & Brand Variables — Vodnik Guidelines
    ========================================================================== */
 
 :root {
-    --color-accent: #FF6B00;
-    --color-secondary: #00509E;
-    --color-teal: #06D6A0;
-    /* Nature/Water accent */
-    --color-pink: #E91E63;
-    --color-text-main: #FFFFFF;
-    --color-text-dark: #333333;
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Roboto', sans-serif;
+    /* ── Vodnik Core Palette ── */
+    --color-white: #FFFFFF;
+    --color-cloud: #EFEFEF;
+    --color-sky: #1051B5;
+    --color-sand: #E6DCC2;
+    --color-river: #102E48;
 
-    /* Gradients (GoSUP style) */
-    --gradient-hero: linear-gradient(135deg, #E91E63 0%, #2196F3 50%, #00BCD4 100%);
-    --gradient-secondary: linear-gradient(135deg, #00BCD4 0%, #2196F3 100%);
+    /* ── Action / Accent ── */
+    --brand-orange: #F96943;
+
+    /* ── Semantic Aliases ── */
+    --brand-deep: #102E48;
+    --brand-sky: #1051B5;
+    --brand-ocean: #0c3d7a;
+
+    /* ── Fonts (Raleway only) ── */
+    --font-heading: 'Raleway', sans-serif;
+    --font-body: 'Raleway', sans-serif;
+
+    /* ── Legacy compat (used in hero etc.) ── */
+    --color-accent: #F96943;
+    --color-secondary: #1051B5;
 }
 
-* {
+/* ── Reset ── */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-body);
-    color: var(--color-text-main);
-    background-color: #111;
+    font-weight: 400;
+    color: var(--color-river);
+    background: var(--color-white);
     overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Typography Tokens (Brand Guide) ── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-river);
+    line-height: 1.2;
+}
+
+p {
+    text-align: left;
+    color: var(--color-river);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img,
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    font-family: var(--font-body);
+    cursor: pointer;
+    border: none;
+    background: none;
 }

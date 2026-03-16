@@ -1,151 +1,117 @@
-/* ==========================================================================
-   Reviews (Social Proof) Block
-   ========================================================================== */
-
 .reviews {
-    padding: 100px 0;
-    background-color: #fff;
-    border-top: 1px solid #f0f0f0;
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-surface);
 }
 
 .reviews__container {
-    max-width: 1200px;
+    max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 var(--spacing-lg);
+}
+
+.reviews__label {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: rgba(249, 105, 67, 0.1);
+    color: var(--brand-orange);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--spacing-md);
 }
 
 .reviews__title {
     font-family: var(--font-heading);
-    font-size: 42px;
-    font-weight: 800;
-    text-align: center;
-    color: var(--color-text-dark);
-    margin-bottom: 60px;
+    font-size: var(--font-size-h2);
+    color: var(--brand-blue);
+    margin-bottom: var(--spacing-xl);
+    text-transform: uppercase;
 }
 
 .reviews__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
 }
 
 .reviews__card {
-    background: #f8f9fa;
-    border-radius: 20px;
-    padding: 32px;
-    transition: transform 0.3s ease;
+    background: var(--color-background);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: 0 10px 30px rgba(16, 46, 72, 0.05);
+    transition: transform var(--transition-normal);
 }
 
 .reviews__card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
 .reviews__header {
     display: flex;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
 }
 
 .reviews__avatar {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    color: white;
-    font-size: 20px;
+    object-fit: cover;
 }
 
-.reviews__name {
+.reviews__author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.reviews__author {
     font-family: var(--font-heading);
+    font-size: var(--font-size-lg);
+    color: var(--brand-blue);
     font-weight: 700;
-    font-size: 16px;
-    color: var(--color-text-dark);
-    margin: 0 0 4px;
+    margin: 0 0 4px 0;
 }
 
 .reviews__rating {
-    font-size: 12px;
-    letter-spacing: 2px;
+    color: #FFB300; /* Yandex Maps Star Color */
+    font-size: 14px;
 }
 
 .reviews__text {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #4a4a4a;
+    color: var(--color-text-light);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-md);
     font-style: italic;
-    margin: 0;
 }
 
-.reviews__widgets {
-    display: flex;
-    justify-content: center;
-    gap: 24px;
-    flex-wrap: wrap;
-}
-
-.reviews__widget-placeholder {
-    display: flex;
+.reviews__source {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    padding: 12px 24px;
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 50px;
-    color: var(--color-text-dark);
-    font-weight: 500;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s;
+    gap: 6px;
+    font-size: var(--font-size-sm);
+    color: #8C8C8C;
 }
 
-.reviews__widget-placeholder:hover {
-    transform: translateY(-2px);
+.reviews__source::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FF0000"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>');
+    background-size: cover;
 }
 
-.reviews__widget-yandex {
-    color: #fc3f1d;
-    /* Yandex Red Brand */
-    font-weight: 700;
+.reviews__action {
+    text-align: center;
 }
 
-.reviews__widget-yandex strong {
-    color: #00a651;
-    /* Green Rating */
-    margin-left: 6px;
-    font-weight: 900;
-}
-
-.reviews__widget-2gis {
-    color: #00a651;
-    /* 2GIS Green Brand */
-    font-weight: 700;
-}
-
-.reviews__widget-2gis strong {
-    color: #333;
-    /* Dark text for rating or keep green? User didn't specify, but standard is Green for high ratings. Let's keep green match.*/
-    color: #00a651;
-    margin-left: 6px;
-}
-
-/* Mobile Responsive */
 @media (max-width: 768px) {
-    .reviews {
-        padding: 60px 0;
-    }
-
     .reviews__title {
-        font-size: 32px;
-        margin-bottom: 40px;
-    }
-
-    .reviews__grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        font-size: var(--font-size-h3);
     }
 }
