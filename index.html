@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="css/blocks/contacts.css">
     <link rel="stylesheet" href="css/blocks/yoga.css">
     <link rel="stylesheet" href="css/blocks/corporate.css">
+    <link rel="stylesheet" href="css/blocks/gallery.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -43,6 +45,7 @@
             <nav class="header__nav">
                 <a href="#advantages" class="header__link">Преимущества</a>
                 <a href="#equipment" class="header__link">Оборудование</a>
+                <a href="#yoga" class="header__link">Йога</a>
                 <a href="#scenarios" class="header__link">Сценарии</a>
                 <a href="#routes" class="header__link">Маршруты</a>
                 <a href="#booking" class="header__link">Забронировать</a>
@@ -64,6 +67,7 @@
             <nav class="header__mobile-nav">
                 <a href="#advantages" class="header__mobile-link">Преимущества</a>
                 <a href="#equipment" class="header__mobile-link">Оборудование</a>
+                <a href="#yoga" class="header__mobile-link">Йога</a>
                 <a href="#scenarios" class="header__mobile-link">Сценарии</a>
                 <a href="#routes" class="header__mobile-link">Маршруты</a>
                 <a href="#booking" class="header__mobile-link">Забронировать</a>
@@ -716,7 +720,7 @@
         </div>
     </section>
 
-        <!-- ============================================
+    <!-- ============================================
          BLOCK 3: BOOKING DASHBOARD V2 (2-Step Wizard)
          ============================================ -->
     <section class="booking" id="booking">
@@ -979,55 +983,117 @@
         </div>
     </section>
 
-    <!-- 7.2 SUP Yoga Section (Premium Offer) -->
-    <section class="yoga" id="yoga">
+    <!-- =============================================
+         SECTION: SUP YOGA — "Утро на воде"
+         ============================================= -->
+    <section class="yoga section reveal" id="yoga">
         <div class="yoga__container">
-            <div class="yoga__wrapper">
-                
-                <div class="yoga__content">
-                    <span class="yoga__label">САП-йога</span>
-                    <h2 class="yoga__title">Йога на воде —<br>уровень гармонии</h2>
-                    <p class="yoga__desc">Представьте: вы чувствуете каждую мышцу, покачиваясь на теплой воде. Каждая асана требует фокуса. Это не просто фитнес — это уникальный опыт расслабления на свежем воздухе для создания идеальной гармонии тела и разума.</p>
 
-                    <div class="yoga__benefits">
-                        <div class="yoga__benefit">
-                            <span class="yoga__benefit-icon"><i class="fa-solid fa-heart"></i></span>
-                            <span class="yoga__benefit-text">Глубокая проработка мышц-стабилизаторов</span>
-                        </div>
-                        <div class="yoga__benefit">
-                            <span class="yoga__benefit-icon"><i class="fa-solid fa-brain"></i></span>
-                            <span class="yoga__benefit-text">Ментальная перезагрузка и снятие стресса</span>
-                        </div>
-                        <div class="yoga__benefit">
-                            <span class="yoga__benefit-icon"><i class="fa-solid fa-sun"></i></span>
-                            <span class="yoga__benefit-text">Утреннее солнце и единение с природой</span>
-                        </div>
-                    </div>
+            <!-- Section Header -->
+            <div class="yoga__header">
+                <span class="yoga__label"><i class="fa-solid fa-sun"></i> Йога на воде</span>
+                <h2 class="yoga__title">Утро на <em>воде</em> — уровень гармонии</h2>
+                <p class="yoga__subtitle">
+                    Представьте: рассвет, тишина, тёплая вода и вы на сапборде в медитации.
+                    Это не просто йога — это перезагрузка тела и разума на природе.
+                </p>
+            </div>
+
+            <!-- ── Photo Gallery ── -->
+            <div class="yoga__gallery">
+                <!-- Hero image — group yoga at sunrise -->
+                <div class="yoga__gallery-item item--hero">
+                    <img src="assets/yoga_group_sunrise.png" alt="Групповая йога на рассвете" class="yoga__gallery-img" loading="lazy">
+                    <div class="yoga__gallery-caption">Йога в женском кругу на рассвете</div>
                 </div>
 
-                <div class="yoga__offer">
-                    <div class="yoga__polaroid">
-                        <div class="yoga__polaroid-image-wrapper">
-                            <!-- We use a placeholder image specifically requesting women doing yoga if the video is missing -->
-                            <img src="assets/equip/sup_yoga.jpg" alt="Девушки на Сап-йоге" class="yoga__polaroid-video" onerror="this.src='assets/hero_bg2.png'">
-                        </div>
-                        <span class="yoga__polaroid-caption">Утро на воде ✨</span>
-                    </div>
+                <!-- Side image 1 — yoga on pier -->
+                <div class="yoga__gallery-item">
+                    <img src="assets/yoga_pier_sunrise.png" alt="Йога на пирсе" class="yoga__gallery-img" loading="lazy">
+                    <div class="yoga__gallery-caption">Йога на пирсе</div>
+                </div>
 
-                    <div class="yoga__price-card">
-                        <h4 class="yoga__price-title">Занятие в группе</h4>
-                        <div class="yoga__price-amount">1 500 ₽ <span class="yoga__price-sub">/ 1.5 часа</span></div>
-                        <ul class="yoga__price-list">
-                            <li><i class="fa-solid fa-check"></i> Инструктор по йоге</li>
-                            <li><i class="fa-solid fa-check"></i> Специализированный широкий САП</li>
-                            <li><i class="fa-solid fa-check"></i> Фотографии с занятия</li>
-                        </ul>
-                        <button class="yoga__btn js-open-modal">ЗАПИСАТЬСЯ</button>
+                <!-- Side image 2 — supreme balance -->
+                <div class="yoga__gallery-item">
+                    <img src="assets/yoga_sup_warrior.png" alt="Поза воина на сапе" class="yoga__gallery-img" loading="lazy">
+                    <div class="yoga__gallery-caption">Баланс и сила</div>
+                </div>
+
+                <!-- Bottom wide image — breakfast loop -->
+                <div class="yoga__gallery-item" style="grid-column: span 1;">
+                    <img src="assets/breakfast_sunrise_circle.png" alt="Завтрак на рассвете" class="yoga__gallery-img" loading="lazy">
+                    <div class="yoga__gallery-caption">Завтрак в женском кругу после практики</div>
+                </div>
+            </div>
+
+            <!-- ── Event Description ── -->
+            <div class="yoga__event">
+                <div class="yoga__event-content">
+                    <div class="yoga__event-header">
+                        <span class="yoga__event-promo">Специальное мероприятие</span>
+                        <h3 class="yoga__event-title">Программа «Утро на воде»</h3>
+                    </div>
+                    
+                    <p class="yoga__event-desc">
+                        Уникальный формат утреннего мероприятия для женщин. Мягкая йога на сапбордах в лучах рассвета, медитация на воде и тёплый завтрак в уютном кругу. Практика начинается в 6:00, когда город ещё спит, а природа просыпается вместе с вами.
+                    </p>
+
+                    <ul class="yoga__event-steps">
+                        <li class="yoga__event-step"><i class="fa-solid fa-sun"></i> 6:00 — Встреча на пирсе, разминка и настройка</li>
+                        <li class="yoga__event-step"><i class="fa-solid fa-water"></i> 6:30 — Йога на сапбордах (60 мин)</li>
+                        <li class="yoga__event-step"><i class="fa-solid fa-wind"></i> 7:30 — Медитация и дыхательные практики</li>
+                        <li class="yoga__event-step"><i class="fa-solid fa-mug-hot"></i> 8:00 — Завтрак в женском кругу на пирсе</li>
+                    </ul>
+
+                    <div class="yoga__event-pricing">
+                        <div class="yoga__event-price">1 500 ₽ <span>/ 2,5 часа</span></div>
+                        <button class="yoga__btn js-open-modal" style="width: auto; padding: 12px 30px;">ЗАПИСАТЬСЯ</button>
+                    </div>
+                </div>
+                
+                <div class="yoga__event-media">
+                    <img src="assets/yoga_group_sunrise.png" alt="Йога на сапбордах на рассвете" loading="lazy">
+                    <div class="yoga__event-floating-badge">
+                        <i class="fa-solid fa-heart"></i> Только для женщин
                     </div>
                 </div>
             </div>
+
+            <!-- ── Instructors ── -->
+            <div class="yoga__instructors">
+                <h3 class="yoga__instructors-title">Наши инструкторы</h3>
+                <p class="yoga__instructors-subtitle">
+                    Сертифицированные тренеры с многолетним опытом проведения занятий на воде
+                </p>
+
+                <div class="yoga__instructors-grid">
+                    <!-- Instructor 1 -->
+                    <div class="yoga__instructor-card">
+                        <span class="yoga__instructor-badge"><i class="fa-solid fa-certificate"></i></span>
+                        <img src="assets/instructor_female_1.png" alt="Инструктор йоги" class="yoga__instructor-photo" loading="lazy">
+                        <div class="yoga__instructor-info">
+                            <div class="yoga__instructor-name">Анна Ковалёва</div>
+                            <div class="yoga__instructor-role">Инструктор по йоге</div>
+                            <div class="yoga__instructor-exp">Опыт 7+ лет • RYT-200</div>
+                        </div>
+                    </div>
+
+                    <!-- Instructor 2 -->
+                    <div class="yoga__instructor-card">
+                        <span class="yoga__instructor-badge"><i class="fa-solid fa-certificate"></i></span>
+                        <img src="assets/instructor_male_1.png" alt="Инструктор SUP" class="yoga__instructor-photo" loading="lazy">
+                        <div class="yoga__instructor-info">
+                            <div class="yoga__instructor-name">Дмитрий Волков</div>
+                            <div class="yoga__instructor-role">SUP-инструктор</div>
+                            <div class="yoga__instructor-exp">Опыт 5+ лет • КМС</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
+
 
     <!-- 7.3 Corporate Events Section (Premium Offer) -->
     <section class="corporate" id="corporate">
@@ -1103,72 +1169,66 @@
         </div>
     </section>
 
-    <!-- 7.4 Gallery Section - Sticky Horizontal Scroll -->
+    <!-- ============================================
+         BLOCK 7.4: GALLERY — Fanning Scroll
+         ============================================ -->
     <section class="gallery" id="gallery">
         <div class="gallery__sticky-wrap">
             <div class="gallery__header" id="galleryHeader">
-                <span class="gallery__label">Эмоции</span>
-                <h2 class="gallery__title">Моменты на воде</h2>
+                <span class="gallery__label">САПБОРД48</span>
+                <h2 class="gallery__title">Что делает поездку в САПБОРД48 особенной?</h2>
             </div>
-
             <div class="gallery__polaroids-stack" id="galleryStackedCards">
-                <!-- Polaroid 1 -->
-                <div class="gallery__polaroid gallery__polaroid--1">
+                <!-- Card 1 -->
+                <div class="gallery__polaroid">
                     <div class="gallery__photo-wrapper">
-                        <img src="assets/scenario_sunset.png" alt="Закат на воде" class="gallery__photo">
+                        <img src="assets/scenario_family.png" class="gallery__photo" alt="Открытие себя">
                     </div>
                     <div class="gallery__polaroid-content">
-                        <h4 class="gallery__polaroid-title">Вечерние сплавы</h4>
-                        <p class="gallery__polaroid-desc">Провожаем лучшие закаты на сапах. Тишина и спокойствие
-                            города.</p>
+                        <h3 class="gallery__polaroid-title">Открытие себя</h3>
+                        <p class="gallery__polaroid-desc">Хочешь попробовать то, на что раньше не решался? Мы даем тебе доску, весло и бескрайнюю гладь воды. Помогаем выйти за рамки привычного, удивиться себе и увидеть мир по-новому.</p>
                     </div>
                 </div>
-
-                <!-- Polaroid 2 -->
-                <div class="gallery__polaroid gallery__polaroid--2">
+                <!-- Card 2 -->
+                <div class="gallery__polaroid">
                     <div class="gallery__photo-wrapper">
-                        <img src="assets/scenario_adventure.png" alt="Приключения" class="gallery__photo">
+                        <img src="assets/hero_bg2.png" class="gallery__photo" alt="Все выезды — новый опыт">
                     </div>
                     <div class="gallery__polaroid-content">
-                        <h4 class="gallery__polaroid-title">Драйв и скорость</h4>
-                        <p class="gallery__polaroid-desc">Настоящие экспедиции на длинные дистанции для тех, кто
-                            любит бросать вызов.</p>
+                        <h3 class="gallery__polaroid-title">Все выезды — новый опыт</h3>
+                        <p class="gallery__polaroid-desc">Каждый маршрут уникален — атмосферой, пейзажами и впечатлениями. Даже если ты с нами не впервые, каждый сплав будет по-другому.</p>
                     </div>
                 </div>
-
-                <!-- Polaroid 3 -->
-                <div class="gallery__polaroid gallery__polaroid--3">
+                <!-- Card 3 -->
+                <div class="gallery__polaroid">
                     <div class="gallery__photo-wrapper">
-                        <img src="assets/scenario_family.png" alt="Семейный отдых" class="gallery__photo">
+                        <img src="assets/scenario_adventure.png" class="gallery__photo" alt="Инструкторы были участниками">
                     </div>
                     <div class="gallery__polaroid-content">
-                        <h4 class="gallery__polaroid-title">Вместе веселее</h4>
-                        <p class="gallery__polaroid-desc">Делимся эмоциями с самыми близкими. Безопасно для всех
-                            возрастов.</p>
+                        <h3 class="gallery__polaroid-title">Инструкторы всегда поддержат</h3>
+                        <p class="gallery__polaroid-desc">Наши инструкторы — бывшие клиенты. Они знают, как важна поддержка на воде, где легко раскрыться и почувствовать: ты на своём месте.</p>
                     </div>
                 </div>
-
-                <!-- Polaroid 4 -->
-                <div class="gallery__polaroid gallery__polaroid--4">
+                <!-- Card 4 -->
+                <div class="gallery__polaroid">
                     <div class="gallery__photo-wrapper">
-                        <img src="assets/scenario_pet_friendly.png" alt="С питомцем" class="gallery__photo">
+                        <img src="assets/scenario_sunset.png" class="gallery__photo" alt="Организация на нас!">
                     </div>
                     <div class="gallery__polaroid-content">
-                        <h4 class="gallery__polaroid-title">Хвостатые райдеры</h4>
-                        <p class="gallery__polaroid-desc">Берём любимцев с собой. Выдаём спасательные жилеты для
-                            собак.</p>
+                        <h3 class="gallery__polaroid-title">Организация на нас!</h3>
+                        <p class="gallery__polaroid-desc">Мы продумали всё до мелочей: от чистых жилетов до парковки и теплых раздевалок. Просто приезжай, а остальное мы берем на себя.</p>
                     </div>
                 </div>
-
-                <!-- Polaroid 5 -->
-                <div class="gallery__polaroid gallery__polaroid--5">
+                <!-- Card 5 -->
+                <div class="gallery__polaroid">
                     <div class="gallery__photo-wrapper">
-                        <img src="assets/sup_family_1770205945964.png" alt="На воде" class="gallery__photo">
+                        <video class="gallery__photo" autoplay muted loop playsinline>
+                            <source src="assets/hero_video.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="gallery__polaroid-content">
-                        <h4 class="gallery__polaroid-title">Свобода на воде</h4>
-                        <p class="gallery__polaroid-desc">Лучший способ перезагрузиться и отдохнуть от городской
-                            суеты.</p>
+                        <h3 class="gallery__polaroid-title">Безопасность и свобода</h3>
+                        <p class="gallery__polaroid-desc">Мы находимся рядом в любой ситуации. Спасатели сопровождают вас, чтобы вы могли расслабиться и получать удовольствие от каждого момента.</p>
                     </div>
                 </div>
             </div>
@@ -1358,69 +1418,7 @@
         </div>
     </section>
 
-    <!-- ============================================
-         BLOCK 8.5: GALLERY — Polaroid Fanning Scroll
-         ============================================ -->
-    <section class="gallery" id="gallery">
-        <div class="gallery__sticky-wrap">
-            <div class="gallery__header">
-                <span class="gallery__label">Эмоции</span>
-                <h2 class="gallery__title">Моменты на воде</h2>
-            </div>
-            <div class="gallery__polaroids-stack">
-                <!-- Card 1 — Accent / First -->
-                <div class="gallery__polaroid" data-index="0">
-                    <div class="gallery__photo-wrapper">
-                        <img src="assets/sup_family_1770205945964.png" alt="Семейный отдых на воде" class="gallery__photo">
-                    </div>
-                    <div class="gallery__polaroid-content">
-                        <h3 class="gallery__polaroid-title">Семейный отдых</h3>
-                        <p class="gallery__polaroid-desc">Незабываемый день на воде вместе с близкими — лучшее приключение лета.</p>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="gallery__polaroid" data-index="1">
-                    <div class="gallery__photo-wrapper">
-                        <img src="assets/step_adventure_1770205885210.png" alt="Приключение на воде" class="gallery__photo">
-                    </div>
-                    <div class="gallery__polaroid-content">
-                        <h3 class="gallery__polaroid-title">Приключение ждёт</h3>
-                        <p class="gallery__polaroid-desc">Каждый сплав — это новая история. Река, природа и свобода.</p>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="gallery__polaroid" data-index="2">
-                    <div class="gallery__photo-wrapper">
-                        <img src="assets/step_arrival_1770205851982.png" alt="Приезд на базу" class="gallery__photo">
-                    </div>
-                    <div class="gallery__polaroid-content">
-                        <h3 class="gallery__polaroid-title">Добро пожаловать</h3>
-                        <p class="gallery__polaroid-desc">Вас встретят, проведут инструктаж и подготовят всё к старту.</p>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="gallery__polaroid" data-index="3">
-                    <div class="gallery__photo-wrapper">
-                        <img src="assets/step_memories_1770205907942.png" alt="Воспоминания" class="gallery__photo">
-                    </div>
-                    <div class="gallery__polaroid-content">
-                        <h3 class="gallery__polaroid-title">Яркие воспоминания</h3>
-                        <p class="gallery__polaroid-desc">Фотографии, эмоции и закаты — всё, что останется с вами навсегда.</p>
-                    </div>
-                </div>
-                <!-- Card 5 -->
-                <div class="gallery__polaroid" data-index="4">
-                    <div class="gallery__photo-wrapper">
-                        <img src="assets/step_instruction_1770205871746.png" alt="Инструктаж" class="gallery__photo">
-                    </div>
-                    <div class="gallery__polaroid-content">
-                        <h3 class="gallery__polaroid-title">Безопасность прежде всего</h3>
-                        <p class="gallery__polaroid-desc">Профессиональный инструктаж и спасжилеты — мы заботимся о вас.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- ============================================
          BLOCK 9: CTA #2 (Второй призыв к действию)
@@ -1462,6 +1460,7 @@
                     <h5 class="footer__heading">Разделы</h5>
                     <div class="footer__links">
                         <a href="#equipment" class="footer__link">Прокат SUP-бордов</a>
+                        <a href="#yoga" class="footer__link">SUP-йога на рассвете</a>
                         <a href="#equipment" class="footer__link">Аренда байдарок</a>
                         <a href="#routes" class="footer__link">Маршруты по р. Воронеж</a>
                         <a href="#scenarios" class="footer__link">Сценарии отдыха</a>

@@ -3,9 +3,9 @@
    ========================================================================== */
 
 .gallery {
-    /* Huge height to allow 5 cards to transition out */
+    /* Huge height to allow cards to transition out */
     height: 400vh;
-    background: var(--color-cloud);
+    background: var(--color-cloud-gray, #EFEFEF); /* Light background */
     position: relative;
 }
 
@@ -30,132 +30,119 @@
     transition: opacity 0.5s ease;
     width: 100%;
     padding: 0 20px;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 40px rgba(255, 255, 255, 0.5);
 }
 
 .gallery__label {
-    font-family: var(--font-heading);
+    font-family: var(--font-heading, 'Raleway', sans-serif);
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--color-sky);
+    color: var(--color-sky, #1051B5);
     margin-bottom: 16px;
     display: block;
 }
 
 .gallery__title {
-    text-transform: uppercase;
-    font-family: var(--font-heading);
+    font-family: var(--font-heading, 'Raleway', sans-serif);
     font-size: clamp(32px, 5vw, 48px);
     font-weight: 900;
-    color: var(--color-river);
+    color: var(--color-primary, #1051B5); /* Main Brand Blue */
     margin-bottom: 40px;
+    line-height: 1.1;
 }
 
 /* =====================================
-   Polaroid Stack & Cards
+   Polaroid Stack & Cards (Horizontal Track)
    ===================================== */
 .gallery__polaroids-stack {
     position: relative;
-    width: 100%;
-    height: 100%;
     display: flex;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    align-self: flex-start; /* CRITICAL FIX: prevents the parent flex col from centering this huge element and pushing its start off-screen */
+    gap: 20px; /* Reduced gap to ~half per user request */
+    width: max-content;
+    height: auto;
+    /* Center the first card exactly (width ~45vw -> half is 22.5vw) */
+    padding-left: calc(50vw - 22.5vw); 
+    padding-right: 50vw; /* Allows scrolling past the last card smoothly */
+    will-change: transform;
 }
 
 /* Individual Polaroid Card */
 .gallery__polaroid {
-    position: absolute;
-    width: clamp(300px, 40vw, 450px);
-    background: #ffffff;
+    position: relative;
+    flex-shrink: 0;
+    width: clamp(320px, 45vw, 600px); /* Made larger per user request */
+    max-height: 70vh; /* Kept it safe to avoid cutoff */
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
     padding: 20px 20px 30px 20px;
-    border-radius: 4px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(16, 46, 72, 0.08); 
     will-change: transform, opacity;
     transform-origin: center center;
 }
 
+/* First card background */
+.gallery__polaroid:nth-child(1) {
+    background: var(--color-primary, #1051B5);
+    color: #FFFFFF;
+}
+.gallery__polaroid:nth-child(1) .gallery__polaroid-title {
+    color: #FFFFFF;
+}
+.gallery__polaroid:nth-child(1) .gallery__polaroid-desc {
+    color: rgba(255,255,255,0.9);
+}
+
 .gallery__photo-wrapper {
     width: 100%;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
+    flex-grow: 1; 
+    flex-shrink: 1; 
+    min-height: 0; 
     margin-bottom: 24px;
-    background: #f1f5f9;
+    border-radius: 4px; 
+    display: flex;
+    justify-content: center;
+    overflow: hidden; 
 }
 
 .gallery__photo {
     width: 100%;
     height: 100%;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
-    display: block;
-    transition: transform 3s ease;
+    border-radius: inherit;
 }
 
 .gallery__polaroid-content {
     text-align: left;
+    padding: 0 4px;
 }
 
 .gallery__polaroid-title {
-    font-family: var(--font-heading);
-    font-size: clamp(20px, 2.5vw, 26px);
+    font-family: var(--font-heading, 'Raleway', sans-serif);
+    font-size: clamp(20px, 2vw, 26px);
     font-weight: 700;
-    color: var(--color-sky);
+    color: var(--color-primary, #1051B5);
     margin-bottom: 12px;
     line-height: 1.2;
 }
 
 .gallery__polaroid-desc {
-    font-family: var(--font-body);
-    font-size: clamp(14px, 1.5vw, 16px);
-    color: var(--color-river);
+    font-family: var(--font-body, 'Raleway', sans-serif);
+    font-size: clamp(14px, 1.2vw, 16px);
+    color: var(--color-river, #102E48);
     line-height: 1.5;
-    opacity: 0.8;
 }
 
 /* =====================================
    Responsive Design
    ===================================== */
-
-@media (max-height: 800px) {
-    .gallery__header {
-        top: 30px;
-    }
-
-    .gallery__title {
-        font-size: clamp(24px, 4vw, 36px);
-        margin-bottom: 20px;
-    }
-
-    .gallery__polaroid {
-        width: clamp(260px, 35vw, 360px);
-        padding: 15px 15px 25px 15px;
-    }
-
-    .gallery__photo-wrapper {
-        margin-bottom: 16px;
-    }
-
-    .gallery__polaroid-title {
-        font-size: clamp(18px, 2vw, 22px);
-        margin-bottom: 8px;
-    }
-
-    .gallery__polaroid-desc {
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 1024px) {
-    .gallery {
-        height: 350vh;
-    }
-}
-
 @media (max-width: 768px) {
-
-    /* Disable Fanning Stack on Mobile, fallback to list */
     .gallery {
         height: auto;
         padding: 60px 0;
@@ -172,18 +159,18 @@
         position: relative;
         top: auto;
         opacity: 1 !important;
+        margin-bottom: 30px;
+        transform: none !important;
     }
 
     .gallery__polaroids-stack {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        width: 100%;
-        padding: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        gap: 20px;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
-        gap: 20px;
+        transform: none !important; /* Disable JS transform on mobile */
     }
 
     .gallery__polaroids-stack::-webkit-scrollbar {
@@ -196,9 +183,7 @@
     }
 
     .gallery__polaroid {
-        position: relative;
         width: 280px;
-        flex-shrink: 0;
         scroll-snap-align: center;
         transform: none !important;
         opacity: 1 !important;

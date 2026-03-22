@@ -662,15 +662,33 @@ document.addEventListener('DOMContentLoaded', () => {
         const numCards = polaroids.length;
         
         polaroids.forEach((card, index) => {
-            // Force absolute centering so transform translates work perfectly
-            card.style.top = '50%';
-            card.style.left = '50%';
-            
             // Higher z-index for lower index (first card on top)
             card.style.zIndex = numCards - index;
             
-            const baseRot = (Math.random() - 0.5) * 6; // -3 to +3 degrees
+            const baseRot = (Math.random() - 0.5) * 6;
             card.dataset.baserot = baseRot;
+        });
+        
+        // Dynamically adjust gallery container height for perfectly smooth 1:1 horizontal scroll feeling
+        const updateGalleryHeight = () => {
+            if (window.innerWidth > 768) {
+                // Determine horizontal distance
+                const trackWidth = galleryStackedCards.scrollWidth - window.innerWidth;
+                gallerySection.style.height = `calc(100vh + ${trackWidth}px)`;
+            } else {
+                gallerySection.style.height = 'auto'; // Mobile flows naturally
+            }
+        };
+
+        window.addEventListener('resize', updateGalleryHeight);
+        
+        // Use ResizeObserver for accurate content width computation
+        new ResizeObserver(updateGalleryHeight).observe(galleryStackedCards);
+
+        // Initialize drop parameters 
+        // We only want to set starting rotations on mobile/not scrolled states too just in case
+        polaroids.forEach((card) => {
+            card.style.transform = `rotate(${card.dataset.baserot}deg)`;
         });
 
         window.addEventListener('scroll', () => {
@@ -681,56 +699,48 @@ document.addEventListener('DOMContentLoaded', () => {
             let progress = -rect.top / totalScrollableDistance;
             progress = Math.max(0, Math.min(1, progress));
 
-            const chunk = 1 / numCards;
+            const chunk = numCards > 0 ? 1 / numCards : 1; 
 
             if (galleryHeader) {
-                // Header fades out during the first chunk
-                const headerLocalProgress = Math.min(1, progress / chunk);
-                galleryHeader.style.opacity = 1 - headerLocalProgress;
-                galleryHeader.style.transform = `translateY(${headerLocalProgress * -50}px)`;
+                // Header fades out smoothly only at the END of the scroll
+                // meaning when progress goes from 0.8 to 1.0
+                let headerOpacity = 1;
+                if (progress > 0.8) {
+                    const fadeProgress = (progress - 0.8) / 0.2; // 0 to 1
+                    headerOpacity = 1 - fadeProgress;
+                }
+                galleryHeader.style.opacity = headerOpacity;
+                galleryHeader.style.transform = `translateY(${(1 - headerOpacity) * -50}px)`;
             }
+            
+            // 1. Move the entire container (track) horizontally 
+            // trackWidth is how much we have to scroll fully left so the last card reaches center padding essentially
+            const trackWidth = galleryStackedCards.scrollWidth - window.innerWidth;
+            const currentTranslateX = -trackWidth * progress;
+            galleryStackedCards.style.transform = `translateX(${currentTranslateX}px)`;
 
-            polaroids.forEach((card, index) => {
-                let localProgress = (progress - index * chunk) / chunk;
-                const baseRot = parseFloat(card.dataset.baserot);
+            // 2. Individual card drop logic 
+            polaroids.forEach((card) => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenter = cardRect.left + (cardRect.width / 2);
+                const dropPoint = window.innerWidth * 0.35; // The card drops when its center passes 35% of the screen from the left
 
-                if (localProgress < 0) {
-                    card.style.transform = `translate(-50%, -50%) translate(20vw, 50vh) rotate(${baseRot + 30}deg) scale(0.85)`;
-                    card.style.opacity = 0;
-                } else if (localProgress >= 0 && localProgress <= 1) {
-                    const easeOut = 1 - Math.pow(1 - localProgress, 3);
-                    const moveX = 20 * (1 - easeOut); 
-                    const moveY = 50 * (1 - easeOut);
-                    const rot = baseRot + 30 * (1 - easeOut);
-                    const scale = 0.85 + 0.15 * easeOut; 
-
-                    card.style.transform = `translate(-50%, -50%) translate(${moveX}vw, ${moveY}vh) rotate(${rot}deg) scale(${scale})`;
-                    card.style.opacity = easeOut;
+                if (cardCenter < dropPoint) {
+                    const pastDrop = dropPoint - cardCenter;
+                    // Max fall distance for our effect is 35% of screen width
+                    const normalizedDrop = Math.min(1, pastDrop / (window.innerWidth * 0.35));
                     
-                    if (index === 0 && progress === 0) {
-                        card.style.transform = `translate(-50%, -50%) translate(0, 0) rotate(${baseRot}deg) scale(1)`;
-                        card.style.opacity = 1;
-                    }
-
-                } else if (localProgress > 1 && localProgress <= 2) {
-                    const exitPhase = localProgress - 1;
-                    const easeIn = Math.pow(exitPhase, 2);
+                    const moveY = 150 * Math.pow(normalizedDrop, 2); // Downward acceleration
+                    const baseRot = parseFloat(card.dataset.baserot) || 0;
+                    const rot = baseRot - (25 * normalizedDrop); // Extra spin left
+                    const opacity = 1 - (normalizedDrop * 1.5); // Fade fast
                     
-                    const moveX = -80 * easeIn; 
-                    const moveY = -80 * easeIn; 
-                    const rot = baseRot - 45 * easeIn; 
-                    const scale = 1 - 0.2 * easeIn;
-                    
-                    if (index === numCards - 1 && progress === 1) {
-                         card.style.transform = `translate(-50%, -50%) translate(0, 0) rotate(${baseRot}deg) scale(1)`;
-                         card.style.opacity = 1;
-                    } else {
-                        card.style.transform = `translate(-50%, -50%) translate(${moveX}vw, ${moveY}vh) rotate(${rot}deg) scale(${scale})`;
-                        card.style.opacity = 1 - Math.min(1, easeIn * 1.5); 
-                    }
+                    card.style.transform = `translateY(${moveY}px) rotate(${rot}deg)`;
+                    card.style.opacity = Math.max(0, opacity);
                 } else {
-                    card.style.transform = `translate(-50%, -50%) translate(-100vw, -100vh) rotate(${baseRot - 45}deg) scale(0.8)`;
-                    card.style.opacity = 0;
+                    const baseRot = parseFloat(card.dataset.baserot) || 0;
+                    card.style.transform = `rotate(${baseRot}deg)`;
+                    card.style.opacity = 1;
                 }
             });
         });

@@ -87,7 +87,7 @@ body {
     font-weight: 400;
     color: var(--color-river);
     background: var(--color-white);
-    overflow-x: hidden;
+    overflow-x: clip;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
