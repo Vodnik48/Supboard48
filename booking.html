@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онлайн-бронирование | Сапборд48</title>
+    <meta name="description"
+        content="Прокат сапбордов в Липецке. Центр города, чистые доски, асфальтированная парковка, теплые раздевалки. Инструктаж и спасатели. Забронируйте сейчас!">
+    <meta name="keywords" content="сапборд Липецк, прокат сапов, sup board, сап серфинг Липецк, supbord48, водник48">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sapbord48.ru/">
+    <meta property="og:title" content="Сапборд48 — Прокат сапбордов в Липецке">
+    <meta property="og:description" content="Сплавы на САП-досках, каяках и байдарках по реке Воронеж.">
+    <meta property="og:image" content="assets/hero_bg2.png">
+
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="css/blocks/reviews.css">
+    <link rel="stylesheet" href="css/blocks/contacts.css">
+    <link rel="stylesheet" href="css/blocks/yoga.css">
+    <link rel="stylesheet" href="css/blocks/corporate.css">
+    <link rel="stylesheet" href="css/blocks/gallery.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;900&family=Caveat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ============================================
+         NAVIGATION / HEADER
+         ============================================ -->
+    <header class="header" id="header">
+        <div class="header__container">
+            <a href="index.html" class="header__logo">
+                <span class="header__logo-text">САПБОРД<span class="header__logo-accent">48</span></span>
+            </a>
+            <nav class="header__nav">
+                <a href="index.html#advantages" class="header__link">Преимущества</a>
+                <a href="index.html#equipment" class="header__link">Оборудование</a>
+                <a href="index.html#yoga" class="header__link">Йога</a>
+                <a href="index.html#scenarios" class="header__link">Сценарии</a>
+                <a href="index.html#routes" class="header__link">Маршруты</a>
+                <a href="#" class="header__link">Забронировать</a>
+            </nav>
+            <div class="header__contacts">
+                <a href="tel:+79042832230" class="header__phone">+7 (904) 283-22-30</a>
+            </div>
+            <button class="header__burger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <!-- Mobile Menu Overlay -->
+        <div class="header__mobile-menu" id="mobileMenu">
+            <button class="header__mobile-close" id="mobileMenuClose" aria-label="Закрыть меню">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <nav class="header__mobile-nav">
+                <a href="index.html#advantages" class="header__mobile-link">Преимущества</a>
+                <a href="index.html#equipment" class="header__mobile-link">Оборудование</a>
+                <a href="index.html#yoga" class="header__mobile-link">Йога</a>
+                <a href="index.html#scenarios" class="header__mobile-link">Сценарии</a>
+                <a href="index.html#routes" class="header__mobile-link">Маршруты</a>
+                <a href="#" class="header__mobile-link">Забронировать</a>
+            </nav>
+            <a href="tel:+79042832230" class="header__mobile-phone">+7 (904) 283-22-30</a>
+        </div>
+    </header>
+
+    <!-- Scroll Progress Bar with Floating Cutter -->
+    <div class="scroll-progress" id="scrollProgress">
+        <div class="scroll-progress__track">
+            <div class="scroll-progress__wave"></div>
+            <div class="scroll-progress__sup" id="scrollSup">
+                <!-- SUP Boarder Icon SVG -->
+                <svg viewBox="0 0 24 24" class="scroll-progress__icon-img" fill="none" class="scroll-progress__icon-img"
+                    stroke="#1e293b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Head -->
+                    <circle cx="12" cy="7" r="2" fill="#1e293b" stroke="none" />
+                    <!-- Body & Paddle Action -->
+                    <path d="M12 21v-2l-2-5 3-3 2 3v3" stroke="#1e293b" />
+                    <path d="M10 21l-1-7 3-4" stroke="#0ea5e9" />
+                    <!-- Board -->
+                    <path d="M4 22h16c1.1 0 2-.9 2-2s-1.5-2-3-2h-12c-1.5 0-3 1-3 2s.9 2 2 2z" fill="#fff"
+                        stroke="#1e293b" />
+                    <!-- Paddle Stick -->
+                    <line x1="16" y1="5" x2="8" y2="18" stroke="#1e293b" stroke-width="2" />
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================
+    <main style="padding-top: 80px;">
+<!-- ============================================
+         BLOCK 3: BOOKING DASHBOARD V2 (2-Step Wizard)
+         ============================================ -->
+    <section class="booking" id="booking">
+        <div class="booking__container">
+            <div class="booking__header">
+                <span class="booking__label">Онлайн-бронирование</span>
+                <h2 class="booking__title">Забронировать оборудование</h2>
+                <p class="booking__subtitle">Выберите дату, время и оборудование — мы всё подготовим к вашему приезду</p>
+            </div>
+
+            <!-- Stepper -->
+            <div class="booking__stepper">
+                <div class="booking__step-indicator booking__step-indicator--active" data-step="1">
+                    <span class="booking__step-num">1</span>
+                    <span class="booking__step-name">Выбор аренды</span>
+                </div>
+                <div class="booking__step-line"></div>
+                <div class="booking__step-indicator" data-step="2">
+                    <span class="booking__step-num">2</span>
+                    <span class="booking__step-name">Оформление</span>
+                </div>
+            </div>
+
+            <!-- ========== STEP 1: Выбор аренды ========== -->
+            <div class="booking__panel booking__panel--active" id="bookingStep1">
+                <div class="booking__step-1-layout">
+                    <!-- Left Column: Date & Time -->
+                    <div class="booking__col-left">
+                        <div class="booking__card">
+                            <h3 class="booking__panel-title"><i class="fa-regular fa-calendar"></i> Дата и время</h3>
+                            
+                            <div class="booking__calendar" id="bookingCalendar">
+                                <div class="booking__calendar-header">
+                                    <button class="booking__calendar-nav" id="calendarPrev" type="button">
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                    </button>
+                                    <span class="booking__calendar-title" id="calendarMonthTitle"></span>
+                                    <button class="booking__calendar-nav" id="calendarNext" type="button">
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                                <div class="booking__calendar-grid" id="calendarGrid">
+                                    <span class="booking__calendar-weekday">Пн</span>
+                                    <span class="booking__calendar-weekday">Вт</span>
+                                    <span class="booking__calendar-weekday">Ср</span>
+                                    <span class="booking__calendar-weekday">Чт</span>
+                                    <span class="booking__calendar-weekday">Пт</span>
+                                    <span class="booking__calendar-weekday">Сб</span>
+                                    <span class="booking__calendar-weekday">Вс</span>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 24px;"></div>
+                            <h4 class="booking__panel-subtitle" style="margin-bottom: 12px; font-weight: 600;">Время начала</h4>
+                            
+                            <p class="booking__selected-date" id="selectedDateDisplay">Дата: <strong>—</strong></p>
+                            <div class="booking__time-grid" id="timeGrid">
+                                <button class="booking__time-chip" type="button" data-time="09:00">9:00</button>
+                                <button class="booking__time-chip" type="button" data-time="10:00">10:00</button>
+                                <button class="booking__time-chip" type="button" data-time="11:00">11:00</button>
+                                <button class="booking__time-chip" type="button" data-time="12:00">12:00</button>
+                                <button class="booking__time-chip" type="button" data-time="13:00">13:00</button>
+                                <button class="booking__time-chip" type="button" data-time="14:00">14:00</button>
+                                <button class="booking__time-chip" type="button" data-time="15:00">15:00</button>
+                                <button class="booking__time-chip" type="button" data-time="16:00">16:00</button>
+                                <button class="booking__time-chip" type="button" data-time="17:00">17:00</button>
+                                <button class="booking__time-chip" type="button" data-time="18:00">18:00</button>
+                                <button class="booking__time-chip" type="button" data-time="19:00">19:00</button>
+                                <button class="booking__time-chip" type="button" data-time="20:00">20:00</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Equipment -->
+                    <div class="booking__col-right">
+                        <div class="booking__card">
+                            <h3 class="booking__panel-title"><i class="fa-solid fa-ship"></i> Оборудование</h3>
+                            
+                            <div class="booking__equip-controls-bar">
+                                <div class="booking__equip-search">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                    <input type="text" id="equipSearch" placeholder="Поиск по названию...">
+                                </div>
+                                <div class="booking__equip-categories" id="equipCategories">
+                                    <button class="booking__cat-btn active" data-filter="all">Все</button>
+                                    <button class="booking__cat-btn" data-filter="sup">САП</button>
+                                    <button class="booking__cat-btn" data-filter="kayak">Каяки и Байдарки</button>
+                                    <button class="booking__cat-btn" data-filter="photo">Фото</button>
+                                </div>
+                                <button type="button" class="booking__clear-cart-btn" id="btnClearCart" style="display: none;">
+                                    <i class="fa-solid fa-trash-can"></i> Очистить корзину
+                                </button>
+                            </div>
+                            
+                            <div class="booking__equip-grid" id="equipGrid">
+                                <!-- Cards will be dynamically injected by script.js -->
+                            </div>
+
+                            <!-- Cart Summary -->
+                            <div class="booking__cart-summary" id="cartSummary" style="display:none; margin-top: 20px;">
+                                <h4 class="booking__cart-title" style="margin-bottom: 12px; font-weight: 600; color: var(--brand-blue);">Вы выбрали:</h4>
+                                <div class="booking__cart-items" id="cartItemsList" style="display: flex; flex-direction: column; gap: 8px;"></div>
+                                <div class="booking__cart-total-row" style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(16, 46, 72, 0.1); padding-top: 16px;">
+                                    <span class="booking__cart-total-label">Предварительная стоимость:</span>
+                                    <span class="booking__cart-total-price" id="cartTotalPrice" style="font-size: 24px; font-weight: 900; color: var(--brand-orange);">0 ₽</span>
+                                </div>
+                            </div>
+
+                            <div class="booking__nav-row" style="margin-top: 24px;">
+                                <button class="booking__btn booking__btn--primary" id="btnToStep2" style="width: 100%; justify-content: center;">
+                                    Оформить заказ <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========== STEP 2: Checkout ========== -->
+            <div class="booking__panel" id="bookingStep2">
+                <div class="booking__card">
+                    <h3 class="booking__panel-title"><i class="fa-solid fa-receipt"></i> Оформление заказа</h3>
+
+                    <!-- Order Table -->
+                    <table class="booking__order-table" id="orderTable">
+                        <thead>
+                            <tr>
+                                <th>Оборудование</th>
+                                <th>Кол-во</th>
+                                <th>Длительность</th>
+                                <th>Стоимость</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderTableBody"></tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">Итого:</td>
+                                <td id="orderTotalPrice">0 ₽</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <form id="bookingForm" novalidate>
+                        <!-- Contact -->
+                        <div class="booking__fields-row">
+                            <div>
+                                <label class="booking__field-label">ФИО</label>
+                                <input type="text" class="booking__input" id="bookingName" name="name"
+                                    placeholder="Иванов Иван" required>
+                            </div>
+                            <div>
+                                <label class="booking__field-label">Телефон</label>
+                                <input type="tel" class="booking__input" id="bookingPhone" name="phone"
+                                    placeholder="+7 (___) ___-__-__" required>
+                            </div>
+                        </div>
+
+                        <!-- Legal -->
+                        <div class="booking__legal">
+                            <div class="booking__legal-item">
+                                <input type="checkbox" id="consentCheckbox" name="consent" required>
+                                <label for="consentCheckbox">Я даю согласие на <a href="privacy-policy.html"
+                                        target="_blank">обработку персональных данных</a></label>
+                            </div>
+                            <div class="booking__legal-item">
+                                <input type="checkbox" id="rulesCheckbox" name="rules" required>
+                                <label for="rulesCheckbox">Я ознакомлен(а) с <a href="privacy-policy.html#rules"
+                                        target="_blank">правилами проката</a> и безопасности</label>
+                            </div>
+                        </div>
+
+                        <!-- Captcha -->
+                        <div class="booking__captcha">
+                            <span class="booking__captcha-question" id="captchaQuestion"></span>
+                            <span class="booking__captcha-question">=</span>
+                            <input type="number" class="booking__captcha-input" id="captchaAnswer" placeholder="?">
+                            <span class="booking__captcha-label">Подтвердите, что вы не робот</span>
+                        </div>
+
+                        <!-- Hidden data -->
+                        <input type="hidden" id="bookingDate" name="date">
+                        <input type="hidden" id="bookingTime" name="time">
+                        <input type="hidden" id="bookingItems" name="items">
+
+                        <div class="booking__nav-row" style="flex-direction:column; gap:12px;">
+                            <button type="submit" class="booking__submit-btn" id="bookingSubmit">
+                                <i class="fa-solid fa-lock"></i> Подтвердить бронь
+                            </button>
+                            <button type="button" class="booking__btn booking__btn--secondary" id="btnBackToStep1"
+                                style="width:100%; justify-content:center;">
+                                <i class="fa-solid fa-arrow-left"></i> Вернуться к выбору аренды
+                            </button>
+                        </div>
+
+                        <p class="booking__sms-note">Ссылка на оплату будет отправлена на указанный номер телефона</p>
+                        <div class="booking__message" id="bookingMessage"></div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    </main>
+<!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="#" class="footer__logo">
+                        <span class="footer__logo-text">САПБОРД<span class="footer__logo-accent">48</span></span>
+                    </a>
+                    <p class="footer__desc">
+                        Профессиональный сервис проката водного оборудования в Липецке.
+                        Входим в экосистему клуба «Водник». Лидеры рынка с 2012 года.
+                    </p>
+                </div>
+
+                <div>
+                    <h5 class="footer__heading">Разделы</h5>
+                    <div class="footer__links">
+                        <a href="index.html#equipment" class="footer__link">Прокат SUP-бордов</a>
+                        <a href="index.html#yoga" class="footer__link">SUP-йога на рассвете</a>
+                        <a href="#equipment" class="footer__link">Аренда байдарок</a>
+                        <a href="index.html#routes" class="footer__link">Маршруты по р. Воронеж</a>
+                        <a href="index.html#scenarios" class="footer__link">Сценарии отдыха</a>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="footer__heading">SEO Облако</h5>
+                    <div class="footer__tags">
+                        <span class="footer__tag">сапборд липецк</span>
+                        <span class="footer__tag">прокат сапов</span>
+                        <span class="footer__tag">аренда байдарок</span>
+                        <span class="footer__tag">сплав по реке</span>
+                        <span class="footer__tag">отдых в липецке</span>
+                        <span class="footer__tag">сап йога</span>
+                        <span class="footer__tag">водник 48</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="footer__heading">Поддержка</h5>
+                    <a href="tel:+79042832230" class="footer__phone">+7 (904) 283-22-30</a>
+                    <p class="footer__address">Липецк, Площадь Мира, 6а (база Водник)</p>
+                </div>
+            </div>
+
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2026 Supboard48. Все права защищены. Разработка и продвижение от
+                    «Водник».</p>
+                <div class="footer__legal">
+                    <a href="#" class="footer__legal-link">Оферта</a>
+                    <a href="#" class="footer__legal-link">Конфиденциальность</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="bookingModal">
+        <div class="modal__overlay" id="closeModalOverlay"></div>
+        <div class="modal__content">
+            <button class="modal__close" id="closeModalBtn">&times;</button>
+            <h2 class="modal__title">Забронировать</h2>
+            <form class="modal__form" action="send_mail.php" method="POST">
+                <input type="text" name="name" class="modal__input" placeholder="Ваше имя" required>
+                <input type="tel" name="phone" class="modal__input" placeholder="Телефон" required>
+                <button type="submit" class="modal__submit">Отправить заявку</button>
+                <p class="modal__policy">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Equipment Detail Modal -->
+    <div class="modal modal--detail" id="equipDetailModal">
+        <div class="modal__overlay js-close-detail-modal"></div>
+        <div class="modal__content modal__content--large">
+            <button class="modal__close js-close-detail-modal">&times;</button>
+            <div class="modal-detail__layout">
+                <div class="modal-detail__image-box">
+                    <img src="assets/equip_sup_standard.png" alt="" id="equipModalImg" class="modal-detail__img">
+                </div>
+                <div class="modal-detail__info">
+                    <h2 class="modal-detail__title" id="equipModalTitle">Название оборудования</h2>
+                    <p class="modal-detail__desc" id="equipModalDesc">Подробное описание...</p>
+                    <div class="modal-detail__price" id="equipModalPrice" style="font-size: 24px; font-weight: 800; color: var(--brand-orange, #F96943); margin-bottom: 16px;"></div>
+                    
+                    <ul class="modal-detail__specs" id="equipModalSpecs">
+                        <!-- Dynamic specs will be loaded here -->
+                    </ul>
+                    
+                    <div class="modal-detail__action">
+                        <button class="hero__button_primary hero__button js-close-detail-modal js-open-modal" style="width:100%">Забронировать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tour Detail Modal -->
+    <div class="modal modal--detail" id="tourDetailModal">
+        <div class="modal__overlay js-close-detail-modal"></div>
+        <div class="modal__content modal__content--large">
+            <button class="modal__close js-close-detail-modal">&times;</button>
+            <div class="modal-detail__layout modal-detail__layout--tour">
+                <div class="modal-detail__info">
+                    <div class="modal-detail__header">
+                        <h2 class="modal-detail__title" id="tourModalTitle">Название маршрута</h2>
+                        <span class="modal-detail__badge" id="tourModalTime">Время</span>
+                    </div>
+                    <p class="modal-detail__desc" id="tourModalDesc">Подробное описание тура...</p>
+                    
+                    <ul class="modal-detail__specs" id="tourModalSpecs">
+                        <!-- Dynamic specs -->
+                    </ul>
+                    
+                    <div class="tour-map-placeholder" id="tourYandexMapContainer">
+                        <div class="tour-map-placeholder__inner">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <span>Место для интерактивной Яндекс Карты<br><small>(Код будет вставлен сюда)</small></span>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-detail__action">
+                        <button class="hero__button_primary hero__button js-close-detail-modal js-book-tour">Забронировать тур</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <button class="mobile-sticky-cta__btn js-open-modal">Забронировать доску</button>
+    </div>
+
+    <!-- Floating Phone Button -->
+    <div class="floating-cta">
+        <a href="tel:+79042832230" class="floating-cta__btn" aria-label="Позвонить">
+            <i class="fa-solid fa-phone"></i>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -48,7 +48,7 @@
                 <a href="#yoga" class="header__link">Йога</a>
                 <a href="#scenarios" class="header__link">Сценарии</a>
                 <a href="#routes" class="header__link">Маршруты</a>
-                <a href="#booking" class="header__link">Забронировать</a>
+                <a href="booking.html" class="header__link">Забронировать</a>
             </nav>
             <div class="header__contacts">
                 <a href="tel:+79042832230" class="header__phone">+7 (904) 283-22-30</a>
@@ -70,7 +70,7 @@
                 <a href="#yoga" class="header__mobile-link">Йога</a>
                 <a href="#scenarios" class="header__mobile-link">Сценарии</a>
                 <a href="#routes" class="header__mobile-link">Маршруты</a>
-                <a href="#booking" class="header__mobile-link">Забронировать</a>
+                <a href="booking.html" class="header__mobile-link">Забронировать</a>
             </nav>
             <a href="tel:+79042832230" class="header__mobile-phone">+7 (904) 283-22-30</a>
         </div>
@@ -171,7 +171,7 @@
 
                 <div class="hero__bottom-group">
                     <div class="hero__cta-wrapper">
-                        <a href="#booking" class="hero__button hero__button_primary">
+                        <a href="booking.html" class="hero__button hero__button_primary">
                             ЗАБРОНИРОВАТЬ
                             <i class="fa-solid fa-calendar-check"></i>
                         </a>
@@ -721,208 +721,8 @@
     </section>
 
     <!-- ============================================
-         BLOCK 3: BOOKING DASHBOARD V2 (2-Step Wizard)
+         BLOCK 3: BOOKING DASHBOARD V2 (2-Step Wizard) [MOVED TO BOOKING.HTML]
          ============================================ -->
-    <section class="booking" id="booking">
-        <div class="booking__container">
-            <div class="booking__header">
-                <span class="booking__label">Онлайн-бронирование</span>
-                <h2 class="booking__title">Забронировать оборудование</h2>
-                <p class="booking__subtitle">Выберите дату, время и оборудование — мы всё подготовим к вашему приезду</p>
-            </div>
-
-            <!-- Stepper -->
-            <div class="booking__stepper">
-                <div class="booking__step-indicator booking__step-indicator--active" data-step="1">
-                    <span class="booking__step-num">1</span>
-                    <span class="booking__step-name">Выбор аренды</span>
-                </div>
-                <div class="booking__step-line"></div>
-                <div class="booking__step-indicator" data-step="2">
-                    <span class="booking__step-num">2</span>
-                    <span class="booking__step-name">Оформление</span>
-                </div>
-            </div>
-
-            <!-- ========== STEP 1: Выбор аренды ========== -->
-            <div class="booking__panel booking__panel--active" id="bookingStep1">
-                <div class="booking__step-1-layout">
-                    <!-- Left Column: Date & Time -->
-                    <div class="booking__col-left">
-                        <div class="booking__card">
-                            <h3 class="booking__panel-title"><i class="fa-regular fa-calendar"></i> Дата и время</h3>
-                            
-                            <div class="booking__calendar" id="bookingCalendar">
-                                <div class="booking__calendar-header">
-                                    <button class="booking__calendar-nav" id="calendarPrev" type="button">
-                                        <i class="fa-solid fa-chevron-left"></i>
-                                    </button>
-                                    <span class="booking__calendar-title" id="calendarMonthTitle"></span>
-                                    <button class="booking__calendar-nav" id="calendarNext" type="button">
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                                <div class="booking__calendar-grid" id="calendarGrid">
-                                    <span class="booking__calendar-weekday">Пн</span>
-                                    <span class="booking__calendar-weekday">Вт</span>
-                                    <span class="booking__calendar-weekday">Ср</span>
-                                    <span class="booking__calendar-weekday">Чт</span>
-                                    <span class="booking__calendar-weekday">Пт</span>
-                                    <span class="booking__calendar-weekday">Сб</span>
-                                    <span class="booking__calendar-weekday">Вс</span>
-                                </div>
-                            </div>
-
-                            <div style="margin-top: 24px;"></div>
-                            <h4 class="booking__panel-subtitle" style="margin-bottom: 12px; font-weight: 600;">Время начала</h4>
-                            
-                            <p class="booking__selected-date" id="selectedDateDisplay">Дата: <strong>—</strong></p>
-                            <div class="booking__time-grid" id="timeGrid">
-                                <button class="booking__time-chip" type="button" data-time="09:00">9:00</button>
-                                <button class="booking__time-chip" type="button" data-time="10:00">10:00</button>
-                                <button class="booking__time-chip" type="button" data-time="11:00">11:00</button>
-                                <button class="booking__time-chip" type="button" data-time="12:00">12:00</button>
-                                <button class="booking__time-chip" type="button" data-time="13:00">13:00</button>
-                                <button class="booking__time-chip" type="button" data-time="14:00">14:00</button>
-                                <button class="booking__time-chip" type="button" data-time="15:00">15:00</button>
-                                <button class="booking__time-chip" type="button" data-time="16:00">16:00</button>
-                                <button class="booking__time-chip" type="button" data-time="17:00">17:00</button>
-                                <button class="booking__time-chip" type="button" data-time="18:00">18:00</button>
-                                <button class="booking__time-chip" type="button" data-time="19:00">19:00</button>
-                                <button class="booking__time-chip" type="button" data-time="20:00">20:00</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Column: Equipment -->
-                    <div class="booking__col-right">
-                        <div class="booking__card">
-                            <h3 class="booking__panel-title"><i class="fa-solid fa-ship"></i> Оборудование</h3>
-                            
-                            <div class="booking__equip-controls-bar">
-                                <div class="booking__equip-search">
-                                    <i class="fa-solid fa-magnifying-glass"></i>
-                                    <input type="text" id="equipSearch" placeholder="Поиск по названию...">
-                                </div>
-                                <div class="booking__equip-categories" id="equipCategories">
-                                    <button class="booking__cat-btn active" data-filter="all">Все</button>
-                                    <button class="booking__cat-btn" data-filter="sup">САП</button>
-                                    <button class="booking__cat-btn" data-filter="kayak">Каяки и Байдарки</button>
-                                    <button class="booking__cat-btn" data-filter="photo">Фото</button>
-                                </div>
-                                <button type="button" class="booking__clear-cart-btn" id="btnClearCart" style="display: none;">
-                                    <i class="fa-solid fa-trash-can"></i> Очистить корзину
-                                </button>
-                            </div>
-                            
-                            <div class="booking__equip-grid" id="equipGrid">
-                                <!-- Cards will be dynamically injected by script.js -->
-                            </div>
-
-                            <!-- Cart Summary -->
-                            <div class="booking__cart-summary" id="cartSummary" style="display:none; margin-top: 20px;">
-                                <h4 class="booking__cart-title" style="margin-bottom: 12px; font-weight: 600; color: var(--brand-blue);">Вы выбрали:</h4>
-                                <div class="booking__cart-items" id="cartItemsList" style="display: flex; flex-direction: column; gap: 8px;"></div>
-                                <div class="booking__cart-total-row" style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(16, 46, 72, 0.1); padding-top: 16px;">
-                                    <span class="booking__cart-total-label">Предварительная стоимость:</span>
-                                    <span class="booking__cart-total-price" id="cartTotalPrice" style="font-size: 24px; font-weight: 900; color: var(--brand-orange);">0 ₽</span>
-                                </div>
-                            </div>
-
-                            <div class="booking__nav-row" style="margin-top: 24px;">
-                                <button class="booking__btn booking__btn--primary" id="btnToStep2" style="width: 100%; justify-content: center;">
-                                    Оформить заказ <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ========== STEP 2: Checkout ========== -->
-            <div class="booking__panel" id="bookingStep2">
-                <div class="booking__card">
-                    <h3 class="booking__panel-title"><i class="fa-solid fa-receipt"></i> Оформление заказа</h3>
-
-                    <!-- Order Table -->
-                    <table class="booking__order-table" id="orderTable">
-                        <thead>
-                            <tr>
-                                <th>Оборудование</th>
-                                <th>Кол-во</th>
-                                <th>Длительность</th>
-                                <th>Стоимость</th>
-                            </tr>
-                        </thead>
-                        <tbody id="orderTableBody"></tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan="3">Итого:</td>
-                                <td id="orderTotalPrice">0 ₽</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-
-                    <form id="bookingForm" novalidate>
-                        <!-- Contact -->
-                        <div class="booking__fields-row">
-                            <div>
-                                <label class="booking__field-label">ФИО</label>
-                                <input type="text" class="booking__input" id="bookingName" name="name"
-                                    placeholder="Иванов Иван" required>
-                            </div>
-                            <div>
-                                <label class="booking__field-label">Телефон</label>
-                                <input type="tel" class="booking__input" id="bookingPhone" name="phone"
-                                    placeholder="+7 (___) ___-__-__" required>
-                            </div>
-                        </div>
-
-                        <!-- Legal -->
-                        <div class="booking__legal">
-                            <div class="booking__legal-item">
-                                <input type="checkbox" id="consentCheckbox" name="consent" required>
-                                <label for="consentCheckbox">Я даю согласие на <a href="privacy-policy.html"
-                                        target="_blank">обработку персональных данных</a></label>
-                            </div>
-                            <div class="booking__legal-item">
-                                <input type="checkbox" id="rulesCheckbox" name="rules" required>
-                                <label for="rulesCheckbox">Я ознакомлен(а) с <a href="privacy-policy.html#rules"
-                                        target="_blank">правилами проката</a> и безопасности</label>
-                            </div>
-                        </div>
-
-                        <!-- Captcha -->
-                        <div class="booking__captcha">
-                            <span class="booking__captcha-question" id="captchaQuestion"></span>
-                            <span class="booking__captcha-question">=</span>
-                            <input type="number" class="booking__captcha-input" id="captchaAnswer" placeholder="?">
-                            <span class="booking__captcha-label">Подтвердите, что вы не робот</span>
-                        </div>
-
-                        <!-- Hidden data -->
-                        <input type="hidden" id="bookingDate" name="date">
-                        <input type="hidden" id="bookingTime" name="time">
-                        <input type="hidden" id="bookingItems" name="items">
-
-                        <div class="booking__nav-row" style="flex-direction:column; gap:12px;">
-                            <button type="submit" class="booking__submit-btn" id="bookingSubmit">
-                                <i class="fa-solid fa-lock"></i> Подтвердить бронь
-                            </button>
-                            <button type="button" class="booking__btn booking__btn--secondary" id="btnBackToStep1"
-                                style="width:100%; justify-content:center;">
-                                <i class="fa-solid fa-arrow-left"></i> Вернуться к выбору аренды
-                            </button>
-                        </div>
-
-                        <p class="booking__sms-note">Ссылка на оплату будет отправлена на указанный номер телефона</p>
-                        <div class="booking__message" id="bookingMessage"></div>
-                    </form>
-                </div>
-            </div>
-
-        </div>
-    </section>
 
     <!-- ============================================
          BLOCK 7: РАЗНООБРАЗИЕ
