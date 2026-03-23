@@ -1406,9 +1406,10 @@ if (bookingSection) {
         
         cards.forEach(card => {
             const name = card.querySelector('.booking__equip-name').textContent.toLowerCase();
+            const desc = card.querySelector('.booking__equip-desc').textContent.toLowerCase();
             const category = card.dataset.category || 'all';
             
-            const matchSearch = name.includes(currentSearch);
+            const matchSearch = name.includes(currentSearch) || desc.includes(currentSearch);
             const matchCategory = currentCategory === 'all' || category === currentCategory;
             
             if (matchSearch && matchCategory) {
