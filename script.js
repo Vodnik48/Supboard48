@@ -919,7 +919,8 @@ document.addEventListener('DOMContentLoaded', () => {
 const bookingSection = document.getElementById('booking');
 if (bookingSection) {
     let currentStep = 1;
-    let selectedDate = null;
+    let selectedDate = new Date();
+    selectedDate.setHours(0,0,0,0);
     let selectedTime = null;
     let orderItems = [];
     
@@ -1062,8 +1063,14 @@ if (bookingSection) {
             dayBtn.type = 'button';
             
             const iterDate = new Date(viewYear, viewMonth, i);
+            const realToday = new Date();
+            realToday.setHours(0,0,0,0);
+
+            if (iterDate.getTime() === realToday.getTime()) {
+                dayBtn.classList.add('booking__calendar-day--today');
+            }
             
-            if(iterDate < today) {
+            if(iterDate < realToday) {
                 dayBtn.classList.add('booking__calendar-day--disabled');
             } else {
                 if (selectedDate && iterDate.getTime() === selectedDate.getTime()) {
@@ -1077,6 +1084,7 @@ if (bookingSection) {
                         const mm = String(selectedDate.getMonth() + 1).padStart(2, '0');
                         selectedDateDisplay.innerHTML = `Дата: <strong>${dd}.${mm}.${selectedDate.getFullYear()}</strong>`;
                     }
+                    updateTimeChips();
                     renderCalendar();
                     validateStep1();
                 });
@@ -1097,8 +1105,59 @@ if (bookingSection) {
         if(viewMonth > 11) { viewMonth = 0; viewYear++; }
         renderCalendar();
     });
+
+    function updateTimeChips() {
+        if (!timeChips.length) return;
+        const now = new Date();
+        const realToday = new Date();
+        realToday.setHours(0,0,0,0);
+        const isToday = selectedDate && selectedDate.getTime() === realToday.getTime();
+        
+        let firstAvailableValue = null;
+
+        timeChips.forEach(chip => {
+            const chipTime = chip.dataset.time;
+            const [h, m] = chipTime.split(':').map(Number);
+            
+            let isPast = false;
+            if (isToday) {
+                const slotDate = new Date();
+                slotDate.setHours(h, m, 0, 0);
+                if (slotDate < now) isPast = true;
+            }
+
+            if (isPast) {
+                chip.classList.add('booking__time-chip--disabled');
+                chip.style.opacity = '0.3';
+                chip.style.pointerEvents = 'none';
+                chip.classList.remove('booking__time-chip--active');
+                if (selectedTime === chipTime) selectedTime = null;
+            } else {
+                chip.classList.remove('booking__time-chip--disabled');
+                chip.style.opacity = '1';
+                chip.style.pointerEvents = 'auto';
+                if (!firstAvailableValue) firstAvailableValue = chipTime;
+            }
+        });
+
+        // Auto-select nearest if current is null or invalid
+        if (!selectedTime && firstAvailableValue) {
+            selectedTime = firstAvailableValue;
+            timeChips.forEach(c => {
+                if(c.dataset.time === selectedTime) c.classList.add('booking__time-chip--active');
+            });
+        }
+    }
     
     renderCalendar();
+    updateTimeChips();
+
+    // Initial display of selected date
+    if(selectedDateDisplay) {
+        const dd = String(selectedDate.getDate()).padStart(2, '0');
+        const mm = String(selectedDate.getMonth() + 1).padStart(2, '0');
+        selectedDateDisplay.innerHTML = `Дата: <strong>${dd}.${mm}.${selectedDate.getFullYear()}</strong>`;
+    }
     
     // ==================
     // 3. Time Selection

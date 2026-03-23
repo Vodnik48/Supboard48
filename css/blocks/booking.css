@@ -246,6 +246,12 @@
     box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
 }
 
+.booking__calendar-day--today {
+    border: 2px solid var(--brand-orange);
+    color: var(--brand-orange);
+    font-weight: 900;
+}
+
 /* -- Time Selection -- */
 .booking__selected-date {
     font-size: 0.95rem;
