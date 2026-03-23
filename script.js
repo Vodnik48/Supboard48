@@ -879,10 +879,36 @@ document.addEventListener('DOMContentLoaded', () => {
     initNameValidation();
     initFormValidation();
 
+    // ========================================
+    // Success Modal Logic
+    // ========================================
+    const successModal = document.getElementById('successModal');
+    const closeSuccessBtn = document.getElementById('closeSuccessBtn');
+    const closeSuccessOverlay = document.getElementById('closeSuccessOverlay');
+    const successModalCloseBtn = document.getElementById('successModalCloseBtn');
+
+    function openSuccessModal() {
+        if (successModal) {
+            successModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    function closeSuccessModal() {
+        if (successModal) {
+            successModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (closeSuccessBtn) closeSuccessBtn.addEventListener('click', closeSuccessModal);
+    if (closeSuccessOverlay) closeSuccessOverlay.addEventListener('click', closeSuccessModal);
+    if (successModalCloseBtn) successModalCloseBtn.addEventListener('click', closeSuccessModal);
+
     // Check for success parameter in URL (from PHP redirection)
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('status') === 'success') {
-        alert('Спасибо! Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.');
+        setTimeout(openSuccessModal, 500); // Small delay for better UX
         // Clean URL
         window.history.replaceState({}, document.title, window.location.pathname);
     }
