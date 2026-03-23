@@ -1564,33 +1564,46 @@ if (bookingSection) {
     const section = document.querySelector('.gallery');
     if (!section) return;
     
-    // Skip on mobile — CSS handles the fallback
-    if (window.innerWidth <= 768) return;
-    
     const stickyWrap = section.querySelector('.gallery__sticky-wrap');
     const header = section.querySelector('.gallery__header');
     const cards = Array.from(section.querySelectorAll('.gallery__polaroid'));
+    const stack = section.querySelector('.gallery__polaroids-stack');
+    const swipeHint = document.getElementById('gallerySwipeHint');
     const totalCards = cards.length;
     
     if (totalCards === 0) return;
+    
+    // Skip on mobile — CSS handles the fallback
+    if (window.innerWidth <= 768) {
+        if (swipeHint) {
+            swipeHint.classList.add('visible');
+            const hideHint = () => {
+                swipeHint.style.opacity = '0';
+                setTimeout(() => swipeHint.remove(), 400);
+                stack.removeEventListener('scroll', hideHint);
+                stack.removeEventListener('touchstart', hideHint);
+            };
+            stack.addEventListener('scroll', hideHint, { passive: true });
+            stack.addEventListener('touchstart', hideHint, { passive: true });
+        }
+        return;
+    }
     
     // Initial z-index: first card on top
     cards.forEach((card, i) => {
         card.style.zIndex = totalCards - i;
         // All cards start stacked in center, slightly scaled down except the first
         if (i > 0) {
-            card.style.transform = 'scale(0.92) rotate(0deg)';
+            card.style.transform = 'scale(0.92)';
             card.style.opacity = '1';
         } else {
-            card.style.transform = 'scale(1) rotate(0deg)';
+            card.style.transform = 'scale(1)';
             card.style.opacity = '1';
         }
     });
     
-    // Each card gets an equal portion of the scroll range
-    // Last card doesn't fan — it stays as the final reveal
-    const fanCards = totalCards - 1; // cards that actually fan away
-    
+    // Each card gets an equal portion of the fanning scroll range (which is 85% of total scroll)
+    const fanCards = totalCards - 1; 
     let ticking = false;
     
     function onScroll() {
@@ -1606,7 +1619,6 @@ if (bookingSection) {
         const sectionHeight = section.offsetHeight;
         const viewportHeight = window.innerHeight;
         
-        // Progress: 0 when section top hits viewport top, 1 when section bottom leaves
         const scrolled = -rect.top;
         const totalScrollable = sectionHeight - viewportHeight;
         
@@ -1614,10 +1626,27 @@ if (bookingSection) {
         
         const progress = Math.max(0, Math.min(1, scrolled / totalScrollable));
         
-        // Header fades out in first 15% of scroll
+        // Phase 1: Entry (0 to 0.15)
+        // Header fades out and moves up
+        // Stack moves from Y: 20vh to Y: 0 (center)
+        const entryEnd = 0.15;
+        let entryProgress = Math.min(1, progress / entryEnd);
+        
         if (header) {
-            const headerOpacity = 1 - Math.min(1, progress / 0.15);
-            header.style.opacity = headerOpacity;
+            header.style.opacity = 1 - entryProgress;
+            header.style.transform = `translateY(${-50 * entryProgress}px)`;
+        }
+        
+        if (stack) {
+            // Start 20vh below center, move to 0
+            const startY = 20; 
+            stack.style.transform = `translateY(${startY - (startY * entryProgress)}vh)`;
+        }
+        
+        // Phase 2: Fanning (0.15 to 1.0)
+        let fanProgress = 0;
+        if (progress > entryEnd) {
+            fanProgress = (progress - entryEnd) / (1 - entryEnd);
         }
         
         // Calculate per-card fan progress
@@ -1625,9 +1654,9 @@ if (bookingSection) {
             if (i >= fanCards) {
                 // Last card — stays centered, scales up from 0.92 to 1.0
                 const lastCardStart = (fanCards - 1) / fanCards;
-                const lastProgress = Math.max(0, Math.min(1, (progress - lastCardStart) / (1 - lastCardStart)));
+                const lastProgress = Math.max(0, Math.min(1, (fanProgress - lastCardStart) / (1 - lastCardStart)));
                 const scale = 0.92 + 0.08 * lastProgress;
-                card.style.transform = `scale(${scale}) rotate(0deg)`;
+                card.style.transform = `scale(${scale})`;
                 card.style.opacity = '1';
                 return;
             }
@@ -1637,31 +1666,29 @@ if (bookingSection) {
             const cardStart = i * segmentSize;
             const cardEnd = (i + 1) * segmentSize;
             
-            // cardProgress: 0 = card is resting, 1 = card has fully fanned away
-            const cardProgress = Math.max(0, Math.min(1, (progress - cardStart) / (cardEnd - cardStart)));
+            const cardProgress = Math.max(0, Math.min(1, (fanProgress - cardStart) / (cardEnd - cardStart)));
             
             if (cardProgress <= 0) {
                 // Not yet fanning
                 const scale = i === 0 ? 1 : 0.92;
-                card.style.transform = `scale(${scale}) rotate(0deg)`;
+                card.style.transform = `scale(${scale})`;
                 card.style.opacity = '1';
+                card.style.pointerEvents = 'auto';
             } else if (cardProgress >= 1) {
-                // Fully fanned away
-                card.style.transform = 'translate(-120%, -60%) rotate(-25deg) scale(0.8)';
+                // Fully fanned away horizontally
+                card.style.transform = 'translateX(-150vw) scale(0.9)';
                 card.style.opacity = '0';
                 card.style.pointerEvents = 'none';
             } else {
-                // Fanning in progress — smooth easing
+                // Fanning in progress — horizontal slide smooth easing
                 const eased = cardProgress * cardProgress * (3 - 2 * cardProgress); // smoothstep
                 
-                const translateX = -120 * eased;
-                const translateY = -60 * eased;
-                const rotate = -25 * eased;
-                const opacity = 1 - eased;
-                const scale = 1 - 0.2 * eased;
+                const translateX = -150 * eased; // Pure horizontal slide to the left
+                const opacity = 1 - (eased * 1.5); // Fade out slightly as it leaves
+                const scale = 1 - 0.1 * eased;
                 
-                card.style.transform = `translate(${translateX}%, ${translateY}%) rotate(${rotate}deg) scale(${scale})`;
-                card.style.opacity = opacity;
+                card.style.transform = `translateX(${translateX}vw) scale(${scale})`;
+                card.style.opacity = opacity > 0 ? opacity : 0;
                 card.style.pointerEvents = cardProgress > 0.5 ? 'none' : 'auto';
             }
             
@@ -1670,11 +1697,10 @@ if (bookingSection) {
                 const nextCard = cards[i + 1];
                 if (cardProgress > 0 && cardProgress <= 1) {
                     const revealScale = 0.92 + 0.08 * cardProgress;
-                    // Only update if this next card is not itself being fanned
                     const nextSegStart = (i + 1) * segmentSize;
-                    const nextProgress = (progress - nextSegStart) / (cardEnd - cardStart);
+                    const nextProgress = (fanProgress - nextSegStart) / (cardEnd - cardStart);
                     if (nextProgress <= 0) {
-                        nextCard.style.transform = `scale(${revealScale}) rotate(0deg)`;
+                        nextCard.style.transform = `scale(${revealScale})`;
                     }
                 }
             }
