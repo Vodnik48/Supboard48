@@ -21,7 +21,8 @@
     <link rel="stylesheet" href="css/blocks/contacts.css">
     <link rel="stylesheet" href="css/blocks/yoga.css">
     <link rel="stylesheet" href="css/blocks/corporate.css">
-    <link rel="stylesheet" href="css/blocks/gallery.css">
+    <link rel="stylesheet" href="css/blocks/polaroid-gallery.css">
+    <link rel="stylesheet" href="css/blocks/cookie.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -969,67 +970,61 @@
         </div>
     </section>
 
-    <!-- ============================================
-         BLOCK 7.4: GALLERY — Fanning Scroll
-         ============================================ -->
-    <section class="gallery" id="gallery">
-        <div class="gallery__sticky-wrap">
-            <div class="gallery__header" id="galleryHeader">
-                <span class="gallery__label">САПБОРД48</span>
-                <h2 class="gallery__title">Что делает поездку в САПБОРД48 особенной?</h2>
+    <section class="polaroid-gallery" id="gallery">
+        <div class="polaroid-gallery__sticky-wrap">
+            <div class="polaroid-gallery__container">
+            <div class="polaroid-gallery__header" id="galleryHeader">
+                <span class="polaroid-gallery__label">САПБОРД48</span>
+                <h2 class="polaroid-gallery__title">Что делает поездку в САПБОРД48 особенной?</h2>
             </div>
-            <div class="gallery__polaroids-stack" id="galleryStackedCards">
+            
+            <div class="polaroid-gallery__track" id="galleryStackedCards">
                 <!-- Card 1 -->
-                <div class="gallery__polaroid">
-                    <div class="gallery__photo-wrapper">
-                        <img src="assets/scenario_family.png" class="gallery__photo" alt="Открытие себя">
+                <div class="polaroid-gallery__card polaroid-gallery__card--first">
+                    <span class="polaroid-gallery__highlight-badge">№1 в Липецке</span>
+                    <div class="polaroid-gallery__photo-wrap">
+                        <img src="assets/scenario_family.png" class="polaroid-gallery__photo" alt="Открытие себя" loading="lazy">
                     </div>
-                    <div class="gallery__polaroid-content">
-                        <h3 class="gallery__polaroid-title">Открытие себя</h3>
-                        <p class="gallery__polaroid-desc">Хочешь попробовать то, на что раньше не решался? Мы даем тебе доску, весло и бескрайнюю гладь воды. Помогаем выйти за рамки привычного, удивиться себе и увидеть мир по-новому.</p>
-                    </div>
+                    <div class="polaroid-gallery__caption">Открытие себя</div>
+                    <div class="polaroid-gallery__desc">Хочешь попробовать то, на что раньше не решался? Мы даем тебе доску, весло и бескрайнюю гладь воды. Помогаем выйти за рамки привычного, удивиться себе и увидеть мир по-новому.</div>
                 </div>
+                
                 <!-- Card 2 -->
-                <div class="gallery__polaroid">
-                    <div class="gallery__photo-wrapper">
-                        <img src="assets/hero_bg2.png" class="gallery__photo" alt="Все выезды — новый опыт">
+                <div class="polaroid-gallery__card">
+                    <div class="polaroid-gallery__photo-wrap">
+                        <img src="assets/hero_bg2.png" class="polaroid-gallery__photo" alt="Все выезды — новый опыт" loading="lazy">
                     </div>
-                    <div class="gallery__polaroid-content">
-                        <h3 class="gallery__polaroid-title">Все выезды — новый опыт</h3>
-                        <p class="gallery__polaroid-desc">Каждый маршрут уникален — атмосферой, пейзажами и впечатлениями. Даже если ты с нами не впервые, каждый сплав будет по-другому.</p>
-                    </div>
+                    <div class="polaroid-gallery__caption">Новый опыт</div>
+                    <div class="polaroid-gallery__desc">Каждый маршрут уникален — атмосферой, пейзажами и впечатлениями. Даже если ты с нами не впервые, каждый сплав будет по-другому.</div>
                 </div>
+                
                 <!-- Card 3 -->
-                <div class="gallery__polaroid">
-                    <div class="gallery__photo-wrapper">
-                        <img src="assets/scenario_adventure.png" class="gallery__photo" alt="Инструкторы были участниками">
+                <div class="polaroid-gallery__card">
+                    <div class="polaroid-gallery__photo-wrap">
+                        <img src="assets/scenario_adventure.png" class="polaroid-gallery__photo" alt="Инструкторы всегда поддержат" loading="lazy">
                     </div>
-                    <div class="gallery__polaroid-content">
-                        <h3 class="gallery__polaroid-title">Инструкторы всегда поддержат</h3>
-                        <p class="gallery__polaroid-desc">Наши инструкторы — бывшие клиенты. Они знают, как важна поддержка на воде, где легко раскрыться и почувствовать: ты на своём месте.</p>
-                    </div>
+                    <div class="polaroid-gallery__caption">Свои люди</div>
+                    <div class="polaroid-gallery__desc">Наши инструкторы — бывшие клиенты. Они знают, как важна поддержка на воде, где легко раскрыться и почувствовать: ты на своём месте.</div>
                 </div>
+                
                 <!-- Card 4 -->
-                <div class="gallery__polaroid">
-                    <div class="gallery__photo-wrapper">
-                        <img src="assets/scenario_sunset.png" class="gallery__photo" alt="Организация на нас!">
+                <div class="polaroid-gallery__card">
+                    <div class="polaroid-gallery__photo-wrap">
+                        <img src="assets/scenario_sunset.png" class="polaroid-gallery__photo" alt="Организация на нас!" loading="lazy">
                     </div>
-                    <div class="gallery__polaroid-content">
-                        <h3 class="gallery__polaroid-title">Организация на нас!</h3>
-                        <p class="gallery__polaroid-desc">Мы продумали всё до мелочей: от чистых жилетов до парковки и теплых раздевалок. Просто приезжай, а остальное мы берем на себя.</p>
-                    </div>
+                    <div class="polaroid-gallery__caption">Всё продумано</div>
+                    <div class="polaroid-gallery__desc">Мы продумали всё до мелочей: от чистых жилетов до парковки и теплых раздевалок. Просто приезжай, а остальное мы берем на себя.</div>
                 </div>
+                
                 <!-- Card 5 -->
-                <div class="gallery__polaroid">
-                    <div class="gallery__photo-wrapper">
-                        <video class="gallery__photo" autoplay muted loop playsinline>
+                <div class="polaroid-gallery__card">
+                    <div class="polaroid-gallery__photo-wrap">
+                        <video class="polaroid-gallery__photo" autoplay muted loop playsinline>
                             <source src="assets/hero_video.mp4" type="video/mp4">
                         </video>
                     </div>
-                    <div class="gallery__polaroid-content">
-                        <h3 class="gallery__polaroid-title">Безопасность и свобода</h3>
-                        <p class="gallery__polaroid-desc">Мы находимся рядом в любой ситуации. Спасатели сопровождают вас, чтобы вы могли расслабиться и получать удовольствие от каждого момента.</p>
-                    </div>
+                    <div class="polaroid-gallery__caption">Безопасность</div>
+                    <div class="polaroid-gallery__desc">Мы находимся рядом в любой ситуации. Спасатели сопровождают вас, чтобы вы могли расслабиться и получать удовольствие от каждого момента.</div>
                 </div>
             </div>
             
@@ -1040,6 +1035,7 @@
                 </div>
                 <span>Листайте</span>
             </div>
+        </div>
         </div>
     </section>
 
@@ -1299,8 +1295,8 @@
                 <p class="footer__copyright">© 2026 Supboard48. Все права защищены. Разработка и продвижение от
                     «Водник».</p>
                 <div class="footer__legal">
-                    <a href="#" class="footer__legal-link">Оферта</a>
-                    <a href="#" class="footer__legal-link">Конфиденциальность</a>
+                    <a href="offer.html" class="footer__legal-link">Оферта</a>
+                    <a href="privacy-policy.html" class="footer__legal-link">Конфиденциальность</a>
                 </div>
             </div>
         </div>
@@ -1373,6 +1369,60 @@
                     <div class="modal-detail__action">
                         <button class="hero__button_primary hero__button js-close-detail-modal js-book-tour">Забронировать тур</button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal/Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-banner__content">
+            <h3 class="cookie-banner__title">Мы используем файлы Cookie</h3>
+            <p class="cookie-banner__text">
+                Мы используем файлы cookie для улучшения работы сайта, анализа трафика и персонализации. Вы можете принять все файлы cookie или настроить их по своему усмотрению. Подробнее в <a href="offer.html" class="cookie-banner__link">Договоре оферты</a>.
+            </p>
+            
+            <!-- Скрываемый блок с детальными настройками -->
+            <div class="cookie-banner__settings" id="cookieSettingsBlock">
+                <div class="cookie-banner__setting-item">
+                    <div class="cookie-banner__setting-info">
+                        <strong>Обязательные</strong>
+                        <span>Необходимы для работы сайта.</span>
+                    </div>
+                    <label class="cookie-banner__switch">
+                        <input type="checkbox" checked disabled>
+                        <span class="cookie-banner__slider"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-banner__setting-item">
+                    <div class="cookie-banner__setting-info">
+                        <strong>Аналитика</strong>
+                        <span>Помогают нам улучшать сайт (ЯндексМетрика).</span>
+                    </div>
+                    <label class="cookie-banner__switch">
+                        <input type="checkbox" id="cookieAnalytics" checked>
+                        <span class="cookie-banner__slider"></span>
+                    </label>
+                </div>
+                
+                <div class="cookie-banner__setting-item">
+                    <div class="cookie-banner__setting-info">
+                        <strong>Маркетинг</strong>
+                        <span>Позволяют показывать релевантную рекламу.</span>
+                    </div>
+                    <label class="cookie-banner__switch">
+                        <input type="checkbox" id="cookieMarketing" checked>
+                        <span class="cookie-banner__slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="cookie-banner__actions">
+                <button class="cookie-banner__btn cookie-banner__btn--outline" id="cookieSettingsBtn">Настроить</button>
+                <div class="cookie-banner__actions-main">
+                    <button class="cookie-banner__btn cookie-banner__btn--outline" id="cookieSaveBtn" style="display: none;">Сохранить выбор</button>
+                    <button class="cookie-banner__btn" id="cookieAcceptAllBtn">Принять все</button>
                 </div>
             </div>
         </div>

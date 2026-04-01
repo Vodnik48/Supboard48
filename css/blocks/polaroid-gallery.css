@@ -5,29 +5,20 @@
 .polaroid-gallery {
     /* Utilizing the cloud gray base from Vodnik brand guidelines for the whole section */
     background-color: var(--color-cloud-gray, #EFEFEF);
-    padding: 120px 0 80px; 
     position: relative;
     z-index: 1; /* relative to dividers */
+    /* JS will set height to 300vh for scroll distance */
 }
 
-/* Wavy Divider at the top */
-.polaroid-gallery__divider {
-    position: absolute;
-    top: -1px; /* to prevent 1px gap */
-    left: 0;
-    width: 100%;
+.polaroid-gallery__sticky-wrap {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: 10vh 0;
     overflow: hidden;
-    line-height: 0;
-}
-.polaroid-gallery__divider svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 80px;
-    transform: rotate(180deg); /* if we need it wavy at the top coming down */
-}
-.polaroid-gallery__divider .shape-fill {
-    fill: #FFFFFF; /* Matches the previous section (corporate) background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .polaroid-gallery__container {
@@ -67,24 +58,16 @@
     flex-direction: row;
     gap: 40px;
     padding: 20px 20px 60px 20px; /* Extra padding for shadows and scale */
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    
-    /* Hide scrollbar for smooth swiping */
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-}
-.polaroid-gallery__track::-webkit-scrollbar {
-    display: none;
+    width: max-content;
+    will-change: transform;
 }
 
 /* Polaroid Card Design */
 .polaroid-gallery__card {
     flex: 0 0 auto;
-    width: 300px;
+    width: 320px; /* Slightly wider to fit text */
     background-color: #FFFFFF;
-    padding: 12px 12px 50px 12px;
+    padding: 12px 12px 20px 12px; /* Relaxed bottom padding */
     border-radius: 4px;
     box-shadow: 0 10px 20px rgba(16, 46, 72, 0.08), 0 4px 6px rgba(16, 46, 72, 0.04);
     position: relative;
@@ -157,16 +140,23 @@
 
 /* Handwriting Caption */
 .polaroid-gallery__caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
     text-align: center;
-    height: 50px;
-    line-height: 50px;
     font-family: 'Caveat', cursive; /* Handwritten Google Font */
     font-size: 26px;
     color: #1A1A1A;
+    margin-top: 12px;
+    line-height: 1.2;
+}
+
+/* Description Text */
+.polaroid-gallery__desc {
+    font-family: var(--font-body, 'Raleway', sans-serif);
+    font-size: 13px;
+    color: var(--color-river, #102E48);
+    line-height: 1.4;
+    text-align: center;
+    margin-top: 8px;
+    opacity: 0.9;
 }
 
 /* Subtle Orange Highlight for the First Card */
@@ -198,23 +188,41 @@
 /* Responsiveness */
 @media (max-width: 768px) {
     .polaroid-gallery {
+        height: auto !important; /* disabled sticky on mobile */
+    }
+    .polaroid-gallery__sticky-wrap {
+        position: relative;
+        height: auto;
         padding: 80px 0 60px;
+        overflow: hidden;
+        display: block;
     }
     .polaroid-gallery__track {
         gap: 20px;
         padding: 10px 10px 40px 10px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        transform: none !important;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+    }
+    .polaroid-gallery__track::-webkit-scrollbar {
+        display: none;
     }
     .polaroid-gallery__card {
         width: 240px;
         padding: 10px 10px 40px 10px;
+        scroll-snap-align: center;
     }
     .polaroid-gallery__photo-wrap {
         height: 240px;
     }
     .polaroid-gallery__caption {
-        height: 40px;
-        line-height: 40px;
         font-size: 22px;
+        margin-top: 8px;
+    }
+    .polaroid-gallery__desc {
+        font-size: 12px;
     }
     .polaroid-gallery__card::before {
         width: 60px;

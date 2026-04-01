@@ -651,104 +651,138 @@ document.addEventListener('DOMContentLoaded', () => {
         el.classList.add('reveal-on-scroll');
         revealObserver.observe(el);
     });
-
     // ========================================
     // Gallery Polaroid Stacked Fanning Scroll
     // ========================================
     const gallerySection = document.getElementById('gallery');
-    const galleryHeader = document.getElementById('galleryHeader');
     const galleryStackedCards = document.getElementById('galleryStackedCards');
     
     if (gallerySection && galleryStackedCards) {
-        const polaroids = galleryStackedCards.querySelectorAll('.gallery__polaroid');
-        const numCards = polaroids.length;
-        
-        polaroids.forEach((card, index) => {
-            // Higher z-index for lower index (first card on top)
-            card.style.zIndex = numCards - index;
-            
-            const baseRot = (Math.random() - 0.5) * 6;
-            card.dataset.baserot = baseRot;
-        });
-        
-        // Dynamically adjust gallery container height for perfectly smooth 1:1 horizontal scroll feeling
+        const polaroids = galleryStackedCards.querySelectorAll('.polaroid-gallery__card');
+        let trackWidth = 0;
+        let targetX = 0;
+        let currentX = 0;
+        let isLerping = false;
+
+        // Dynamically adjust gallery container height
         const updateGalleryHeight = () => {
             if (window.innerWidth > 768) {
                 // Determine horizontal distance
-                const trackWidth = galleryStackedCards.scrollWidth - window.innerWidth;
-                gallerySection.style.height = `calc(100vh + ${trackWidth}px)`;
+                const lastCard = polaroids[polaroids.length - 1];
+                if (lastCard) {
+                    // Center the last card in the middle of the window at the end of the scroll
+                    const lastCardCenterOffset = lastCard.offsetLeft + (lastCard.offsetWidth / 2);
+                    trackWidth = lastCardCenterOffset - (window.innerWidth / 2);
+                    if (trackWidth < 0) trackWidth = 0;
+                } else {
+                    trackWidth = galleryStackedCards.scrollWidth - window.innerWidth + 40;
+                }
+                
+                // 400vh provides a long, slow scroll duration so clients can see all slides
+                gallerySection.style.height = `calc(400vh + ${trackWidth}px)`;
             } else {
                 gallerySection.style.height = 'auto'; // Mobile flows naturally
             }
         };
 
         window.addEventListener('resize', updateGalleryHeight);
-        
-        // Use ResizeObserver for accurate content width computation
         new ResizeObserver(updateGalleryHeight).observe(galleryStackedCards);
 
-        // Initialize drop parameters 
-        // We only want to set starting rotations on mobile/not scrolled states too just in case
-        polaroids.forEach((card) => {
-            card.style.transform = `rotate(${card.dataset.baserot}deg)`;
-        });
+        // Smooth Lerp loop
+        const lerp = (start, end, factor) => start + (end - start) * factor;
+        
+        const tick = () => {
+            // Apply smoothing
+            currentX = lerp(currentX, targetX, 0.08); // 0.08 is the smoothing factor
+            
+            // Round to 1 decimal to avoid infinite micro-calculations
+            if (Math.abs(targetX - currentX) < 0.1) {
+                currentX = targetX;
+            }
+            
+            galleryStackedCards.style.transform = `translate3d(${currentX}px, 0, 0)`;
+            
+            if (currentX !== targetX) {
+                requestAnimationFrame(tick);
+            } else {
+                isLerping = false;
+            }
+        };
 
         window.addEventListener('scroll', () => {
             if (window.innerWidth <= 768) return; 
             
             const rect = gallerySection.getBoundingClientRect();
             const totalScrollableDistance = rect.height - window.innerHeight;
+            
             let progress = -rect.top / totalScrollableDistance;
             progress = Math.max(0, Math.min(1, progress));
 
-            const chunk = numCards > 0 ? 1 / numCards : 1; 
-
-            if (galleryHeader) {
-                // Header fades out smoothly only at the END of the scroll
-                // meaning when progress goes from 0.8 to 1.0
-                let headerOpacity = 1;
-                if (progress > 0.8) {
-                    const fadeProgress = (progress - 0.8) / 0.2; // 0 to 1
-                    headerOpacity = 1 - fadeProgress;
-                }
-                galleryHeader.style.opacity = headerOpacity;
-                galleryHeader.style.transform = `translateY(${(1 - headerOpacity) * -50}px)`;
-            }
+            // Target position based on scroll progress
+            targetX = -trackWidth * progress;
             
-            // 1. Move the entire container (track) horizontally 
-            // trackWidth is how much we have to scroll fully left so the last card reaches center padding essentially
-            const trackWidth = galleryStackedCards.scrollWidth - window.innerWidth;
-            const currentTranslateX = -trackWidth * progress;
-            galleryStackedCards.style.transform = `translateX(${currentTranslateX}px)`;
-
-            // 2. Individual card drop logic 
-            polaroids.forEach((card) => {
-                const cardRect = card.getBoundingClientRect();
-                const cardCenter = cardRect.left + (cardRect.width / 2);
-                const dropPoint = window.innerWidth * 0.35; // The card drops when its center passes 35% of the screen from the left
-
-                if (cardCenter < dropPoint) {
-                    const pastDrop = dropPoint - cardCenter;
-                    // Max fall distance for our effect is 35% of screen width
-                    const normalizedDrop = Math.min(1, pastDrop / (window.innerWidth * 0.35));
-                    
-                    const moveY = 150 * Math.pow(normalizedDrop, 2); // Downward acceleration
-                    const baseRot = parseFloat(card.dataset.baserot) || 0;
-                    const rot = baseRot - (25 * normalizedDrop); // Extra spin left
-                    const opacity = 1 - (normalizedDrop * 1.5); // Fade fast
-                    
-                    card.style.transform = `translateY(${moveY}px) rotate(${rot}deg)`;
-                    card.style.opacity = Math.max(0, opacity);
-                } else {
-                    const baseRot = parseFloat(card.dataset.baserot) || 0;
-                    card.style.transform = `rotate(${baseRot}deg)`;
-                    card.style.opacity = 1;
-                }
-            });
+            // Start the animation loop if it's not already running
+            if (!isLerping && currentX !== targetX) {
+                isLerping = true;
+                requestAnimationFrame(tick);
+            }
         });
         
-        // Trigger once on load to set initial state
+        // Trigger once on load
         window.dispatchEvent(new Event('scroll'));
+    }
+
+    // ========================================
+    // Cookie Banner Logic
+    // ========================================
+    const cookieBanner = document.getElementById('cookieBanner');
+    const cookieAcceptAllBtn = document.getElementById('cookieAcceptAllBtn');
+    const cookieSettingsBtn = document.getElementById('cookieSettingsBtn');
+    const cookieSettingsBlock = document.getElementById('cookieSettingsBlock');
+    const cookieSaveBtn = document.getElementById('cookieSaveBtn');
+
+    if (cookieBanner) {
+        // Check if user already consented
+        const cookieConsent = localStorage.getItem('cookieConsent');
+        
+        if (!cookieConsent) {
+            // Show banner after short delay
+            setTimeout(() => {
+                cookieBanner.classList.add('show');
+            }, 1000);
+        }
+
+        if (cookieAcceptAllBtn) {
+            cookieAcceptAllBtn.addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'all');
+                cookieBanner.classList.remove('show');
+            });
+        }
+
+        if (cookieSettingsBtn) {
+            cookieSettingsBtn.addEventListener('click', () => {
+                cookieSettingsBlock.classList.toggle('open');
+                if (cookieSettingsBlock.classList.contains('open')) {
+                    cookieSettingsBtn.style.display = 'none';
+                    if (cookieSaveBtn) cookieSaveBtn.style.display = 'block';
+                }
+            });
+        }
+
+        if (cookieSaveBtn) {
+            cookieSaveBtn.addEventListener('click', () => {
+                // Determine what was checked
+                const analytics = document.getElementById('cookieAnalytics')?.checked;
+                const marketing = document.getElementById('cookieMarketing')?.checked;
+                const consentData = {
+                    analytics: analytics,
+                    marketing: marketing,
+                    necessary: true
+                };
+                localStorage.setItem('cookieConsent', JSON.stringify(consentData));
+                cookieBanner.classList.remove('show');
+            });
+        }
     }
 
     // ========================================
