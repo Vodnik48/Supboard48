@@ -1766,6 +1766,111 @@ if (bookingSection) {
         }
     };
 
+    // ========================================
+    // Reviews Slider Logic (Infinite & Drag)
+    // ========================================
+    const reviewsSlider = document.getElementById('reviewsSlider');
+    const prevBtn = document.querySelector('.reviews__slider-nav.prev');
+    const nextBtn = document.querySelector('.reviews__slider-nav.next');
+    const dots = document.querySelectorAll('.reviews__dot');
+
+    if (reviewsSlider) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        // --- Drag Functionality (Mouse) ---
+        reviewsSlider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            reviewsSlider.style.cursor = 'grabbing';
+            startX = e.pageX - reviewsSlider.offsetLeft;
+            scrollLeft = reviewsSlider.scrollLeft;
+            // Disable scroll snap during drag to prevent jumping
+            reviewsSlider.style.scrollSnapType = 'none';
+        });
+
+        reviewsSlider.addEventListener('mouseleave', () => {
+            isDown = false;
+            reviewsSlider.style.cursor = 'grab';
+            reviewsSlider.style.scrollSnapType = 'x mandatory';
+        });
+
+        reviewsSlider.addEventListener('mouseup', () => {
+            isDown = false;
+            reviewsSlider.style.cursor = 'grab';
+            reviewsSlider.style.scrollSnapType = 'x mandatory';
+        });
+
+        reviewsSlider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - reviewsSlider.offsetLeft;
+            const walk = (x - startX) * 1.5; // Scroll speed
+            reviewsSlider.scrollLeft = scrollLeft - walk;
+        });
+
+        // --- Navigation Logic ---
+        function moveSlider(direction) {
+            const containerWidth = reviewsSlider.offsetWidth;
+            const scrollWidth = reviewsSlider.scrollWidth;
+            const maxScroll = scrollWidth - containerWidth;
+            const cardWidth = reviewsSlider.querySelector('.reviews__card')?.offsetWidth + 32 || 350; // Including gap
+
+            reviewsSlider.style.scrollBehavior = 'smooth';
+
+            if (direction === 'next') {
+                if (reviewsSlider.scrollLeft + containerWidth >= scrollWidth - 10) {
+                    // Loop back to start
+                    reviewsSlider.scrollLeft = 0;
+                } else {
+                    reviewsSlider.scrollLeft += cardWidth;
+                }
+            } else if (direction === 'prev') {
+                if (reviewsSlider.scrollLeft <= 10) {
+                    // Loop to end
+                    reviewsSlider.scrollLeft = maxScroll;
+                } else {
+                    reviewsSlider.scrollLeft -= cardWidth;
+                }
+            }
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                moveSlider('next');
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                moveSlider('prev');
+            });
+        }
+
+        // --- Pagination Dots Logic ---
+        const updateDots = () => {
+            const scrollPos = reviewsSlider.scrollLeft;
+            const cardWidth = reviewsSlider.querySelector('.reviews__card')?.offsetWidth + 32 || 350;
+            const index = Math.round(scrollPos / cardWidth);
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        };
+
+        reviewsSlider.addEventListener('scroll', updateDots);
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                const cardWidth = reviewsSlider.querySelector('.reviews__card')?.offsetWidth + 32 || 350;
+                reviewsSlider.style.scrollBehavior = 'smooth';
+                reviewsSlider.scrollLeft = i * cardWidth;
+            });
+        });
+    }
+
     // Render dynamic sections
     renderEquipmentElements();
     renderScenariosElements();
