@@ -227,14 +227,12 @@
 }
 
 .yoga__instructors-grid {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-xl);
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
 }
 
 .yoga__instructor-card {
-    width: 280px;
     background: white;
     border-radius: var(--radius-lg);
     overflow: hidden;
@@ -242,6 +240,7 @@
     transition: transform 0.3s ease;
     padding-bottom: 20px;
     position: relative;
+    height: 100%;
 }
 
 .yoga__instructor-card:hover {
@@ -306,6 +305,9 @@
         min-height: 300px;
         order: -1;
     }
+    .yoga__instructors-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
@@ -325,9 +327,11 @@
 
 @media (max-width: 480px) {
     .yoga__instructors-grid {
+        grid-template-columns: 1fr;
         gap: var(--spacing-lg);
     }
     .yoga__instructor-card {
-        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
     }
 }
