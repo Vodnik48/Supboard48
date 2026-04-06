@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // ========== САПБОРДЫ ==========
         'sup_arctic': {
             title: 'JS 335 Arctic',
-            img: 'assets/equip/sup_arctic.jpg',
+            img: 'assets/equip/sup_1.jpg',
             desc: 'Универсальная модель 335×81×15 см, до 200 кг. Подходит для новичков и пар. Устойчивый корпус с тремя плавниками.',
             price: '500 ₽/час',
             specs: [
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sup_rq335': {
             title: 'JS RQ335',
-            img: 'assets/equip/sup_rq335.jpg',
+            img: 'assets/equip/sup_2.jpg',
             desc: 'Устойчивая платформа с одним плавником 335×82×15 см. Отличный выбор для спокойных прогулок.',
             price: '500 ₽/час',
             specs: [
@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sup_ninja': {
             title: 'JS Ninja 335',
-            img: 'assets/equip/sup_ninja.jpg',
+            img: 'assets/equip/sup_3.jpg',
             desc: 'Для разных стилей катания, прогулок и легкого фитнеса. Универсальная и послушная доска.',
             price: '500 ₽/час',
             specs: [
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sup_guns_roses': {
             title: 'Fayean Guns & Roses 10\'6',
-            img: 'assets/equip/sup_guns_roses.jpg',
+            img: 'assets/equip/sup_4.jpeg',
             desc: 'Стильная и маневренная доска 320×83×15 см с три плавниками. Компактная, легко управляется.',
             price: '500 ₽/час',
             specs: [
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sup_koi': {
             title: 'Fayean Koi 11\'6',
-            img: 'assets/equip/sup_koi.jpg',
+            img: 'assets/equip/sup_5.jpg',
             desc: 'Длинная доска (350 см) для открытой воды и волн. Объем 290 л, давление до 20 psi. Для дальних маршрутов.',
             price: '500 ₽/час',
             specs: [
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sup_monkey': {
             title: 'My SUP 11\'6 Monkey',
-            img: 'assets/equip/sup_monkey.jpg',
+            img: 'assets/equip/sup_7.jpg',
             desc: 'Туринговая доска для дальних прогулок и скорости. Размер 350×76×15 см, объем 290 л.',
             price: '500 ₽/час',
             specs: [
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sup_duo': {
             title: 'Compact DUO 340',
-            img: 'assets/equip/sup_duo.jpg',
+            img: 'assets/equip/sup_8.jpg',
             desc: 'Прочная доска для двоих (взрослый + ребенок или пара). Размер 340×83×15 см, объем 330 л.',
             price: '500 ₽/час',
             specs: [
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sup_yoga': {
             title: 'YogiPad 330 (Йога)',
-            img: 'assets/equip/sup_yoga.jpg',
+            img: 'assets/equip/sup_9.jpg',
             desc: 'Широкая (85 см) и устойчивая платформа 330×85×15 см. Идеально для SUP-йоги и медитации на воде. Вес 9 кг.',
             price: '500 ₽/час',
             specs: [
@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sup_kids': {
             title: 'MiniBoard 240 (Детский)',
-            img: 'assets/equip/sup_kids.jpg',
+            img: 'assets/equip/sup_20.jpg',
             desc: 'Компактная и легкая доска для детей 5-12 лет. Размер 240×65×12 см, до 60 кг.',
             price: '400 ₽/час',
             specs: [
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sup_easy': {
             title: 'Easy Paddle 305',
-            img: 'assets/equip/sup_easy.jpg',
+            img: 'assets/equip/sup_11.jpg',
             desc: 'Легкая и простая в управлении доска. Размер 305×76×15 см, вес всего 7.5 кг.',
             price: '500 ₽/час',
             specs: [
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sup_standard': {
             title: 'Ride Standard 320',
-            img: 'assets/equip/sup_standard.jpg',
+            img: 'assets/equip/sup_12.jpg',
             desc: 'Классический формат для всех уровней подготовки. Размер 320×80×15 см, объем 290 л.',
             price: '500 ₽/час',
             specs: [
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sup_powerflow': {
             title: 'Power Flow 335',
-            img: 'assets/equip/sup_powerflow.jpg',
+            img: 'assets/equip/sup_13.jpg',
             desc: 'Устойчивый корпус для уверенного катания. Размер 335×81×15 см, объем 326 л. Один плавник.',
             price: '500 ₽/час',
             specs: [
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'sup_softride': {
             title: 'SoftRide 11\'',
-            img: 'assets/equip/sup_softride.jpg',
+            img: 'assets/equip/sup_14.jpg',
             desc: 'Доска 350×76×15 см с объемом 290 л и тремя плавниками. Максимальный ход и объем для долгих маршрутов.',
             price: '500 ₽/час',
             specs: [
@@ -246,7 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // ========== БАЙДАРКИ ==========
         'baidarka_3': {
             title: 'Байдарка 3-местная',
-            img: 'assets/equip/baidarka_3.jpg',
+            img: 'assets/equip/baidarka3_1.jpg',
             desc: 'Вместительная трехместная байдарка. В стоимость входит аренда байдарки, весла и спасжилета. В наличии 10 штук.',
             price: '900 ₽/час',
             specs: [
@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'baidarka_karkas': {
             title: 'Байдарка каркасная',
-            img: 'assets/equip/baidarka_karkas.jpg',
+            img: 'assets/equip/kayak1_7.jpg',
             desc: 'Каркасная байдарка для настоящих ценителей сплавов. В стоимость входит аренда байдарки, весла и спасжилета.',
             price: '900 ₽/час',
             specs: [
@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'baidarka_karkas_2': {
             title: 'Байдарка каркасная 2-местная',
-            img: 'assets/equip/baidarka_karkas_2.jpg',
+            img: 'assets/equip/kayak2_1.jpg',
             desc: 'Каркасная двухместная байдарка. В стоимость входит аренда байдарки, весла и спасжилета. В наличии 4 штуки.',
             price: '700 ₽/час',
             specs: [
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // ========== КАЯКИ ==========
         'kayak_1': {
             title: 'Каяк 1-местный',
-            img: 'assets/equip/kayak_1.jpg',
+            img: 'assets/equip/kayak1_1.jpeg',
             desc: 'Одноместный каяк для самостоятельных исследований реки. В наличии 17 штук.',
             price: '500 ₽/час',
             specs: [
@@ -295,7 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'kayak_2': {
             title: 'Каяк 2-местный',
-            img: 'assets/equip/kayak_2.jpg',
+            img: 'assets/equip/kayak2_6.jpg',
             desc: 'Двухместный каяк для парного катания. В наличии 11 штук.',
             price: '700 ₽/час',
             specs: [
@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'kayak_3': {
             title: 'Каяк 3-местный',
-            img: 'assets/equip/kayak_3.jpg',
+            img: 'assets/equip/kayak3_1.jpg',
             desc: 'Трёхместный семейный каяк. Идеально для двух взрослых и ребенка. В наличии 4 штуки.',
             price: '900 ₽/час',
             specs: [
@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // ========== ФОТОСЕССИИ ==========
         'photo_lite': {
             title: 'Фотосессия Lite',
-            img: 'assets/equip/photo_lite.jpg',
+            img: 'assets/equip/sup_6.JPG',
             desc: 'Пакет Лайт: 10 профессиональных фото с обработкой. Съемка на воде или на берегу.',
             price: '3 000 ₽',
             specs: [
@@ -332,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'photo_full': {
             title: 'Фотосессия',
-            img: 'assets/equip/photo_full.jpg',
+            img: 'assets/equip/sup_21.jpg',
             desc: 'Расширенный пакет: 20 профессиональных фото с обработкой. Полноценная фотосессия на воде.',
             price: '4 000 ₽',
             specs: [
@@ -1234,7 +1234,7 @@ if (bookingSection) {
             html += `
                 <div class="booking__equip-card js-open-equip-modal" data-category="${category}" data-equip-id="${id}" data-price-hour="${priceHour}" data-price-day="${priceDay}">
                     <div class="booking__equip-img">
-                        <img src="${data.img}" alt="${data.title}" class="booking__equip-pic" onerror="this.src='assets/equip_sup_standard.png'">
+                        <img src="${data.img}" alt="${data.title}" class="booking__equip-pic" onerror="this.src='assets/equip/sup_1.jpg'">
                     </div>
                     <div class="booking__equip-body">
                         <h4 class="booking__equip-name">${data.title}</h4>
@@ -1588,6 +1588,188 @@ if (bookingSection) {
         });
     }
 }
+
+
+    // ========================================
+    // Dynamic Rendering JS (Equipment & Tours)
+    // ========================================
+
+    function renderEquipmentElements() {
+        const grid = document.getElementById('equipmentGrid');
+        if (!grid) return;
+        
+        let html = '';
+        let count = 0;
+        for (const [id, data] of Object.entries(equipmentData)) {
+            const isHidden = count >= 8 ? 'equipment__card_hidden' : '';
+            
+            // Build specs
+            let specsHtml = '';
+            if (data.specs) {
+                specsHtml = data.specs.map(s => `<span class="equipment__spec"><strong>${s.label}:</strong> ${s.value}</span>`).join('');
+            }
+            
+            const badgeHtml = data.badge ? `<span class="equipment__badge">${data.badge}</span>` : '';
+            const imgSrc = data.images && data.images.length > 0 ? data.images[0] : (data.img || 'assets/equip/sup_1.jpg');
+            
+            html += `
+                <div class="equipment__card ${isHidden} js-open-equip-modal" data-equip-id="${id}">
+                    ${badgeHtml}
+                    <div class="equipment__image-wrapper">
+                        <img src="${imgSrc}" alt="${data.title}" class="equipment__image">
+                    </div>
+                    <div style="display:flex; flex-direction:column; flex-grow:1; padding:24px;">
+                        <h3 class="equipment__card-title" style="margin-bottom:8px;">${data.title}</h3>
+                        <p class="equipment__card-desc" style="flex-grow:1; margin-bottom:16px;">${data.desc}</p>
+                        <div class="equipment__specs" style="margin-bottom:16px;">${specsHtml}</div>
+                        <div class="equipment__price" style="font-weight:700; color:var(--brand-orange); margin-bottom:16px; font-size:1.25rem;">${data.price}</div>
+                        <button class="equipment__btn hero__button_primary hero__button" style="width:100%;" onclick="event.stopPropagation(); window.openEquipModal('${id}')">Подробнее / Забронировать</button>
+                    </div>
+                </div>`;
+            count++;
+        }
+        grid.innerHTML = html;
+    }
+
+
+    const scenariosData = {
+        'solo': {
+            title: 'Одиночные прогулки',
+            desc: 'Насладитесь тишиной воды наедине с природой. Отдых от суеты.',
+            img: 'assets/_DSC0160.jpg'
+        },
+        'date': {
+            title: 'Романтическое свидание',
+            desc: 'Прогулка для двоих на закате. Незабываемая атмосфера.',
+            img: 'assets/Релакс На закате на сап.jpg'
+        },
+        'family': {
+            title: 'Семейный отдых',
+            desc: 'Безопасные каяки и сапы для веселого времени с детьми.',
+            img: 'assets/SUP/Дети на САП.jpg'
+        },
+        'photo': {
+            title: 'Фотосессия на воде',
+            desc: 'Профессиональные снимки на воде и берегу.',
+            img: 'assets/_DSC0269.jpg'
+        }
+    };
+
+    function renderScenariosElements() {
+        const grid = document.getElementById('scenariosGrid');
+        if (!grid) return;
+        
+        let html = '';
+        for (const [id, data] of Object.entries(scenariosData)) {
+            html += `
+                <div class="scenarios__card" style="display:flex; flex-direction:column; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.05); transition:transform 0.3s ease;">
+                    <img src="${data.img}" alt="${data.title}" style="height:220px; object-fit:cover; width:100%;">
+                    <div style="padding:24px; flex-grow:1; display:flex; flex-direction:column;">
+                        <h3 style="margin-bottom:12px; font-size:1.25rem; font-weight:800; color:var(--brand-blue);">${data.title}</h3>
+                        <p style="color:#666; font-size:0.95rem; line-height:1.5;">${data.desc}</p>
+                    </div>
+                </div>`;
+        }
+        grid.innerHTML = html;
+        
+        const btn = document.getElementById('showMoreScenarios');
+        if(btn) btn.style.display = 'none';
+    }
+
+    function renderToursElements() {
+        const grid = document.getElementById('toursGrid');
+        if (!grid) return;
+        
+        let html = '';
+        const tourImgs = {
+            'sunset': 'assets/Корпоративный отдых/_R004981.jpg',
+            'krivets': 'assets/Корпоративный отдых/_R004984.jpg',
+            'sputnik': 'assets/Da-G72KtBUs.jpg'
+        };
+        
+        for (const [id, data] of Object.entries(toursData)) {
+            const imgSrc = tourImgs[id] || 'assets/Da-G72KtBUs.jpg';
+            html += `
+                <div class="tour-card js-open-tour-modal" data-tour-id="${id}" onclick="window.openTourModal('${id}')">
+                    <div class="tour-card__img-wrap">
+                        <img src="${imgSrc}" alt="${data.title}" class="tour-card__img" style="height:200px; object-fit:cover;">
+                        <span class="tour-card__badge">${data.time}</span>
+                    </div>
+                    <div class="tour-card__content" style="display:flex; flex-direction:column; flex-grow:1;">
+                        <h4 class="tour-card__title">${data.title}</h4>
+                        <p class="tour-card__desc" style="flex-grow:1;">${data.desc}</p>
+                        <button class="tour-card__btn">Подробнее</button>
+                    </div>
+                </div>`;
+        }
+        grid.innerHTML = html;
+    }
+    
+    // Globals to manually open modals if click mapping fails
+    window.openEquipModal = function(id) {
+        const equipModal = document.getElementById('equipDetailModal');
+        const data = equipmentData[id];
+        if (data && equipModal) {
+            document.getElementById('equipModalTitle').textContent = data.title;
+            document.getElementById('equipModalDesc').textContent = data.desc;
+            const imgContainer = document.getElementById('equipModalImgContainer');
+            if (imgContainer && data.images) {
+                let html = '<div class="equip-gallery" style="position:relative; width:100%; height:100%; overflow:hidden;">';
+                data.images.forEach((imgSrc, idx) => {
+                    html += `<img class="modal__pic modal-detail__img gallery-slide" data-idx="${idx}" src="${imgSrc}" style="width:100%; height:100%; object-fit:cover; position:absolute; top:0; left:0; transition: opacity 0.3s ease; opacity: ${idx === 0 ? '1' : '0'}; z-index: ${idx === 0 ? '2' : '1'};">`;
+                });
+                if(data.images.length > 1) {
+                    html += `
+                    <button type="button" onclick="window.changeEquipSlide(-1, event)" style="position:absolute; left:10px; top:50%; transform:translateY(-50%); z-index:10; background:rgba(0,0,0,0.5); color:#fff; border:none; width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:20px;">&#10094;</button>
+                    <button type="button" onclick="window.changeEquipSlide(1, event)" style="position:absolute; right:10px; top:50%; transform:translateY(-50%); z-index:10; background:rgba(0,0,0,0.5); color:#fff; border:none; width:40px; height:40px; border-radius:50%; cursor:pointer; font-size:20px;">&#10095;</button>`;
+                }
+                html += '</div>';
+                imgContainer.innerHTML = html;
+            } else if (data.img) {
+               imgContainer.innerHTML = `<img src="${data.img}" class="modal-detail__img" style="width:100%; height:100%; object-fit:cover;">`;
+            }
+            
+            const priceEl = document.getElementById('equipModalPrice');
+            if(priceEl) { priceEl.textContent = data.price; }
+            
+            const specsContainer = document.getElementById('equipModalSpecs');
+            if(specsContainer) {
+                specsContainer.innerHTML = '';
+                if(data.specs) {
+                    data.specs.forEach(spec => {
+                        specsContainer.innerHTML += `<li><strong>${spec.label}</strong><span>${spec.value}</span></li>`;
+                    });
+                }
+            }
+            equipModal.classList.add('active');
+        }
+    };
+    
+    window.openTourModal = function(tourId) {
+        const tourModal = document.getElementById('tourDetailModal');
+        const data = toursData[tourId];
+        if (data && tourModal) {
+            document.getElementById('tourModalTitle').textContent = data.title;
+            document.getElementById('tourModalTime').textContent = data.time;
+            document.getElementById('tourModalDesc').textContent = data.desc;
+            
+            const specsContainer = document.getElementById('tourModalSpecs');
+            if(specsContainer) {
+                specsContainer.innerHTML = '';
+                if(data.specs) {
+                    data.specs.forEach(spec => {
+                        specsContainer.innerHTML += `<li><strong>${spec.label}</strong><span>${spec.value}</span></li>`;
+                    });
+                }
+            }
+            tourModal.classList.add('active');
+        }
+    };
+
+    // Render dynamic sections
+    renderEquipmentElements();
+    renderScenariosElements();
+    renderToursElements();
 
 }); // End of DOMContentLoaded
 

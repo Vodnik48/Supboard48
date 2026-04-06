@@ -22,6 +22,7 @@
 @import url('css/blocks/cta-final.css');
 @import url('css/blocks/footer.css');
 @import url('css/blocks/cta-mobile.css');
+@import url('css/blocks/fab.css');
 
 /* ==========================================================================
    Media Queries - Responsive Styles
@@ -41,11 +42,6 @@
     }
 
     /* Modal */
-    .modal__content {
-        margin: 20px;
-        padding: 24px;
-    }
-
     .modal__content {
         margin: 20px;
         padding: 24px;

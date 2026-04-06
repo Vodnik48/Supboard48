@@ -298,3 +298,15 @@
 .equipment__show-more i {
     transition: transform 0.3s ease;
 }
+/* Dynamic enhancements */
+.equipment__card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.equipment__card_hidden {
+    display: none !important;
+}
+.equipment__grid.expanded .equipment__card_hidden {
+    display: flex !important;
+}
