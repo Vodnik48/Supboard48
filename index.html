@@ -44,11 +44,10 @@
                 <span class="header__logo-text">САПБОРД<span class="header__logo-accent">48</span></span>
             </a>
             <nav class="header__nav">
-                <a href="#advantages" class="header__link">Преимущества</a>
                 <a href="#equipment" class="header__link">Оборудование</a>
-                <a href="#yoga" class="header__link">Йога</a>
                 <a href="#scenarios" class="header__link">Сценарии</a>
                 <a href="#routes" class="header__link">Маршруты</a>
+                <a href="#instructors" class="header__link">Инструкторы</a>
                 <a href="booking.html" class="header__link">Забронировать</a>
             </nav>
             <div class="header__contacts">
@@ -66,11 +65,10 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <nav class="header__mobile-nav">
-                <a href="#advantages" class="header__mobile-link">Преимущества</a>
                 <a href="#equipment" class="header__mobile-link">Оборудование</a>
-                <a href="#yoga" class="header__mobile-link">Йога</a>
                 <a href="#scenarios" class="header__mobile-link">Сценарии</a>
                 <a href="#routes" class="header__mobile-link">Маршруты</a>
+                <a href="#instructors" class="header__mobile-link">Инструкторы</a>
                 <a href="booking.html" class="header__mobile-link">Забронировать</a>
             </nav>
             <a href="tel:+79042832230" class="header__mobile-phone">+7 (904) 283-22-30</a>
@@ -143,7 +141,7 @@
                             <span class="hero__polaroid-stat-text">Довольных</span>
                         </div>
                         <div class="hero__polaroid-image-wrapper">
-                            <img src="./assets/SUP/IMG_7964.JPG" alt="Семья" class="hero__polaroid-img">
+                            <img src="./assets/SUP/Все продумано.JPG" alt="Семья" class="hero__polaroid-img">
                         </div>
                         <span class="hero__polaroid-caption">Семейный отдых 💙</span>
                     </div>
@@ -202,7 +200,9 @@
                 <div class="polaroid-gallery__card polaroid-gallery__card--first">
                     <span class="polaroid-gallery__highlight-badge">№1 в Липецке</span>
                     <div class="polaroid-gallery__photo-wrap">
-                        <img src="assets/Da-G72KtBUs.jpg" class="polaroid-gallery__photo" alt="Девушки прыгают в воду — атмосфера клуба" loading="lazy">
+                        <video class="polaroid-gallery__photo" autoplay muted loop playsinline>
+                            <source src="assets/Объщая информация про пространство.mp4" type="video/mp4">
+                        </video>
                     </div>
                     <div class="polaroid-gallery__caption">Открытие себя</div>
                     <div class="polaroid-gallery__desc">Мы продаём не просто аренду досок — мы дарим яркие эмоции! Свежий воздух, солнце, искренние улыбки команды и настоящая свобода. Ваш лучший отдых начинается здесь.</div>
@@ -220,7 +220,7 @@
                 <!-- Card 3 -->
                 <div class="polaroid-gallery__card">
                     <div class="polaroid-gallery__photo-wrap">
-                        <img src="assets/Корпоративный отдых/IMG_5394.jpg" class="polaroid-gallery__photo" alt="Весёлая компания на воде" loading="lazy">
+                        <img src="assets/advantage_experience_1772968974087.jpg" class="polaroid-gallery__photo" alt="Команда Сапборд48" loading="lazy">
                     </div>
                     <div class="polaroid-gallery__caption">Свои люди</div>
                     <div class="polaroid-gallery__desc">Тёплая и поддерживающая атмосфера. Мы общаемся, смеёмся, с радостью делимся крутыми впечатлениями и делаем всё, чтобы ваша улыбка сияла весь сплав.</div>
@@ -229,7 +229,7 @@
                 <!-- Card 4 -->
                 <div class="polaroid-gallery__card">
                     <div class="polaroid-gallery__photo-wrap">
-                        <img src="assets/Релакс На закате на сап.jpg" class="polaroid-gallery__photo" alt="Закат на сапборде" loading="lazy">
+                        <img src="assets/SUP/Все продумано.JPG" class="polaroid-gallery__photo" alt="Отдых на сапбордах" loading="lazy">
                     </div>
                     <div class="polaroid-gallery__caption">Всё продумано</div>
                     <div class="polaroid-gallery__desc">Отвлекитесь от рутины и суеты! Устройте цифровой детокс, проведите беззаботное время с семьёй и близкими, получая невероятный заряд счастья на воде.</div>
@@ -238,9 +238,7 @@
                 <!-- Card 5 -->
                 <div class="polaroid-gallery__card">
                     <div class="polaroid-gallery__photo-wrap">
-                        <video class="polaroid-gallery__photo" autoplay muted loop playsinline>
-                            <source src="assets/йога/Йога.mp4" type="video/mp4">
-                        </video>
+                        <img src="assets/Инструктаж перед выходом на воду.jpg" class="polaroid-gallery__photo" alt="Инструктаж перед выходом на воду" loading="lazy">
                     </div>
                     <div class="polaroid-gallery__caption">Безопасность</div>
                     <div class="polaroid-gallery__desc">Мы находимся рядом в любой ситуации. Спасатели сопровождают вас, чтобы вы могли расслабиться и получать удовольствие от каждого момента.</div>
@@ -259,69 +257,7 @@
     </section>
 
 
-    <!-- ============================================
-         BLOCK 2: ПРЕИМУЩЕСТВА (компактный блок)
-         Trust Badges + краткие преимущества
-         ============================================ -->
-    <section class="advantages" id="advantages">
-        <div class="advantages__container">
-            <h2 class="advantages__section-title">Почему <em class="advantages__section-accent">выбирают</em> нас?</h2>
-            <div class="advantages__grid advantages__grid--full">
-                <!-- Card 1 -->
-                <div class="advantages__card">
-                    <div class="advantages__card-img-wrapper">
-                        <img src="assets/advantage_safety_1772968926289.png" alt="Безопасность на воде"
-                            class="advantages__svg advantages__img" />
-                    </div>
-                    <div class="advantages__card-content">
-                        <h4 class="advantages__card-title">БЕЗОПАСНО</h4>
-                        <p class="advantages__card-desc">Жилеты для всех возрастов и 15-мин инструктаж включены в
-                            стоимость. Спасатели на воде всегда с вами.</p>
-                    </div>
-                </div>
 
-                <!-- Card 2 -->
-                <div class="advantages__card">
-                    <div class="advantages__card-img-wrapper">
-                        <img src="assets/advantage_location_1772968944217.png" alt="База в центре города"
-                            class="advantages__svg advantages__img" />
-                    </div>
-                    <div class="advantages__card-content">
-                        <h4 class="advantages__card-title">ЦЕНТР ГОРОДА</h4>
-                        <p class="advantages__card-desc">пл. Мира 6а. Бесплатная асфальтированная парковка и теплые
-                            чистые раздевалки прямо на базе.</p>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="advantages__card">
-                    <div class="advantages__card-img-wrapper">
-                        <img src="assets/advantage_daily_1772968959671.jpg" alt="Ежедневный прокат"
-                            class="advantages__svg advantages__img" />
-                    </div>
-                    <div class="advantages__card-content">
-                        <h4 class="advantages__card-title">ЕЖЕДНЕВНО</h4>
-                        <p class="advantages__card-desc">Мы работаем для вас с 9:00 до 21:00 без выходных. Весь летний
-                            сезон на страже вашего комфорта.</p>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="advantages__card">
-                    <div class="advantages__card-img-wrapper">
-                        <img src="assets/advantage_experience_1772968974087.jpg
-                        " alt="Опытные инструкторы"
-                            class="advantages__svg advantages__img" />
-                    </div>
-                    <div class="advantages__card-content">
-                        <h4 class="advantages__card-title">ОПЫТ С 2012 ГОДА</h4>
-                        <p class="advantages__card-desc">Обучаем и страхуем. Все наши инструкторы — профессиональные
-                            спортсмены, живущие водой.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ============================================
          BLOCK 3: ОБОРУДОВАНИЕ
@@ -332,6 +268,14 @@
             <span class="equipment__label">Аренда</span>
             <h2 class="equipment__title">На чём катаемся?</h2>
             <p class="equipment__subtitle">Новые доски и лодки. Моем после каждого проката - никакой тины и грязи.</p>
+
+            <div class="equipment__filters" id="equipmentFilters" style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:32px; justify-content:center;">
+                <button class="equipment__filter-btn hero__button hero__button_primary" data-filter="all">Все</button>
+                <button class="equipment__filter-btn hero__button hero__button_secondary" style="background:#fff; color:var(--brand-blue);" data-filter="sup">Сапборды</button>
+                <button class="equipment__filter-btn hero__button hero__button_secondary" style="background:#fff; color:var(--brand-blue);" data-filter="kids">Детские</button>
+                <button class="equipment__filter-btn hero__button hero__button_secondary" style="background:#fff; color:var(--brand-blue);" data-filter="yoga">Для Йоги</button>
+                <button class="equipment__filter-btn hero__button hero__button_secondary" style="background:#fff; color:var(--brand-blue);" data-filter="kayak">Каяки и Байдарки</button>
+            </div>
 
             <div class="equipment__grid" id="equipmentGrid"></div>
 
@@ -396,7 +340,6 @@
 
     <!-- ============================================
          BLOCK 5: СЦЕНАРИИ (самостоятельное катание)
-         3 карточки + кнопка "Ещё сценарии"
          ============================================ -->
     <section class="scenarios" id="scenarios">
         <div class="scenarios__container">
@@ -414,106 +357,11 @@
         </div>
     </section>
 
-    <!-- ============================================
-         BLOCK 3: BOOKING DASHBOARD V2 (2-Step Wizard) [MOVED TO BOOKING.HTML]
-         ============================================ -->
-
-    <!-- ============================================
-         BLOCK 7: РАЗНООБРАЗИЕ
-         Маршруты, Йога, Корпоративы, Галерея
-         ============================================ -->
-
-    <!-- 7.1 Routes Section -->
-    <section class="routes" id="routes">
-        <div class="routes__container">
-            <div class="routes__wrapper">
-                <div class="routes__content">
-                    <span class="routes__label">Приключения</span>
-                    <h2 class="routes__title">Куда сплавляемся?</h2>
-
-                    <div class="tours-grid" id="toursGrid"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- =============================================
-         SECTION: SUP YOGA — "Утро на воде"
+         SECTION: Наши инструкторы
          ============================================= -->
-    <section class="yoga section reveal" id="yoga">
-        <div class="yoga__container">
-
-            <!-- Section Header -->
-            <div class="yoga__header">
-                <span class="yoga__label"><i class="fa-solid fa-sun"></i> Йога на воде</span>
-                <h2 class="yoga__title">Утро на <em>воде</em> — уровень гармонии</h2>
-                <p class="yoga__subtitle">
-                    Представьте: рассвет, тишина, тёплая вода и вы на сапборде в медитации.
-                    Это не просто йога — это перезагрузка тела и разума на природе.
-                </p>
-            </div>
-
-            <!-- ── Photo Gallery ── -->
-            <div class="yoga__gallery">
-                <!-- Hero image — group yoga at sunrise -->
-                <div class="yoga__gallery-item item--hero">
-                    <img src="assets/йога/Групповая йога на сап.jpg" alt="Групповая йога на рассвете" class="yoga__gallery-img" loading="lazy">
-                    <div class="yoga__gallery-caption">Йога в женском кругу на рассвете</div>
-                </div>
-
-                <!-- Side image 1 — yoga on pier -->
-                <div class="yoga__gallery-item">
-                    <img src="assets/йога/IMG_8122.jpg" alt="Йога на пирсе" class="yoga__gallery-img" loading="lazy">
-                    <div class="yoga__gallery-caption">Йога на пирсе</div>
-                </div>
-
-                <!-- Side image 2 — supreme balance -->
-                <div class="yoga__gallery-item">
-                    <img src="assets/йога/Йога на САП.jpg" alt="Поза воина на сапе" class="yoga__gallery-img" loading="lazy">
-                    <div class="yoga__gallery-caption">Баланс и сила</div>
-                </div>
-
-                <!-- Bottom wide image — breakfast loop -->
-                <div class="yoga__gallery-item" style="grid-column: 1 / -1;">
-                    <img src="assets/йога/IMG_8284.jpg" alt="Завтрак на рассвете" class="yoga__gallery-img" loading="lazy">
-                    <div class="yoga__gallery-caption">Завтрак в женском кругу после практики</div>
-                </div>
-            </div>
-
-            <!-- ── Event Description ── -->
-            <div class="yoga__event">
-                <div class="yoga__event-content">
-                    <div class="yoga__event-header">
-                        <span class="yoga__event-promo">Специальное мероприятие</span>
-                        <h3 class="yoga__event-title">Программа «Утро на воде»</h3>
-                    </div>
-                    
-                    <p class="yoga__event-desc">
-                        Уникальный формат утреннего мероприятия для женщин. Мягкая йога на сапбордах в лучах рассвета, медитация на воде и тёплый завтрак в уютном кругу. Практика начинается в 6:00, когда город ещё спит, а природа просыпается вместе с вами.
-                    </p>
-
-                    <ul class="yoga__event-steps">
-                        <li class="yoga__event-step"><i class="fa-solid fa-sun"></i> 6:00 — Встреча на пирсе, разминка и настройка</li>
-                        <li class="yoga__event-step"><i class="fa-solid fa-water"></i> 6:30 — Йога на сапбордах (60 мин)</li>
-                        <li class="yoga__event-step"><i class="fa-solid fa-wind"></i> 7:30 — Медитация и дыхательные практики</li>
-                        <li class="yoga__event-step"><i class="fa-solid fa-mug-hot"></i> 8:00 — Завтрак в женском кругу на пирсе</li>
-                    </ul>
-
-                    <div class="yoga__event-pricing">
-                        <div class="yoga__event-price">1 500 ₽ <span>/ 2,5 часа</span></div>
-                        <button class="yoga__btn js-open-modal" style="width: auto; padding: 12px 30px;">ЗАПИСАТЬСЯ</button>
-                    </div>
-                </div>
-                
-                <div class="yoga__event-media">
-                    <img src="assets/йога/Групповая йога на сап.jpg" alt="Йога на сапбордах на рассвете" loading="lazy">
-                    <div class="yoga__event-floating-badge">
-                        <i class="fa-solid fa-heart"></i> Только для женщин
-                    </div>
-                </div>
-            </div>
-
-            <!-- ── Instructors ── -->
+    <section class="yoga" id="instructors" style="padding: var(--spacing-xxl) 0; background: var(--color-surface);">
+        <div class="yoga__container" style="max-width: var(--container-width); margin: 0 auto; padding: 0 var(--spacing-lg);">
             <div class="yoga__instructors">
                 <h3 class="yoga__instructors-title">Наши инструкторы</h3>
                 <p class="yoga__instructors-subtitle">
@@ -543,7 +391,6 @@
 
                     <div class="yoga__instructor-card">
                         <span class="yoga__instructor-badge"><i class="fa-solid fa-leaf"></i></span>
-                        <!-- Реальное фото Елены Галкиной -->
                         <img src="assets/йога/IMG_8284.jpg" alt="Галкина Елена" class="yoga__instructor-photo" loading="lazy">
                         <div class="yoga__instructor-info">
                             <div class="yoga__instructor-name">Галкина Елена</div>
@@ -563,86 +410,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 
-
-    <!-- 7.3 Corporate Events Section (Premium Offer) -->
-    <section class="corporate" id="corporate" style="padding: 100px 0; background: var(--color-surface);">
-        <div class="corporate__container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="corporate__header" style="text-align: center; margin-bottom: 60px;">
-                <span class="corporate__label" style="display: inline-block; padding: 6px 16px; background: rgba(249, 105, 67, 0.1); color: var(--brand-orange); border-radius: 40px; font-weight: 700; text-transform: uppercase; font-size: 14px; margin-bottom: 20px;">Для компаний</span>
-                <h2 class="corporate__title" style="font-size: 3rem; line-height: 1.1; margin-bottom: 20px; color: var(--brand-blue);">Корпоративы<br>и тимбилдинг</h2>
-                <p class="corporate__desc" style="font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto;">Ваш лучший корпоратив этого лета на реке Воронеж! Предлагаем 3 формата поездки: активный тур, релакс-прогулка или квест на воде. После заплыва организуем душевный пикник.</p>
-            </div>
-
-            <div class="corporate__formats" style="display: flex; flex-direction: column; gap: 60px;">
-                
-                <!-- Format 1: Active -->
-                <div class="corporate__format-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
-                    <div class="corporate__media" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); height: 400px;">
-                        <img src="assets/Корпоративный отдых/_R004981.jpg" alt="Активный сплав" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div style="position: absolute; bottom: 20px; left: 20px; background: white; padding: 8px 16px; border-radius: 30px; font-weight: 700; color: var(--brand-blue);">От 10 человек</div>
-                    </div>
-                    <div class="corporate__info">
-                        <h3 style="font-size: 2rem; color: var(--brand-blue); margin-bottom: 15px;">Активный заплыв</h3>
-                        <p style="color: #666; font-size: 1.1rem; margin-bottom: 20px; line-height: 1.6;">Динамичный маршрут с инструкторами-аниматорами. Мы разобьем вас на команды и устроим веселые эстафеты прямо на воде (сап-гонки, водное поло).</p>
-                        <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
-                            <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--brand-orange); margin-right: 10px;"></i> Длительность: 2-3 часа</li>
-                            <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--brand-orange); margin-right: 10px;"></i> Полный комплект оборудования</li>
-                            <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--brand-orange); margin-right: 10px;"></i> Фотосопровождение тура</li>
-                        </ul>
-                        <button class="hero__button hero__button_primary js-open-modal">Обсудить формат</button>
-                    </div>
-                </div>
-
-                <!-- Format 2: Relax + Picnic (Reversed) -->
-                <div class="corporate__format-row corporate__format-row--rev" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
-                    <div class="corporate__info" style="order: -1;">
-                        <h3 style="font-size: 2rem; color: var(--brand-blue); margin-bottom: 15px;">Релакс-тур + Пикник</h3>
-                        <p style="color: #666; font-size: 1.1rem; margin-bottom: 20px; line-height: 1.6;">Неспешная прогулка по тихим заводям. Идеальный детокс и погружение в природу. После катания вас ждет красиво сервированный стол на свежем воздухе.</p>
-                        <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
-                            <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--brand-orange); margin-right: 10px;"></i> Длительность: 4 часа (вода + суша)</li>
-                            <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--brand-orange); margin-right: 10px;"></i> Фуршет / Барбекю</li>
-                            <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--brand-orange); margin-right: 10px;"></i> Остановка на диких пляжах</li>
-                        </ul>
-                        <button class="hero__button hero__button_primary js-open-modal">Обсудить формат</button>
-                    </div>
-                    <div class="corporate__media" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); height: 400px;">
-                        <img src="assets/Корпоративный отдых/IMG_1251.jpg" alt="Пикник на природе" style="width: 100%; height: 100%; object-fit: cover;">
-                        <div style="position: absolute; top: 20px; right: 20px; background: var(--brand-orange); color: white; padding: 8px 16px; border-radius: 30px; font-weight: 700;">Популярно</div>
-                    </div>
-                </div>
-
-                <!-- Format 3: Quest -->
-                <div class="corporate__format-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
-                    <div class="corporate__media" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); height: 400px;">
-                        <img src="assets/Корпоративный отдых/IMG_4651.jpg" alt="Квест на сапах" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="corporate__info">
-                        <h3 style="font-size: 2rem; color: var(--brand-blue); margin-bottom: 15px;">Квест с Мега-САПом</h3>
-                        <p style="color: #666; font-size: 1.1rem; margin-bottom: 20px; line-height: 1.6;">Командная работа на максималках! Экипаж до 8 человек ставится на огромный Мега-САП. Ваша цель — слаженно доплыть до нужных точек и найти подсказки на реке.</p>
-                        <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
-                            <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--brand-orange); margin-right: 10px;"></i> Только командная работа</li>
-                            <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--brand-orange); margin-right: 10px;"></i> Подходит для больших групп</li>
-                            <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color: var(--brand-orange); margin-right: 10px;"></i> Море эмоций и смеха</li>
-                        </ul>
-                        <button class="hero__button hero__button_primary js-open-modal">Обсудить формат</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    
-    <style>
-        @media (max-width: 900px) {
-            .corporate__format-row { grid-template-columns: 1fr !important; }
-            .corporate__format-row--rev .corporate__info { order: 1 !important; }
-            .corporate__media { height: 300px !important; }
-        }
-    </style>
     
     <!-- ============================================
          BLOCK 9: CTA #2 (Второй призыв к действию)
@@ -726,7 +496,7 @@
                             <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
                         </div>
                         <p class="reviews__text">Отличное место! Всегда всё круто и позитивно. Обслуживание на высоте, инструктаж подробный. Плавали всей семьей, дети в восторге. Рекомендую!)</p>
-                        <a href="https://vk.com/supboard48" target="_blank" class="reviews__read-more">Читать дальше</a>
+                        <a href="https://vk.com/vodnik48" target="_blank" class="reviews__read-more">Читать дальше</a>
                     </div>
                     
                     <!-- Review 4 -->
@@ -774,7 +544,7 @@
                             <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
                         </div>
                         <p class="reviews__text">Все просто класс! Инструкторы позитивные, рассказали и показали, встал на доску легко. Брал тур на закат, виды нереальные, атмосфера супер. Обязательно приеду еще раз, спасибо!</p>
-                        <a href="https://vk.com/supboard48" target="_blank" class="reviews__read-more">Читать дальше</a>
+                        <a href="https://vk.com/vodnik48" target="_blank" class="reviews__read-more">Читать дальше</a>
                     </div>
                 </div>
                 <button class="reviews__slider-nav next"><i class="fa-solid fa-chevron-right"></i></button>
@@ -822,11 +592,11 @@
                     </div>
 
                     <div class="contacts__detail-item">
-                        <div class="contacts__icon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div class="contacts__icon"><i class="fa-solid fa-people-group"></i></div>
                         <div>
-                            <h4 class="contacts__detail-title">Мессенджеры</h4>
+                            <h4 class="contacts__detail-title">Социальные сети</h4>
                             <div class="contacts__social-links">
-                                <a href="https://wa.me/79042832230" target="_blank" class="contacts__social-btn whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                                <a href="https://vk.com/vodnik48" target="_blank" class="contacts__social-btn vk" style="background: #0077FF; color: #fff; border-color: #0077FF;"><i class="fa-brands fa-vk"></i> ВКонтакте</a>
                                 <a href="https://t.me/supboard48" target="_blank" class="contacts__social-btn telegram"><i class="fa-brands fa-telegram"></i> Telegram</a>
                             </div>
                         </div>
@@ -981,9 +751,23 @@
         <div class="modal__content">
             <button class="modal__close" id="closeModalBtn">&times;</button>
             <h2 class="modal__title">Забронировать</h2>
-            <form class="modal__form" action="send_mail.php" method="POST">
+            <form class="modal__form" id="bookingForm" action="send_mail.php" method="POST">
                 <input type="text" name="name" class="modal__input" placeholder="Ваше имя" required>
                 <input type="tel" name="phone" class="modal__input" placeholder="Телефон" required>
+                
+                <!-- Защита от ботов (Honeypot) -->
+                <input type="text" name="website_url" class="honeypot-field" style="display:none !important;" tabindex="-1" autocomplete="off" placeholder="Оставьте пустым">
+                
+                <!-- Математическая капча -->
+                <label id="captchaQuestion" style="display:block; margin-bottom:8px; font-weight:600; font-size: 14px; color:#fff; text-align: left; opacity: 0.9;"></label>
+                <div class="modal__captcha" style="margin-bottom: 24px;">
+                    <input type="number" id="captchaAnswer" class="modal__input" placeholder="Введите ответ (цифрами)" required>
+                </div>
+
+                <input type="hidden" name="date" id="hiddenDate">
+                <input type="hidden" name="time" id="hiddenTime">
+                <input type="hidden" name="items" id="hiddenItems">
+
                 <button type="submit" class="modal__submit">Отправить заявку</button>
                 <p class="modal__policy">Нажимая кнопку, вы соглашаетесь с политикой обработки данных</p>
             </form>
@@ -1128,7 +912,7 @@
         </a>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 
 </html>

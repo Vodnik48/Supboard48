@@ -87,160 +87,147 @@ document.addEventListener('DOMContentLoaded', () => {
     // Data Dictionaries for Modals — Реальные данные с Яндекс Карт (Водник, Липецк)
     const equipmentData = {
         // ========== САПБОРДЫ ==========
-        'sup_arctic': {
-            title: 'JS 335 Arctic',
-            img: 'assets/equip/sup_1.jpg',
-            desc: 'Универсальная модель 335×81×15 см, до 200 кг. Подходит для новичков и пар. Устойчивый корпус с тремя плавниками.',
+        'sup_magma': {
+            title: 'Aqua Marina Magma',
+            img: 'assets/SUP/Сап аренда сапборды/Aqua Marina SUP Magma сап для крупных гребцов до 120 кг. .jpg',
+            desc: 'Надежный премиальный сапборд от Aqua Marina. Отличная грузоподъемность для райдеров до 120 кг (на фото оранжево-серо-белая палуба).',
             price: '500 ₽/час',
             specs: [
-                { label: 'Размер', value: '335×81×15 см' },
-                { label: 'Грузоподъемность', value: 'до 200 кг' },
-                { label: 'Плавники', value: '3 шт' },
-                { label: 'Уровень', value: 'Для всех' }
+                { label: 'Модель', value: 'Magma' },
+                { label: 'Бренд', value: 'Aqua Marina' },
+                { label: 'Грузоподъемность', value: 'до 120 кг' }
             ]
         },
-        'sup_rq335': {
-            title: 'JS RQ335',
-            img: 'assets/equip/sup_2.jpg',
-            desc: 'Устойчивая платформа с одним плавником 335×82×15 см. Отличный выбор для спокойных прогулок.',
+        'sup_rental': {
+            title: 'Aqua Marina Rental',
+            img: 'assets/SUP/Сап аренда сапборды/Aqua Marina SUP rental сап для крупных гребцов до 100 кг. .jpg',
+            desc: 'Классическая универсальная доска Aqua Marina для проката в красно-белых тонах. Прочная и стабильная на воде.',
             price: '500 ₽/час',
             specs: [
-                { label: 'Размер', value: '335×82×15 см' },
-                { label: 'Плавник', value: '1 шт (большой)' },
+                { label: 'Серия', value: 'Прокатная' },
+                { label: 'Бренд', value: 'Aqua Marina' },
+                { label: 'Грузоподъемность', value: 'до 100 кг' }
+            ]
+        },
+        'sup_zray': {
+            title: 'Zray Pure Air 10\'2"',
+            img: 'assets/SUP/Сап аренда сапборды/Aqua Marina SUP-доска79 см.jpg',
+            desc: 'Маневренный и легкий сапборд Zray Pure Air шириной 79 см. Отличный баланс скорости и управляемости.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Размер', value: '10\'2" (310 см)' },
+                { label: 'Ширина', value: '79 см' },
+                { label: 'Бренд', value: 'Zray' }
+            ]
+        },
+        'sup_kahawai': {
+            title: 'Aqua Marina KAHawai 10\'2"',
+            img: 'assets/SUP/Сап аренда сапборды/XXL (3).jpg',
+            desc: 'Специализированная туринговая доска KAHawai со стильным зелено-белым дизайном. Идеальна для ровной воды и легкого течения.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Модель', value: 'KAHawai' },
+                { label: 'Размер', value: '10\'2"' },
+                { label: 'Бренд', value: 'Aqua Marina' }
+            ]
+        },
+        'sup_vibrant': {
+            title: 'Aqua Marina Vibrant (Детский)',
+            img: 'assets/SUP/Сап аренда сапборды/XXL (4).jpg',
+            desc: 'Специальная детская доска для самых юных райдеров в ярком желтом цвете. Легкий старт и безопасное обучение.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Модель', value: 'Vibrant' },
+                { label: 'Тип', value: 'Детский / Подростковый' },
+                { label: 'Бренд', value: 'Aqua Marina' }
+            ]
+        },
+        'sup_dhyana': {
+            title: 'Aqua Marina Dhyana (Йога)',
+            img: 'assets/SUP/Сап аренда сапборды/XXL (5).jpg',
+            desc: 'Самая крупная и устойчивая доска, созданная специально для йоги и фитнеса на воде. За счет габаритов на ней комфортно могут кататься 2-3 человека.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Модель', value: 'Dhyana' },
+                { label: 'Вместимость', value: '2-3 человека' },
+                { label: 'Бренд', value: 'Aqua Marina' }
+            ]
+        },
+        'sup_huakai': {
+            title: 'Hydro-Force Huakai 10\'0"',
+            img: 'assets/SUP/Сап аренда сапборды/XXL (6).jpg',
+            desc: 'Широкая доска Hydro-Force Huakai (оранжево-синяя), обладающая высокой остойчивостью. Подходит для различных стилей катания.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Модель', value: 'Huakai' },
+                { label: 'Размер', value: '10\'0"' },
+                { label: 'Бренд', value: 'Hydro-Force' }
+            ]
+        },
+        'sup_js': {
+            title: 'JS Board',
+            img: 'assets/SUP/Сап аренда сапборды/XXL (7).jpg',
+            desc: 'Классическая доска JS с белой палубой и синими бортами, надежной двухслойной конструкцией.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Тип', value: 'Универсальный' },
+                { label: 'Цвет', value: 'Бело-синий' },
+                { label: 'Бренд', value: 'JS Board' }
+            ]
+        },
+        'sup_beast_2': {
+            title: 'Aqua Marina Beast (Синяя)',
+            img: 'assets/SUP/Сап аренда сапборды/XXL (8).jpg',
+            desc: 'Популярная доска Aqua Marina Beast в ярко-синем дизайне ультимативной серии All-Around.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Модель', value: 'Beast' },
+                { label: 'Серия', value: 'Универсальная' },
+                { label: 'Бренд', value: 'Aqua Marina' }
+            ]
+        },
+        'sup_freesoul': {
+            title: 'Hydro-Force Freesoul 11\'2"',
+            img: 'assets/SUP/Сап аренда сапборды/XXL (9).jpg',
+            desc: 'Крупногабаритная зеленая доска Hydro-Force Freesoul Tech. Оптимальна для долгих туринговых сплавов.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Модель', value: 'Freesoul Tech' },
+                { label: 'Размер', value: '11\'2"' },
+                { label: 'Бренд', value: 'Hydro-Force' }
+            ]
+        },
+        'sup_journey': {
+            title: 'Journey SUP',
+            img: 'assets/SUP/Сап аренда сапборды/XXL (10).jpg',
+            desc: 'Стильная доска Journey в сине-серых тонах для комфортных путешествий. Уверенно держит курс.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Тип', value: 'Прогулочный' },
+                { label: 'Цвет', value: 'Сине-серо-белый' },
+                { label: 'Бренд', value: 'Journey' }
+            ]
+        },
+        'sup_gs_sport': {
+            title: 'GS Sport 11\'0"',
+            img: 'assets/SUP/Сап аренда сапборды/XXL (11).jpg',
+            desc: 'Спортивный туринговый сапборд GS Sport с темно-синим паттерном. Создан для развития скорости на длинных дистанциях.',
+            price: '500 ₽/час',
+            specs: [
+                { label: 'Тип', value: 'Спортивный (Touring)' },
+                { label: 'Размер', value: '11\'0"' },
+                { label: 'Бренд', value: 'GS Sport' }
+            ]
+        },
+        'sup_mirtlsol': {
+            title: 'Mirtlsol SUP',
+            img: 'assets/SUP/Сап аренда сапборды/XXL (12).jpg',
+            desc: 'Компактный и послушный сап Mirtlsol, отличный вариант для размеренных водных прогулок.',
+            price: '500 ₽/час',
+            specs: [
                 { label: 'Тип', value: 'All-round' },
-                { label: 'Уровень', value: 'Для всех' }
-            ]
-        },
-        'sup_ninja': {
-            title: 'JS Ninja 335',
-            img: 'assets/equip/sup_3.jpg',
-            desc: 'Для разных стилей катания, прогулок и легкого фитнеса. Универсальная и послушная доска.',
-            price: '500 ₽/час',
-            specs: [
-                { label: 'Размер', value: '335×81×15 см' },
-                { label: 'Стиль', value: 'Универсальный' },
-                { label: 'Подходит', value: 'Прогулки, фитнес' },
-                { label: 'Уровень', value: 'Для всех' }
-            ]
-        },
-        'sup_guns_roses': {
-            title: 'Fayean Guns & Roses 10\'6',
-            img: 'assets/equip/sup_4.jpeg',
-            desc: 'Стильная и маневренная доска 320×83×15 см с три плавниками. Компактная, легко управляется.',
-            price: '500 ₽/час',
-            specs: [
-                { label: 'Размер', value: '320×83×15 см' },
-                { label: 'Плавники', value: '3 шт' },
-                { label: 'Тип', value: 'All-round' },
-                { label: 'Уровень', value: 'Новичок / Любитель' }
-            ]
-        },
-        'sup_koi': {
-            title: 'Fayean Koi 11\'6',
-            img: 'assets/equip/sup_5.jpg',
-            desc: 'Длинная доска (350 см) для открытой воды и волн. Объем 290 л, давление до 20 psi. Для дальних маршрутов.',
-            price: '500 ₽/час',
-            specs: [
-                { label: 'Размер', value: '350×76×15 см' },
-                { label: 'Объем', value: '290 л' },
-                { label: 'Давление', value: 'до 20 psi' },
-                { label: 'Тип', value: 'Touring' }
-            ]
-        },
-        'sup_monkey': {
-            title: 'My SUP 11\'6 Monkey',
-            img: 'assets/equip/sup_7.jpg',
-            desc: 'Туринговая доска для дальних прогулок и скорости. Размер 350×76×15 см, объем 290 л.',
-            price: '500 ₽/час',
-            specs: [
-                { label: 'Размер', value: '350×76×15 см' },
-                { label: 'Объем', value: '290 л' },
-                { label: 'Тип', value: 'Touring' },
-                { label: 'Уровень', value: 'Средний / Продвинутый' }
-            ]
-        },
-        'sup_duo': {
-            title: 'Compact DUO 340',
-            img: 'assets/equip/sup_8.jpg',
-            desc: 'Прочная доска для двоих (взрослый + ребенок или пара). Размер 340×83×15 см, объем 330 л.',
-            price: '500 ₽/час',
-            specs: [
-                { label: 'Размер', value: '340×83×15 см' },
-                { label: 'Объем', value: '330 л' },
-                { label: 'Вместимость', value: '2 человека' },
-                { label: 'Тип', value: 'Tandem' }
-            ]
-        },
-        'sup_yoga': {
-            title: 'YogiPad 330 (Йога)',
-            img: 'assets/equip/sup_9.jpg',
-            desc: 'Широкая (85 см) и устойчивая платформа 330×85×15 см. Идеально для SUP-йоги и медитации на воде. Вес 9 кг.',
-            price: '500 ₽/час',
-            specs: [
-                { label: 'Размер', value: '330×85×15 см' },
-                { label: 'Вес', value: '9 кг' },
-                { label: 'Ширина', value: '85 см (макс.)' },
-                { label: 'Тип', value: 'Yoga / Fitness' }
-            ]
-        },
-        'sup_kids': {
-            title: 'MiniBoard 240 (Детский)',
-            img: 'assets/equip/sup_20.jpg',
-            desc: 'Компактная и легкая доска для детей 5-12 лет. Размер 240×65×12 см, до 60 кг.',
-            price: '400 ₽/час',
-            specs: [
-                { label: 'Размер', value: '240×65×12 см' },
-                { label: 'Грузоподъемность', value: 'до 60 кг' },
-                { label: 'Возраст', value: '5-12 лет' },
-                { label: 'Тип', value: 'Kids' }
-            ]
-        },
-        'sup_easy': {
-            title: 'Easy Paddle 305',
-            img: 'assets/equip/sup_11.jpg',
-            desc: 'Легкая и простая в управлении доска. Размер 305×76×15 см, вес всего 7.5 кг.',
-            price: '500 ₽/час',
-            specs: [
-                { label: 'Размер', value: '305×76×15 см' },
-                { label: 'Вес', value: '7.5 кг' },
-                { label: 'Тип', value: 'Легкий старт' },
-                { label: 'Уровень', value: 'Новичок' }
-            ]
-        },
-        'sup_standard': {
-            title: 'Ride Standard 320',
-            img: 'assets/equip/sup_12.jpg',
-            desc: 'Классический формат для всех уровней подготовки. Размер 320×80×15 см, объем 290 л.',
-            price: '500 ₽/час',
-            specs: [
-                { label: 'Размер', value: '320×80×15 см' },
-                { label: 'Объем', value: '290 л' },
-                { label: 'Тип', value: 'All-round' },
-                { label: 'Уровень', value: 'Для всех' }
-            ]
-        },
-        'sup_powerflow': {
-            title: 'Power Flow 335',
-            img: 'assets/equip/sup_13.jpg',
-            desc: 'Устойчивый корпус для уверенного катания. Размер 335×81×15 см, объем 326 л. Один плавник.',
-            price: '500 ₽/час',
-            specs: [
-                { label: 'Размер', value: '335×81×15 см' },
-                { label: 'Объем', value: '326 л' },
-                { label: 'Плавник', value: '1 шт' },
-                { label: 'Тип', value: 'All-round' }
-            ]
-        },
-        'sup_softride': {
-            title: 'SoftRide 11\'',
-            img: 'assets/equip/sup_14.jpg',
-            desc: 'Доска 350×76×15 см с объемом 290 л и тремя плавниками. Максимальный ход и объем для долгих маршрутов.',
-            price: '500 ₽/час',
-            specs: [
-                { label: 'Размер', value: '350×76×15 см' },
-                { label: 'Объем', value: '290 л' },
-                { label: 'Плавники', value: '3 шт' },
-                { label: 'Тип', value: 'Touring' }
+                { label: 'Окрас', value: 'Стрелочный паттерн' },
+                { label: 'Бренд', value: 'Mirtlsol' }
             ]
         },
         // ========== БАЙДАРКИ ==========
@@ -256,90 +243,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 { label: 'Тип', value: 'Байдарка' }
             ]
         },
-        'baidarka_karkas': {
-            title: 'Байдарка каркасная',
-            img: 'assets/equip/kayak1_7.jpg',
-            desc: 'Каркасная байдарка для настоящих ценителей сплавов. В стоимость входит аренда байдарки, весла и спасжилета.',
-            price: '900 ₽/час',
-            specs: [
-                { label: 'Тип', value: 'Каркасная' },
-                { label: 'В наличии', value: '1 шт' },
-                { label: 'Включено', value: 'Весла + жилеты' },
-                { label: 'Особенность', value: 'Классика' }
-            ]
-        },
-        'baidarka_karkas_2': {
-            title: 'Байдарка каркасная 2-местная',
-            img: 'assets/equip/kayak2_1.jpg',
-            desc: 'Каркасная двухместная байдарка. В стоимость входит аренда байдарки, весла и спасжилета. В наличии 4 штуки.',
-            price: '700 ₽/час',
-            specs: [
-                { label: 'Вместимость', value: '2 человека' },
-                { label: 'Тип', value: 'Каркасная' },
-                { label: 'В наличии', value: '4 шт' },
-                { label: 'Включено', value: 'Весла + жилеты' }
-            ]
-        },
         // ========== КАЯКИ ==========
         'kayak_1': {
-            title: 'Каяк 1-местный',
-            img: 'assets/equip/kayak1_1.jpeg',
-            desc: 'Одноместный каяк для самостоятельных исследований реки. В наличии 17 штук.',
+            title: 'Пластиковый каяк 1-местный',
+            img: 'assets/equip/kayak1_new.jpg',
+            desc: 'Одноместный каяк для самостоятельных исследований реки. Удобная посадка и отличная курсовая устойчивость.',
             price: '500 ₽/час',
             specs: [
                 { label: 'Вместимость', value: '1 человек' },
                 { label: 'В наличии', value: '17 шт' },
                 { label: 'Включено', value: 'Весло + жилет' },
-                { label: 'Тип', value: 'Sit-in' }
+                { label: 'Материал', value: 'Пластик' }
             ]
         },
         'kayak_2': {
-            title: 'Каяк 2-местный',
-            img: 'assets/equip/kayak2_6.jpg',
-            desc: 'Двухместный каяк для парного катания. В наличии 11 штук.',
+            title: 'Пластиковый каяк 2-местный',
+            img: 'assets/equip/kayak2_new.jpg',
+            desc: 'Двухместный каяк для парного катания. Хорошо держит волну и обеспечивает комфортное перемещение вдвоем.',
             price: '700 ₽/час',
             specs: [
                 { label: 'Вместимость', value: '2 человека' },
                 { label: 'В наличии', value: '11 шт' },
                 { label: 'Включено', value: 'Весла + жилеты' },
-                { label: 'Тип', value: 'Sit-in' }
+                { label: 'Материал', value: 'Пластик' }
             ]
         },
         'kayak_3': {
-            title: 'Каяк 3-местный',
+            title: 'Пластиковый каяк 3-местный',
             img: 'assets/equip/kayak3_1.jpg',
-            desc: 'Трёхместный семейный каяк. Идеально для двух взрослых и ребенка. В наличии 4 штуки.',
+            desc: 'Трёхместный семейный каяк (Sit-on-top). Идеально для двух взрослых и ребенка.',
             price: '900 ₽/час',
             specs: [
                 { label: 'Вместимость', value: '2 взр. + 1 реб.' },
                 { label: 'В наличии', value: '4 шт' },
                 { label: 'Включено', value: 'Весла + жилеты' },
-                { label: 'Тип', value: 'Sit-on-top' }
-            ]
-        },
-        // ========== ФОТОСЕССИИ ==========
-        'photo_lite': {
-            title: 'Фотосессия Lite',
-            img: 'assets/equip/sup_6.JPG',
-            desc: 'Пакет Лайт: 10 профессиональных фото с обработкой. Съемка на воде или на берегу.',
-            price: '3 000 ₽',
-            specs: [
-                { label: 'Кол-во фото', value: '10 шт' },
-                { label: 'Обработка', value: 'Включена' },
-                { label: 'Формат', value: 'Цифровые файлы' },
-                { label: 'Локация', value: 'На воде / берег' }
-            ]
-        },
-        'photo_full': {
-            title: 'Фотосессия',
-            img: 'assets/equip/sup_21.jpg',
-            desc: 'Расширенный пакет: 20 профессиональных фото с обработкой. Полноценная фотосессия на воде.',
-            price: '4 000 ₽',
-            specs: [
-                { label: 'Кол-во фото', value: '20 шт' },
-                { label: 'Обработка', value: 'Включена' },
-                { label: 'Формат', value: 'Цифровые файлы' },
-                { label: 'Локация', value: 'На воде / берег' }
+                { label: 'Материал', value: 'Пластик' }
             ]
         }
     };
@@ -1558,10 +1496,33 @@ if (bookingSection) {
         }
     }
     
+    // Bot Protection
+    function initCaptcha() {
+        const qEl = document.getElementById('captchaQuestion');
+        if (!qEl) return;
+        const num1 = Math.floor(Math.random() * 10) + 1;
+        const num2 = Math.floor(Math.random() * 10) + 1;
+        qEl.textContent = `Сколько будет ${num1} + ${num2}?`;
+        qEl.dataset.answer = num1 + num2;
+    }
+    
+    // Initialize captcha when page loads
+    initCaptcha();
+
     // Form Submission
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', (e) => {
+    const mainBookingForm = document.getElementById('bookingForm');
+    if (mainBookingForm) {
+        mainBookingForm.addEventListener('submit', (e) => {
             e.preventDefault();
+
+            // Honeypot validation
+            const honeypot = mainBookingForm.querySelector('.honeypot-field');
+            if (honeypot && honeypot.value) {
+                // If bot filled it out, silently fail without submitting
+                console.log('Bot detected');
+                alert('Заявка успешно отправлена!');
+                return;
+            }
 
             // Captcha validation
             const answerInput = document.getElementById('captchaAnswer');
@@ -1584,7 +1545,7 @@ if (bookingSection) {
             hiddenTime.value = selectedTime;
             hiddenItems.value = JSON.stringify(orderItems);
             
-            bookingForm.submit();
+            mainBookingForm.submit();
         });
     }
 }
@@ -1594,14 +1555,26 @@ if (bookingSection) {
     // Dynamic Rendering JS (Equipment & Tours)
     // ========================================
 
-    function renderEquipmentElements() {
+    function renderEquipmentElements(filter = 'all') {
         const grid = document.getElementById('equipmentGrid');
         if (!grid) return;
         
         let html = '';
         let count = 0;
-        for (const [id, data] of Object.entries(equipmentData)) {
-            const isHidden = count >= 8 ? 'equipment__card_hidden' : '';
+        
+        // Filter logic
+        const filteredEntries = Object.entries(equipmentData).filter(([id, data]) => {
+            if (filter === 'all') return true;
+            if (filter === 'sup' && id.startsWith('sup_')) return true;
+            if (filter === 'kids' && id === 'sup_vibrant') return true;
+            if (filter === 'yoga' && id === 'sup_dhyana') return true;
+            if (filter === 'kayak' && (id.startsWith('kayak_') || id.startsWith('baidarka_'))) return true;
+            return false;
+        });
+
+        for (const [id, data] of filteredEntries) {
+            // Hide items beyond 8 only when viewing ALL
+            const isHidden = (filter === 'all' && count >= 8) ? 'equipment__card_hidden' : '';
             
             // Build specs
             let specsHtml = '';
@@ -1616,7 +1589,7 @@ if (bookingSection) {
                 <div class="equipment__card ${isHidden} js-open-equip-modal" data-equip-id="${id}">
                     ${badgeHtml}
                     <div class="equipment__image-wrapper">
-                        <img src="${imgSrc}" alt="${data.title}" class="equipment__image">
+                        <img src="${imgSrc}" alt="${data.title}" class="equipment__image" loading="lazy">
                     </div>
                     <div style="display:flex; flex-direction:column; flex-grow:1; padding:24px;">
                         <h3 class="equipment__card-title" style="margin-bottom:8px;">${data.title}</h3>
@@ -1629,6 +1602,17 @@ if (bookingSection) {
             count++;
         }
         grid.innerHTML = html;
+        
+        // Update show more button visibility
+        const showMoreBtn = document.getElementById('showMoreEquipment');
+        if (showMoreBtn) {
+            if (filter === 'all' && Object.keys(equipmentData).length > 8) {
+                showMoreBtn.style.display = 'flex';
+                showMoreBtn.classList.remove('active');
+            } else {
+                showMoreBtn.style.display = 'none';
+            }
+        }
     }
 
 
@@ -1636,12 +1620,12 @@ if (bookingSection) {
         'solo': {
             title: 'Одиночные прогулки',
             desc: 'Насладитесь тишиной воды наедине с природой. Отдых от суеты.',
-            img: 'assets/_DSC0160.jpg'
+            img: 'assets/SUP/Соло катание.jpg'
         },
         'date': {
             title: 'Романтическое свидание',
             desc: 'Прогулка для двоих на закате. Незабываемая атмосфера.',
-            img: 'assets/Релакс На закате на сап.jpg'
+            img: 'assets/SUP/IMG_8529.jpg'
         },
         'family': {
             title: 'Семейный отдых',
@@ -1651,7 +1635,17 @@ if (bookingSection) {
         'photo': {
             title: 'Фотосессия на воде',
             desc: 'Профессиональные снимки на воде и берегу.',
-            img: 'assets/_DSC0269.jpg'
+            img: 'assets/SUP/IMG_7757.jpg'
+        },
+        'sunset': {
+            title: 'Сплав на закате',
+            desc: 'Вечерний тур по реке в лучах заката. Самые красивые виды.',
+            img: 'assets/Релакс На закате на сап.jpg'
+        },
+        'corporate': {
+            title: 'Корпоратив на воде',
+            desc: 'Тимбилдинг и командный отдых для коллег. Весело и полезно.',
+            img: 'assets/Корпоративный отдых/_R004981.jpg'
         }
     };
 
@@ -1682,9 +1676,9 @@ if (bookingSection) {
         
         let html = '';
         const tourImgs = {
-            'sunset': 'assets/Корпоративный отдых/_R004981.jpg',
-            'krivets': 'assets/Корпоративный отдых/_R004984.jpg',
-            'sputnik': 'assets/Da-G72KtBUs.jpg'
+            'sunset': 'assets/Корпоративный отдых/_R004984.jpg',
+            'krivets': 'assets/_DSC0247.jpg',
+            'sputnik': 'assets/Корпоративный отдых/IMG_4651.jpg'
         };
         
         for (const [id, data] of Object.entries(toursData)) {
@@ -1778,6 +1772,23 @@ if (bookingSection) {
         let isDown = false;
         let startX;
         let scrollLeft;
+        let cardWidth = 0;
+
+        // --- Calculate Card Width Correctly ---
+        const updateCardWidth = () => {
+            const card = reviewsSlider.querySelector('.reviews__card');
+            if (card) {
+                // width + gap
+                const style = window.getComputedStyle(reviewsSlider);
+                const gap = parseFloat(style.gap) || 0;
+                cardWidth = card.offsetWidth + gap;
+            } else {
+                cardWidth = 350;
+            }
+        };
+
+        updateCardWidth();
+        window.addEventListener('resize', updateCardWidth);
 
         // --- Drag Functionality (Mouse) ---
         reviewsSlider.addEventListener('mousedown', (e) => {
@@ -1785,49 +1796,58 @@ if (bookingSection) {
             reviewsSlider.style.cursor = 'grabbing';
             startX = e.pageX - reviewsSlider.offsetLeft;
             scrollLeft = reviewsSlider.scrollLeft;
-            // Disable scroll snap during drag to prevent jumping
+            // Disable scroll snap and smooth behavior so drag goes smoothly
             reviewsSlider.style.scrollSnapType = 'none';
+            reviewsSlider.style.scrollBehavior = 'auto';
         });
 
-        reviewsSlider.addEventListener('mouseleave', () => {
+        const stopDrag = () => {
+            if (!isDown) return;
             isDown = false;
             reviewsSlider.style.cursor = 'grab';
-            reviewsSlider.style.scrollSnapType = 'x mandatory';
-        });
+            
+            // Snap to nearest card upon drop
+            if (cardWidth > 0) {
+                const nearestIndex = Math.round(reviewsSlider.scrollLeft / cardWidth);
+                reviewsSlider.style.scrollBehavior = 'smooth';
+                reviewsSlider.scrollLeft = nearestIndex * cardWidth;
+            }
+            
+            // Re-enable scroll snap after slight delay to allow smooth transit
+            setTimeout(() => {
+                // Ensure it's not snagged by another mousedown
+                if (!isDown) reviewsSlider.style.scrollSnapType = 'x mandatory';
+            }, 300);
+        };
 
-        reviewsSlider.addEventListener('mouseup', () => {
-            isDown = false;
-            reviewsSlider.style.cursor = 'grab';
-            reviewsSlider.style.scrollSnapType = 'x mandatory';
-        });
+        reviewsSlider.addEventListener('mouseleave', stopDrag);
+        reviewsSlider.addEventListener('mouseup', stopDrag);
 
         reviewsSlider.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             e.preventDefault();
             const x = e.pageX - reviewsSlider.offsetLeft;
-            const walk = (x - startX) * 1.5; // Scroll speed
+            const walk = (x - startX) * 1.5; // Drag speed
             reviewsSlider.scrollLeft = scrollLeft - walk;
         });
 
         // --- Navigation Logic ---
         function moveSlider(direction) {
+            if (cardWidth === 0) updateCardWidth();
             const containerWidth = reviewsSlider.offsetWidth;
             const scrollWidth = reviewsSlider.scrollWidth;
             const maxScroll = scrollWidth - containerWidth;
-            const cardWidth = reviewsSlider.querySelector('.reviews__card')?.offsetWidth + 32 || 350; // Including gap
 
             reviewsSlider.style.scrollBehavior = 'smooth';
 
             if (direction === 'next') {
                 if (reviewsSlider.scrollLeft + containerWidth >= scrollWidth - 10) {
-                    // Loop back to start
                     reviewsSlider.scrollLeft = 0;
                 } else {
                     reviewsSlider.scrollLeft += cardWidth;
                 }
             } else if (direction === 'prev') {
                 if (reviewsSlider.scrollLeft <= 10) {
-                    // Loop to end
                     reviewsSlider.scrollLeft = maxScroll;
                 } else {
                     reviewsSlider.scrollLeft -= cardWidth;
@@ -1849,27 +1869,103 @@ if (bookingSection) {
             });
         }
 
-        // --- Pagination Dots Logic ---
+        // --- Pagination Dots Logic (Throttled/Optimized) ---
+        let scrollTicking = false;
         const updateDots = () => {
+            if (cardWidth === 0) return;
             const scrollPos = reviewsSlider.scrollLeft;
-            const cardWidth = reviewsSlider.querySelector('.reviews__card')?.offsetWidth + 32 || 350;
             const index = Math.round(scrollPos / cardWidth);
 
             dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
+                if (i === index) {
+                    if (!dot.classList.contains('active')) dot.classList.add('active');
+                } else {
+                    if (dot.classList.contains('active')) dot.classList.remove('active');
+                }
             });
+            scrollTicking = false;
         };
 
-        reviewsSlider.addEventListener('scroll', updateDots);
+        reviewsSlider.addEventListener('scroll', () => {
+            if (!scrollTicking) {
+                window.requestAnimationFrame(updateDots);
+                scrollTicking = true;
+            }
+        });
 
         dots.forEach((dot, i) => {
             dot.addEventListener('click', () => {
-                const cardWidth = reviewsSlider.querySelector('.reviews__card')?.offsetWidth + 32 || 350;
+                if (cardWidth === 0) updateCardWidth();
                 reviewsSlider.style.scrollBehavior = 'smooth';
                 reviewsSlider.scrollLeft = i * cardWidth;
             });
         });
     }
+
+    // ========================================
+    // Equipment Filters Logic
+    // ========================================
+    const filterBtns = document.querySelectorAll('.equipment__filter-btn');
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('hero__button_primary');
+                    b.classList.add('hero__button_secondary');
+                    b.style.background = '#fff';
+                    b.style.color = 'var(--brand-blue)';
+                });
+                
+                e.target.classList.remove('hero__button_secondary');
+                e.target.classList.add('hero__button_primary');
+                e.target.style.background = '';
+                e.target.style.color = '';
+                
+                const filter = e.target.getAttribute('data-filter');
+                renderEquipmentElements(filter);
+            });
+        });
+    }
+
+    // ========================================
+    // Phone Mask Logic
+    // ========================================
+    const phoneInputs = document.querySelectorAll('input[type="tel"]');
+    phoneInputs.forEach(input => {
+        input.addEventListener('input', function (e) {
+            let val = e.target.value.replace(/\D/g, '');
+            if (!val) {
+                e.target.value = '';
+                return;
+            }
+            if (val[0] === '7' || val[0] === '8') val = val.substring(1);
+            let x = val.match(/(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+            e.target.value = '+7' + (x[1] ? ' (' + x[1] : '') + (x[2] ? ') ' + x[2] : '') + (x[3] ? '-' + x[3] : '') + (x[4] ? '-' + x[4] : '');
+        });
+    });
+
+    // ========================================
+    // Scroll Spy for Nav Links
+    // ========================================
+    const spySections = document.querySelectorAll('section[id]');
+    const spyNavLinks = document.querySelectorAll('.nav__link');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollY = window.pageYOffset;
+        spySections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 150;
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        spyNavLinks.forEach(link => {
+            link.style.color = ''; // Reset
+            if (link.getAttribute('href') === '#' + current) {
+                link.style.color = 'var(--brand-orange)';
+            }
+        });
+    }, { passive: true });
 
     // Render dynamic sections
     renderEquipmentElements();
